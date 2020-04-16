@@ -1,239 +1,316 @@
 ---
-title: API Reference
+title: 历史行情
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - json
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+# toc_footers:
+#   - <a href='#'>Sign Up for a Developer Key</a>
+#   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
+  # - errors
 
 search: true
 ---
 
-# Introduction
+# 获取历史行情
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+## 教程
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+<b>请求地址</b>：<code>https://hist-quote.1tokentrade.cn</code>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+可以先查看<a href='https://1token.trade/docs#/instruction/word-explanation' target="_blank">名词解释</a>和<a href='https://1token.trade/docs#/instruction/data-structure'>数据结构</a>两个小节了解字段含义。
 </aside>
 
-# Kittens
+<b>请求方式</b>
 
-## Get All Kittens
+* 请求历史数据需要提供OT-Key，OT-Key申请方式如下：
+  * 注册成为1Token用户；  
+  * 在<a href='https://1token.trade/account/apis' target="_blank">用户中心</a>申请OT-Key；
+* 请求历史数据时携带名称为ot-key的请求头，例如申请的API-Key为abcde，则请求时需要带上ot-key: abcde，否则会报错；
+* 系统会根据key及使用次数进行计费，请参考<a href='https://1token.trade/dataservice'>具体的计费标准</a>；
+* 返回数据时在HTTP Header中会携带当次请求扣减次数及剩余次数：
+* 使用Demo <a href='https://github.com/1token-trade/onetoken/blob/master/demo-python-sync/get_historical_quote.py' target="_blank">get_historical_quote.py</a> 下载数据
 
-```ruby
-require 'kittn'
+参数 | 描述
+--------- | ------- 
+ot-quota-consumption | 当次请求扣减次数
+ot-quota-remaining | 剩余次数剩余次数
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+
+
+<b>数据获取流程</b>
+
+* 通用规则
+  * 交易所信息可以参考：<a href='https://1token.trade/docs#/exchange-overview'>支持的交易所</a>；
+  * 交易对命名规则可以参考：<a href='https://1token.trade/docs#/instruction/naming-rules'>变量命名规则</a>；
+* Tick(盘口+最新成交)数据
+  * 从api 获取某一天的所有交易对的列表，比如<a href='https://hist-quote.1tokentrade.cn/ticks/contracts?date=2020-04-12'>2020年4月12日的所有交易对列表</a>；
+  * 选好想要下载的交易对，比如okex/btc.usdt；
+  * 选择需要完整亦或是简单快照数据，具体区别请参考历史tick小节；
+  * 使用 <code>/ticks</code> 接口下载特定日期指定交易对的数据；
+* Trade(逐笔成交)数据  
+  * 从api 获取某一天的所有交易对的列表，比如<a href='https://hist-quote.1tokentrade.cn/trades/contracts?date=2020-04-12'>2020年4月12日的所有交易对列表</a>；
+  * 选好想要下载的交易对，比如okex/btc.usdt；
+  * 使用 <code>/trades</code> 接口下载特定日期指定交易对的数据；
+* Candle(K线)数据  
+  * 选好想要下载的交易对，比如okex/btc.usdt以及okef/btc.usd.q；
+  * 可通过<code>/candles/since</code> 接口获得交易对数据的起始时间戳；
+  * 可通过<code>/candles</code> 接口获得数据，可以指定时间区间、指定交易对以及周期；
+  * 一次最多返回15000根K线, 超过这个数量会返回 `400 {"code": "time-range-too-large", "message": "max candle size 15000"}`
+  
+
+## 限制
+
+<aside class="warning">接口限制为1秒10个请求，超过这个数量会返回HTTP 429错误。</aside>
+
+## 获取支持的合约列表
+
+<code>GET /[ticks|trades]/contracts?date={date} </code>
+
+
+* 不需要ot-key；
+* 请求中params含义如下：<code>date</code> 是指需要获取数据的日期，格式为<code>YYYY-MM-DD</code>；
+* 返回值为当前有数据的交易对列表
+
+<code>
+[
+  "bigone/1st.btc",
+  "bittrex/1st.btc",
+  "hitbtc/1st.btc",
+  ...
+]
+</code>
+
+<b>示例</b>
+
+* <a href='https://hist-quote.1tokentrade.cn/ticks/contracts?date=2018-02-02'>https://hist-quote.1tokentrade.cn/ticks/contracts?date=2018-02-02</a>
+* <a href='https://hist-quote.1tokentrade.cn/trades/contracts?date=2018-02-02'>https://hist-quote.1tokentrade.cn/trades/contracts?date=2018-02-02</a>
+
+
+## 历史Tick数据
+
+<code>GET /ticks/[simple|full]?date={date}&contract={contract}</code>
+
+> Simple Tick 的返回例子
+
+```csv
+time,timestamp,last,volume,ask_0_p,ask_0_v,bid_0_p,bid_0_v
+2019-12-12T00:00:00.391395Z,1576108800391,0.01797,0.0,0.01797,13.1327,0.01796,461.8358
+2019-12-12T00:00:00.899143Z,1576108800899,0.01797,0.0,0.01797,13.1327,0.01796,461.8358
+2019-12-12T00:00:01.508955Z,1576108801508,0.01797,0.0,0.01797,13.1327,0.01796,691.3014
+2019-12-12T00:00:02.117091Z,1576108802117,0.01797,0.0,0.01797,13.1327,0.01796,691.3014
+2019-12-12T00:00:02.622484Z,1576108802622,0.01797,0.0,0.01797,13.1327,0.01796,691.3014
+2019-12-12T00:00:03.229675Z,1576108803229,0.01797,0.0,0.01797,13.1327,0.01796,691.3014
 ```
 
-```python
-import kittn
+> Full Tick的返回例子
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+```csv
+time,last,volume,ask_0_p,ask_0_v,ask_1_p,ask_1_v,ask_2_p,ask_2_v,ask_3_p,ask_3_v,ask_4_p,ask_4_v,ask_5_p,ask_5_v,ask_6_p,ask_6_v,ask_7_p,ask_7_v,ask_8_p,ask_8_v,ask_9_p,ask_9_v,ask_10_p,ask_10_v,ask_11_p,ask_11_v,ask_12_p,ask_12_v,ask_13_p,ask_13_v,ask_14_p,ask_14_v,ask_15_p,ask_15_v,ask_16_p,ask_16_v,ask_17_p,ask_17_v,ask_18_p,ask_18_v,ask_19_p,ask_19_v,bid_0_p,bid_0_v,bid_1_p,bid_1_v,bid_2_p,bid_2_v,bid_3_p,bid_3_v,bid_4_p,bid_4_v,bid_5_p,bid_5_v,bid_6_p,bid_6_v,bid_7_p,bid_7_v,bid_8_p,bid_8_v,bid_9_p,bid_9_v,bid_10_p,bid_10_v,bid_11_p,bid_11_v,bid_12_p,bid_12_v,bid_13_p,bid_13_v,bid_14_p,bid_14_v,bid_15_p,bid_15_v,bid_16_p,bid_16_v,bid_17_p,bid_17_v,bid_18_p,bid_18_v,bid_19_p,bid_19_v,timestamp
+2019-12-12T00:00:00.391395Z,0.01797,0.0,0.01797,13.1327,0.01798,442.019,0.01799,5693.3811,0.018,1841.6386,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,461.8358,0.01795,5241.1754,0.01794,2159.1227,0.01793,10078.0816,0.01792,1140.0,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108800391
+2019-12-12T00:00:00.899143Z,0.01797,0.0,0.01797,13.1327,0.01798,442.019,0.01799,5842.7715,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,461.8358,0.01795,5241.1754,0.01794,2718.6386,0.01793,10078.0816,0.01792,1639.12,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108800899
+2019-12-12T00:00:01.508955Z,0.01797,0.0,0.01797,13.1327,0.01798,442.019,0.01799,5842.7715,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,691.3014,0.01795,5241.1754,0.01794,2718.6386,0.01793,10078.0816,0.01792,1140.0,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108801508
+2019-12-12T00:00:02.117091Z,0.01797,0.0,0.01797,13.1327,0.01798,442.019,0.01799,5842.7715,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,691.3014,0.01795,5241.1754,0.01794,2718.6386,0.01793,10078.0816,0.01792,1639.1281,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108802117
+2019-12-12T00:00:02.622484Z,0.01797,0.0,0.01797,13.1327,0.01798,442.019,0.01799,5842.7715,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,691.3014,0.01795,5241.1754,0.01794,3278.1545,0.01793,10078.0816,0.01792,1639.1281,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108802622
+2019-12-12T00:00:03.229675Z,0.01797,0.0,0.01797,13.1327,0.01798,162.18,0.01799,5842.7715,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,691.3014,0.01795,5241.1754,0.01794,2718.6386,0.01793,10078.0816,0.01792,1639.1281,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108803229
+2019-12-12T00:00:04.240449Z,0.01797,0.0,0.01797,13.1327,0.01798,162.18,0.01799,5842.7715,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,691.3014,0.01795,5241.1754,0.01794,2159.1227,0.01793,10078.0816,0.01792,1140.0,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108804240
+2019-12-12T00:00:04.747591Z,0.01797,0.0,0.01797,13.1327,0.01798,162.18,0.01799,6122.4926,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,691.3014,0.01795,4673.3377,0.01794,2159.1227,0.01793,10637.5975,0.01792,1639.1291,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108804747
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+* 获取tick历史数据，并且格式化后输出；
+* 支持带盘口信息的完整快照数据及仅包含买一卖一档位的简单快照数据；
+  * 请求完整数据访问 <code>/ticks/full</code>；
+  * 请求简单数据访问 <code>/ticks/simple</code>；
+* 请求中params含义如下：  
+  * <code>date</code> 需要获取数据的日期，格式为<code>YYYY-MM-DD</code>；
+  * <code>contract</code> 交易对；
+* 输出格式默认为gzip；
+* 数据格式默认为csv；
+* 返回数据的数据列名解释
+
+参数 | 描述
+--------- | ------- 
+time | 1Token记录这一行tick的时间isoformat (含时区)
+timestamp | time转换成时间戳 (单位是毫秒)
+last | 最新成交价
+volume | 历史字段 请忽略
+ask_N_p | 卖N价
+ask_N_v | 卖N量
+bid_N_p | 买N价
+bid_N_v | 买N量
+
+<aside class="notice">asks按价格从低到高排序，bids按价格从高到低排序，大部分交易对的深度为20档，个别交易所、交易对会有区别。</aside>
+
+<b>示例</b>
+
+* <a href='https://hist-quote.1tokentrade.cn/ticks/simple?date=2018-01-02&contract=okex/btc.usdt'>https://hist-quote.1tokentrade.cn/ticks/simple?date=2018-01-02&contract=okex/btc.usdt</a>
+* <a href='https://hist-quote.1tokentrade.cn/ticks/full?date=2018-01-02&contract=okex/btc.usdt'>https://hist-quote.1tokentrade.cn/ticks/full?date=2018-01-02&contract=okex/btc.usdt</a>
+
+## 历史Candle数据
+
+<code>GET /candles?contract={contract}&since={since}&until={until}&duration={duration}&format=[json|csv]</code>
+
+> Response
+
 ```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "timestamp": 1531180800,
+    "open": 6667,
+    "high": 6667,
+    "low": 6657,
+    "close": 6657.8,
+    "volume": 49.26128019
   },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  ...
 ]
 ```
 
-This endpoint retrieves all kittens.
+* 获取candle历史数据，并且格式化后输出；
+* 请求中params含义如下：
 
-### HTTP Request
+参数 | 描述
+--------- | ------- 
+since | candle的开始时间，格式为isoformat时间戳或偏移量的形式（如now-1d表示1天以前的时间点），默认为一天前。
+until | candle的结束时间，格式同since，默认为当前时间。
+contract | 交易对。
+duration | candle的周期，支持1m/5m/15m/30m/1h/1d。
+format | 输出格式，可选项：json、csv。不填默认为json。
 
-`GET http://example.com/api/kittens`
+* 返回数据字段含义：
 
-### Query Parameters
+参数 | 描述
+--------- | ------- 
+contract | 交易对
+timestamp | 时间戳
+volume | 成交量
+open | 开盘价
+close | 收盘价
+high | 最高价
+low | 最低价
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+<b>示例</b>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+* <a href='https://hist-quote.1tokentrade.cn/candles?contract=okex/btc.usdt&since=2018-01-02&until=2018-01-03&duration=1m&format=csv'>https://hist-quote.1tokentrade.cn/candles?contract=okex/btc.usdt&since=2018-01-02&until=2018-01-03&duration=1m&format=csv</a>
 
-## Get a Specific Kitten
 
-```ruby
-require 'kittn'
+<b>查询具体交易对数据的起始时间</b>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+<code>GET /candles/since?contract={contract}&duration={duration}</code>
+
+> Response
+
 ```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "since": 1508990400
 }
 ```
 
-This endpoint retrieves a specific kitten.
+* 请求中params含义如下：
+  * <code>contract</code> 交易对；
+  * <code>duration</code> candle的周期，支持1m/5m/15m/30m/1h/1d；
+* 返回数据字段含义：
+  * <code>since</code> 最早一根candle的时间戳；
+* 示例:
+<a href='https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m'>https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m</a>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+* 历史Candle有一定的延时(数分钟), 如果需要更实时的Candle 请参考 <a target="_blank" href='https://1token.trade/swagger?url=/swagger/quote.yml#/Quote/get_candles'>1Token实时Candle文档</a>
 
-### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+## 历史Zhubi数据
 
-### URL Parameters
+<code>GET /trades?date={date}&contract={contract}</code>
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+<aside class="notice">返回contract里面的xtc.*是历史原因遗留，可忽略。</aside>
 
-## Delete a Specific Kitten
+> Response
 
-```ruby
-require 'kittn'
+```
+2018-11-11T00:00:01.481000+00:00,btc.usdt:xtc.huobip,6431.0,b,1.7948,1541894401.481,2018-11-11T00:00:01.790347+00:00,1541894401.790347
+2018-11-11T00:00:04.248000+00:00,btc.usdt:xtc.huobip,6430.83,s,0.0459,1541894404.248,2018-11-11T00:00:04.474472+00:00,1541894404.474472
+2018-11-11T00:00:04.525000+00:00,btc.usdt:xtc.huobip,6431.0,b,0.5839,1541894404.525,2018-11-11T00:00:04.748372+00:00,1541894404.748372
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
 ```
 
-```python
-import kittn
+* 获取zhubi历史数据，并且格式化后输出；
+* 请求中params含义如下：
+  * <code>date</code> 需要获取数据的日期，格式为<code>YYYY-MM-DD</code>；
+  * <code>contract</code> 交易对；
+* 输出格式为gzip；
+* 数据格式为csv；
+* 返回数据的数据列含义依次为：
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+参数 | 描述
+--------- | ------- 
+exchange_time | 交易所的isoformat时间(utc时间）
+contract | 交易对
+price | 成交价格
+bs | 'b'是买，'s'是卖
+amount | 成交量
+exchange_timestamp | exchange_time 转换成时间戳 (单位是秒)
+time | 1Token收到这个逐笔时候 机器的isoformat时间
+timestamp | time 转换成时间戳(单位是秒)
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
+<b>示例</b>
 
-```javascript
-const kittn = require('kittn');
+* <a href='https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt'>https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt</a>
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+# 数据质量/完整性证明
 
-> The above command returns JSON structured like this:
+* 所有的Tick和逐笔数据是从交易所采集的原始数据，1Token未进行任何的加工处理，数据可能因为交易所的错误和1Token的错误出现丢失遗弃和错误。1Token不保证数据的质量和数据的完整性。
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+* 大部分的candle数据是从交易所直接获取的。
 
-This endpoint deletes a specific kitten.
+## 数据信息
 
-### HTTP Request
+* 下表列出了部分主要交易所的开设时间，以及可从1Token获取数据的最早日期；
+* 并非所有交易对均能在该起始日期获取到数据，具体请使用根据教程获得指定日期下可用的交易对。
 
-`DELETE http://example.com/kittens/<ID>`
+交易所 |	开设时间 |	Tick |	Zhubi |	Candle
+----- | ------- | ------- | ------- | ------- 
+币安 (binance) |	2017/07/14 |	2017/08/10 |	2017/07/14 |	2017/07/14
+币安期货 (binancef) |	2019/09/08 |	2019/09/18 |	2019/09/18 |	2019/09/18
+火币现货 (huobip) |	2017/07/28 |	2017/08/02 |	2017/09/08 |	2017/07/28
+火币交割 (huobif) |	2018/11/09 |	2018/11/13 |	2018/11/13 |	2018/11/09
+火币永续 (huobiswap) |	即将支持 |	即将支持 |	即将支持 |	即将支持 
+OK现货 (okex) |	2017/10/12 |	2017/10/22 |	2017/10/31 |	2017/10/22
+OK交割 (okef) |	2014/10 |	2017/11/13 |	2017/11/14 |	2017/11/14
+OK永续 (okswap) |	2019/12 |	2019/12/18 |	2019/12/18 |	2019/12/18
+Bitfinex (bitfinex) |	2013 |	2017/06/15 |	2017/09/28 |	2013/03/31
+BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+## 历史Tick
+
+* 数据为实时抓取，有一些已知的缺失，我们有计划逐步恢复缺失的部分数据；
+* json数据可能某些行是不完整的json格式, 请丢弃那些错误行；
+* 以下为部分已知的数据缺失时间段及原因：
+  * 2017-12-17至2018-01-19期间每小时最后可能会缺失部分数据；
+  * 2018-01-22币安有维护，当日部分时间段无数据；
+  * 2018-02-08至2018-02-10期间币安有长时间维护，这段时间无币安数据；
+  * 2018-07-03至2018-07-08，及2018-07-14 1token系统升级，有数据缺失；
+  * 2018-08-02当天1Token系统维护 没有数据；
+  * 2018-10-19 14:00--16:00（UTC+8）,币安有维护；
+  * 2019-04-24 15:30--18:00 (UTC+8)，数据来源为第三方数据源，数据有部分缺失。
+
+## 历史Zhubi(逐笔成交)
+* 数据大部分为实时抓取，可能存在缺失；
+* 部分数据存在冗余。
+
+## 历史Candle(K线)
+* bitfinex, okex, okef, gate, huobip 从开始交易开始有交易所原始数据；
+* okex 从2018年7月开始有交易所原始数据；
+* okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <a href='https://hist-quote.1tokentrade.cn/candles/status/okex'>https://hist-quote.1tokentrade.cn/candles/status/okex</a>；
+* gate 从2018年8月开始有交易所原始数据。
+
+# 详细的API文档
+
+对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：
+
+* <a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Basic API</a>
+* <a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Quote API</a>
+* <a href='https://1token.trade/r/swagger?url=/r/swagger/trade.yml'>Swagger Trade API</a>
 
