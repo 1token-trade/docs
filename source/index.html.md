@@ -29,7 +29,7 @@ search: true
 * 请求历史数据需要提供OT-Key，OT-Key申请方式如下：
   * 注册成为1Token用户；  
   * 在<a href='https://1token.trade/account/apis' target="_blank">用户中心</a>申请OT-Key；
-* 请求历史数据时携带名称为ot-key的请求头，例如申请的API-Key为abcde，则请求时需要带上ot-key: abcde，否则会报错；
+* 请求历史数据时携带名称为ot-key的请求头，例如申请的API-Key为aaaa-bbbb-cccc-dddd，则请求时需要带上ot-key: aaaa-bbbb-cccc-dddd，否则会报错；
 * 系统会根据key及使用次数进行计费，请参考<a href='https://1token.trade/dataservice'>具体的计费标准</a>；
 * 返回数据时在HTTP Header中会携带当次请求扣减次数及剩余次数：
 * 使用Demo <a href='https://github.com/1token-trade/onetoken/blob/master/demo-python-sync/get_historical_quote.py' target="_blank">get_historical_quote.py</a> 下载数据
@@ -121,12 +121,14 @@ time,last,volume,ask_0_p,ask_0_v,ask_1_p,ask_1_v,ask_2_p,ask_2_v,ask_3_p,ask_3_v
 ```
 
 * 获取tick历史数据，并且格式化后输出；
-* 支持带盘口信息的完整快照数据及仅包含买一卖一档位的简单快照数据；
-  * 请求完整数据访问 <code>/ticks/full</code>；
-  * 请求简单数据访问 <code>/ticks/simple</code>；
+  * 快照0.5s-1s产生一个 不同交易所会有所区别
+* 请求完整数据访问 <code>/ticks/full</code>；
+  * 完整数据包含20档盘口数据的快照
+* 请求简单数据访问 <code>/ticks/simple</code>；
+  * 仅包含买一卖一档位的简单快照数据
 * 请求中params含义如下：  
-  * <code>date</code> 需要获取数据的日期，格式为<code>YYYY-MM-DD</code>；
-  * <code>contract</code> 交易对；
+  * <code>date</code> 需要获取数据的日期，格式为<code>YYYY-MM-DD</code>
+  * <code>contract</code> 交易对
 * 输出格式默认为gzip；
 * 数据格式默认为csv；
 * 返回数据的数据列名解释
@@ -137,10 +139,10 @@ time | 1Token记录这一行tick的时间isoformat (含时区)
 timestamp | time转换成时间戳 (单位是毫秒)
 last | 最新成交价
 volume | 历史字段 请忽略
+bid_N_p | 买N价 N=0 的时候代表买1
+bid_N_v | 买N量
 ask_N_p | 卖N价
 ask_N_v | 卖N量
-bid_N_p | 买N价
-bid_N_v | 买N量
 
 <aside class="notice">asks按价格从低到高排序，bids按价格从高到低排序，大部分交易对的深度为20档，个别交易所、交易对会有区别。</aside>
 
@@ -219,6 +221,7 @@ low | 最低价
 
 * 历史Candle有一定的延时(数分钟), 如果需要更实时的Candle 请参考 <a target="_blank" href='https://1token.trade/swagger?url=/swagger/quote.yml#/Quote/get_candles'>1Token实时Candle文档</a>
 
+* okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <a href='https://hist-quote.1tokentrade.cn/candles/status/okex'>https://hist-quote.1tokentrade.cn/candles/status/okex</a>；
 
 ## 历史Zhubi数据
 
@@ -258,7 +261,10 @@ timestamp | time 转换成时间戳(单位是秒)
 
 * <a href='https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt'>https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt</a>
 
-# 数据质量/完整性证明
+* 数据大部分为实时抓取，可能存在缺失
+* 部分数据存在冗余(出现重复的逐笔数据)
+
+# 数据质量
 
 * 所有的Tick和逐笔数据是从交易所采集的原始数据，1Token未进行任何的加工处理，数据可能因为交易所的错误和1Token的错误出现丢失遗弃和错误。1Token不保证数据的质量和数据的完整性。
 
@@ -275,15 +281,15 @@ timestamp | time 转换成时间戳(单位是秒)
 币安期货 (binancef) |	2019/09/08 |	2019/09/18 |	2019/09/18 |	2019/09/18
 火币现货 (huobip) |	2017/07/28 |	2017/08/02 |	2017/09/08 |	2017/07/28
 火币交割 (huobif) |	2018/11/09 |	2018/11/13 |	2018/11/13 |	2018/11/09
-火币永续 (huobiswap) |	即将支持 |	即将支持 |	即将支持 |	即将支持 
+火币永续 (huobiswap) | 2020/03/25 |	即将支持 |	即将支持 |	即将支持 
 OK现货 (okex) |	2017/10/12 |	2017/10/22 |	2017/10/31 |	2017/10/22
 OK交割 (okef) |	2014/10 |	2017/11/13 |	2017/11/14 |	2017/11/14
-OK永续 (okswap) |	2019/12 |	2019/12/18 |	2019/12/18 |	2019/12/18
+OK永续 (okswap) |	2019/12/18 |	2019/12/18 |	2019/12/18 |	2019/12/18
 Bitfinex (bitfinex) |	2013 |	2017/06/15 |	2017/09/28 |	2013/03/31
 BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 
 
-## 历史Tick
+## 维护信息
 
 * 数据为实时抓取，有一些已知的缺失，我们有计划逐步恢复缺失的部分数据；
 * json数据可能某些行是不完整的json格式, 请丢弃那些错误行；
@@ -296,20 +302,12 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
   * 2018-10-19 14:00--16:00（UTC+8）,币安有维护；
   * 2019-04-24 15:30--18:00 (UTC+8)，数据来源为第三方数据源，数据有部分缺失。
 
-## 历史Zhubi(逐笔成交)
-* 数据大部分为实时抓取，可能存在缺失；
-* 部分数据存在冗余。
 
-## 历史Candle(K线)
-* bitfinex, okex, okef, gate, huobip 从开始交易开始有交易所原始数据；
-* okex 从2018年7月开始有交易所原始数据；
-* okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <a href='https://hist-quote.1tokentrade.cn/candles/status/okex'>https://hist-quote.1tokentrade.cn/candles/status/okex</a>；
-* gate 从2018年8月开始有交易所原始数据。
-
-# 详细的API文档
+# 实盘交易API文档
 
 对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：
 
+* https://1token.trade/docs#/api-refer/quote-websocket
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Basic API</a>
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Quote API</a>
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/trade.yml'>Swagger Trade API</a>
