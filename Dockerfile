@@ -1,6 +1,6 @@
 FROM ruby:2.5.1
 
-ENV LAST_MODIFY 2019-10-xxx
+ENV LAST_MODIFY 2020-04-17
 
 RUN apt-get update && apt-get install -y nodejs \
 && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y nodejs \
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
 WORKDIR /usr/src/app
+
+RUN gem install bundler
 
 RUN bundle install
 
