@@ -1,4 +1,4 @@
-FROM ruby:2.5.1
+FROM ruby:2.7.1
 
 ENV LAST_MODIFY 2020-04-17
 
@@ -8,8 +8,6 @@ RUN apt-get update && apt-get install -y nodejs \
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
 WORKDIR /usr/src/app
-
-RUN gem install bundler
 
 RUN bundle install
 
