@@ -242,24 +242,18 @@
               </ul>
           </li>
           <li>
-            <a href="#233b09f98a" class="toc-h1 toc-link" data-title="数据质量/完整性证明">数据质量/完整性证明</a>
+            <a href="#4674be7310" class="toc-h1 toc-link" data-title="数据质量">数据质量</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#19a9bea2d1" class="toc-h2 toc-link" data-title="数据信息">数据信息</a>
                   </li>
                   <li>
-                    <a href="#tick-2" class="toc-h2 toc-link" data-title="历史Tick">历史Tick</a>
-                  </li>
-                  <li>
-                    <a href="#zhubi-2" class="toc-h2 toc-link" data-title="历史Zhubi(逐笔成交)">历史Zhubi(逐笔成交)</a>
-                  </li>
-                  <li>
-                    <a href="#candle-k" class="toc-h2 toc-link" data-title="历史Candle(K线)">历史Candle(K线)</a>
+                    <a href="#bb90ab6944" class="toc-h2 toc-link" data-title="维护信息">维护信息</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#api" class="toc-h1 toc-link" data-title="详细的API文档">详细的API文档</a>
+            <a href="#api" class="toc-h1 toc-link" data-title="实盘交易API文档">实盘交易API文档</a>
           </li>
       </ul>
     </div>
@@ -282,7 +276,7 @@
 <li>注册成为1Token用户；<br></li>
 <li>在<a href='https://1token.trade/account/apis' target="_blank">用户中心</a>申请OT-Key；</li>
 </ul></li>
-<li>请求历史数据时携带名称为ot-key的请求头，例如申请的API-Key为abcde，则请求时需要带上ot-key: abcde，否则会报错；</li>
+<li>请求历史数据时携带名称为ot-key的请求头，例如申请的API-Key为aaaa-bbbb-cccc-dddd，则请求时需要带上ot-key: aaaa-bbbb-cccc-dddd，否则会报错；</li>
 <li>系统会根据key及使用次数进行计费，请参考<a href='https://1token.trade/dataservice'>具体的计费标准</a>；</li>
 <li>返回数据时在HTTP Header中会携带当次请求扣减次数及剩余次数：</li>
 <li>使用Demo <a href='https://github.com/1token-trade/onetoken/blob/master/demo-python-sync/get_historical_quote.py' target="_blank">get_historical_quote.py</a> 下载数据</li>
@@ -391,18 +385,26 @@
 2019-12-12T00:00:04.747591Z,0.01797,0.0,0.01797,13.1327,0.01798,162.18,0.01799,6122.4926,0.018,1692.2482,0.01801,11694.8222,0.01802,1731.8819,0.01804,1044.0569,0.01805,82.8451,0.01806,742.1187,0.01807,14960.7769,0.01808,160.0,0.01809,10.0,0.01811,35.4225,0.01812,2.5318,0.01813,11.129,0.01815,31.4108,0.01817,136.0,0.01818,35.7604,0.01819,4570.0256,0.0182,108.4075,0.01796,691.3014,0.01795,4673.3377,0.01794,2159.1227,0.01793,10637.5975,0.01792,1639.1291,0.01791,142.1304,0.0179,40.0,0.01789,13.7112,0.01787,266.6471,0.01786,14801.0,0.01785,1.7452,0.01784,49.9182,0.01783,154.7059,0.01782,192.11,0.01781,407.914,0.0178,4712.6926,0.01779,21.0,0.01776,55.0496,0.01773,2.5318,0.01772,49.8779,1576108804747
 </code></pre>
 <ul>
-<li>获取tick历史数据，并且格式化后输出；</li>
-<li>支持带盘口信息的完整快照数据及仅包含买一卖一档位的简单快照数据；
+<li>获取tick历史数据，并且格式化后输出；
 
 <ul>
-<li>请求完整数据访问 <code>/ticks/full</code>；</li>
-<li>请求简单数据访问 <code>/ticks/simple</code>；</li>
+<li>快照0.5s-1s产生一个 不同交易所会有所区别</li>
+</ul></li>
+<li>请求完整数据访问 <code>/ticks/full</code>；
+
+<ul>
+<li>完整数据包含20档盘口数据的快照</li>
+</ul></li>
+<li>请求简单数据访问 <code>/ticks/simple</code>；
+
+<ul>
+<li>仅包含买一卖一档位的简单快照数据</li>
 </ul></li>
 <li>请求中params含义如下：<br>
 
 <ul>
-<li><code>date</code> 需要获取数据的日期，格式为<code>YYYY-MM-DD</code>；</li>
-<li><code>contract</code> 交易对；</li>
+<li><code>date</code> 需要获取数据的日期，格式为<code>YYYY-MM-DD</code></li>
+<li><code>contract</code> 交易对</li>
 </ul></li>
 <li>输出格式默认为gzip；</li>
 <li>数据格式默认为csv；</li>
@@ -432,20 +434,20 @@
 <td>历史字段 请忽略</td>
 </tr>
 <tr>
+<td>bid_N_p</td>
+<td>买N价 N=0 的时候代表买1</td>
+</tr>
+<tr>
+<td>bid_N_v</td>
+<td>买N量</td>
+</tr>
+<tr>
 <td>ask_N_p</td>
 <td>卖N价</td>
 </tr>
 <tr>
 <td>ask_N_v</td>
 <td>卖N量</td>
-</tr>
-<tr>
-<td>bid_N_p</td>
-<td>买N价</td>
-</tr>
-<tr>
-<td>bid_N_v</td>
-<td>买N量</td>
 </tr>
 </tbody></table>
 
@@ -580,6 +582,7 @@
 <li><p>示例:
 <a href='https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m'>https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&amp;duration=1m</a></p></li>
 <li><p>历史Candle有一定的延时(数分钟), 如果需要更实时的Candle 请参考 <a target="_blank" href='https://1token.trade/swagger?url=/swagger/quote.yml#/Quote/get_candles'>1Token实时Candle文档</a></p></li>
+<li><p>okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <a href='https://hist-quote.1tokentrade.cn/candles/status/okex'>https://hist-quote.1tokentrade.cn/candles/status/okex</a>；</p></li>
 </ul>
 <h2 id='zhubi'>历史Zhubi数据</h2>
 <p><code>GET /trades?date={date}&amp;contract={contract}</code></p>
@@ -650,9 +653,11 @@
 <p><b>示例</b></p>
 
 <ul>
-<li><a href='https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt'>https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&amp;contract=okex/btc.usdt</a></li>
+<li><p><a href='https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt'>https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&amp;contract=okex/btc.usdt</a></p></li>
+<li><p>数据大部分为实时抓取，可能存在缺失</p></li>
+<li><p>部分数据存在冗余(出现重复的逐笔数据)</p></li>
 </ul>
-<h1 id='233b09f98a'>数据质量/完整性证明</h1>
+<h1 id='4674be7310'>数据质量</h1>
 <ul>
 <li><p>所有的Tick和逐笔数据是从交易所采集的原始数据，1Token未进行任何的加工处理，数据可能因为交易所的错误和1Token的错误出现丢失遗弃和错误。1Token不保证数据的质量和数据的完整性。</p></li>
 <li><p>大部分的candle数据是从交易所直接获取的。</p></li>
@@ -702,7 +707,7 @@
 </tr>
 <tr>
 <td>火币永续 (huobiswap)</td>
-<td>即将支持</td>
+<td>2020/03/25</td>
 <td>即将支持</td>
 <td>即将支持</td>
 <td>即将支持</td>
@@ -723,7 +728,7 @@
 </tr>
 <tr>
 <td>OK永续 (okswap)</td>
-<td>2019/12</td>
+<td>2019/12/18</td>
 <td>2019/12/18</td>
 <td>2019/12/18</td>
 <td>2019/12/18</td>
@@ -743,7 +748,7 @@
 <td>2017/01/01</td>
 </tr>
 </tbody></table>
-<h2 id='tick-2'>历史Tick</h2>
+<h2 id='bb90ab6944'>维护信息</h2>
 <ul>
 <li>数据为实时抓取，有一些已知的缺失，我们有计划逐步恢复缺失的部分数据；</li>
 <li>json数据可能某些行是不完整的json格式, 请丢弃那些错误行；</li>
@@ -759,22 +764,11 @@
 <li>2019-04-24 15:30--18:00 (UTC+8)，数据来源为第三方数据源，数据有部分缺失。</li>
 </ul></li>
 </ul>
-<h2 id='zhubi-2'>历史Zhubi(逐笔成交)</h2>
-<ul>
-<li>数据大部分为实时抓取，可能存在缺失；</li>
-<li>部分数据存在冗余。</li>
-</ul>
-<h2 id='candle-k'>历史Candle(K线)</h2>
-<ul>
-<li>bitfinex, okex, okef, gate, huobip 从开始交易开始有交易所原始数据；</li>
-<li>okex 从2018年7月开始有交易所原始数据；</li>
-<li>okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <a href='https://hist-quote.1tokentrade.cn/candles/status/okex'>https://hist-quote.1tokentrade.cn/candles/status/okex</a>；</li>
-<li>gate 从2018年8月开始有交易所原始数据。</li>
-</ul>
-<h1 id='api'>详细的API文档</h1>
+<h1 id='api'>实盘交易API文档</h1>
 <p>对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：</p>
 
 <ul>
+<li>https://1token.trade/docs#/api-refer/quote-websocket</li>
 <li><a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Basic API</a></li>
 <li><a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Quote API</a></li>
 <li><a href='https://1token.trade/r/swagger?url=/r/swagger/trade.yml'>Swagger Trade API</a></li>
