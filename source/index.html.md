@@ -15,13 +15,13 @@ includes:
 search: true
 ---
 
-# 简介
+# 1Token使用指南
 
-### 1Token可以做什么？
+## 1Token可以做什么？
 
 现在市面上有很多数字货币的交易所，一些交易者想要在多个交易所进行交易，因此需要自行管理多家交易所的账号，编写不同的程序去对接不同交易所的API————这对任何个人和机构来说都不算一件轻松愉快的事。
 
-1Token将不同交易所的API进行整理和封装，提供给用户一套统一的API。用户使用1Token提供的统一API，以及对应的交易所标识就可在对应交易所进行交易。
+1Token将不同交易所的API进行整理和封装，提供给用户一套统一的API。用户使用1Token提供的统一API，以及对应的[交易所标识](#支持的交易所)就可在对应交易所进行交易。
 
 举例来说，Abo是一个数字货币的交易者，他想在huobi.pro和gate.io这两个交易所做跨交易所套利。
 
@@ -35,62 +35,63 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 1Token将交易者从繁杂的多交易所账号管理和API对接之中解放出来，帮助交易者将更多的精力集中于交易本身。
 
-### 联系我们
+## 联系我们
 
-若您对文档存在疑问，需要帮助请联系我们。
+若您对文档存在疑问，需要帮助请联系我们（1Token微信客服：onetoken001）。
 
-### 初次使用
+![客服001](https://cdn.1tokentrade.cn/otimg-sh/web/common/qb-code.jpg)
 
-请先阅读使用模拟账号交易。该小节对以下几点进行了说明：
+## 初次使用
 
-1. 如何申请1Token模拟账号
+请先阅读使用[模拟账号交易](#mock-account)。该小节对以下几点进行了说明：
 
-2. 如何给模拟账号添加资产
+1. 如何申请1Token模拟账号；
 
-3. 1Token交易界面主要元素介绍
+2. 如何给模拟账号添加资产；
 
-### API用户入门
+3. 1Token交易界面主要元素介绍。
 
-通过API，用户可以拿到基本的信息，比如交易所列表，交易所的合约的信息等。其中，通过Websocket API（websocket API教程）来订阅逐笔和tick；通过Rest API（Rest API教程）来进行下单等交易操作。
+## API用户入门
 
-如果用户想要通过API连接1Token并完成相关操作, 请参考API用户入门指南。该小节讲述了以下内容：
+通过API，用户可以拿到基本的信息，比如交易所列表，交易所的合约的信息等。其中，通过Websocket API（[websocket API教程](#quote-websocket)）来订阅逐笔和tick；通过Rest API（[Rest API教程](#rest-api)）来进行下单等交易操作。
+
+如果用户想要通过API连接1Token并完成相关操作, 请参考[API用户入门指南](#api-user)。该小节讲述了以下内容：
 
 1. 如何在1Token生成用于api操作的`ot-key`和`ot-secret`
 
 2. Python示例代码
 
-### onetoken SDK
+## onetoken SDK
 
 **注意**: 1Token提供的API是**语言无关**的，可以通过任何支持网络访问的编程语言来使用API。SDK在API上做了一层包装，使得用户可以更加轻松快速地入手，将注意力更多地放在交易本身，而不用过多关注API的细节， 我们用不同语言实现了强壮完善的SDK(目前支持[Python 3.6+](https://github.com/1token-trade/onetoken/blob/master/readme.md)(推荐) ，[golang](https://github.com/1token-trade/onetoken-go-sdk)，[c++](https://github.com/1token-trade/1token-ctp))，更多语言正在开发中。
 
-1. onetoken SDK的安装(Python 3.6+)
+1.onetoken SDK的安装(Python 3.6+)；
 
 `pip3 install onetoken -U`
 
-2. 通过运行样例来初步了解SDK中quote和account相关功能, 请参考SDK样例
+2.通过运行样例来初步了解SDK中quote和account相关功能, 请参考[SDK样例](#sdk)。
 
-### 详细的API说明
+## 详细的API说明
 
 对于想自己直接对接API的用户，1Token提供有关API的详细swagger说明，用户可以按需查阅：
 
-* Swagger Basic API
-* Swagger Quote API
-* Swagger Trade API
+* [Swagger Basic API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
+* [Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
+* [Swagger Trade API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)
 
-在直接查阅详细API之前，推荐先阅读API Reference这一小节，大致了解基本信息、行情API、交易加密方式、交易API、历史数据API，之后的API对接会更加容易上手。
+在直接查阅详细API之前，推荐先阅读[API Reference](#rest-api)这一小节，大致了解基本信息、行情API、交易加密方式、交易API、历史数据API，之后的API对接会更加容易上手。
 
-### 历史数据(tick)
+## 历史数据(tick)
 
-1Token提供历史行情的下载，具体教程请查看历史数据一节。
+1Token提供历史行情的下载，具体教程请查看[历史数据](#hist-data)一节。
 
-# 开始使用
+# 模拟账号交易
 
-## 申请模拟账号
+<b><a id="mock-account">通过1Token网页来添加模拟账户进行模拟交易</a></b>
 
-通过1Token网页来添加模拟账户进行模拟交易
-1Token模拟账户拥有与实盘账户完全相同的功能，可以在各交易所自由模拟交易
+* 1Token模拟账户拥有与实盘账户完全相同的功能，可以在各交易所自由模拟交易;
 
-模拟账户介绍页面：<https://1token.trade/help/account/360047348011>
+* 模拟账户介绍页面：<https://1token.trade/help/account/360047348011>。
 
 **第一步 登录账号后，添加新的模拟账户**
 
@@ -98,29 +99,29 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 **第二步 设置模拟账户交易所和账户名**
 
-每个交易所可以设置多个模拟账户。
+* 每个交易所可以设置多个模拟账户。
 
 ![step2](https://1token.trade/docs/img/202.png)
 
 **第三步 模拟账户添加完成**
 
-每个添加的模拟账户都有初始资产，用户也可以通过选项来添加模拟资产。
+* 每个添加的模拟账户都有初始资产，用户也可以通过选项来添加模拟资产。
 
 ![step3](https://1token.trade/docs/img/203.png)
 
 **第四步 添加模拟资产**
 
-模拟账户可以任意添加模拟资产。
+* 模拟账户可以任意添加模拟资产。
 
 ![step4](https://1token.trade/docs/img/204.png)
 
 **第五步 进入币币交易界面进行交易**
 
-模拟交易请选择mock开头的模拟账户。
+* 模拟交易请选择mock开头的模拟账户。
 
 ![step5](https://1token.trade/docs/img/008.png)
 
-## 用API交易
+# 用API交易
 
 **通过API来进行交易**
 
@@ -136,7 +137,7 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 ![step1](https://1token.trade/docs/img/101.png)
 
-**3. Python示例代码**
+<b><a id='api-user'>3. Python示例代码</a></b>
 
 API是语言无关的，用户可以通过偏好的语言使用 我们目前提供python 3.6+的demo供用户参考, 后续将会提供更多语言的demo
 
@@ -236,12 +237,6 @@ OKEX(合约) |	okef
 
 ![](https://1token.trade/docs/img/sdk_account_demo.png)
 
-## 联系我们
-
-1Token微信客服：onetoken001
-
-![客服001](https://cdn.1tokentrade.cn/otimg-sh/web/common/qb-code.jpg)
-
 # API介绍
 
 ## 公开接口
@@ -306,13 +301,13 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 
 * 若您对文档存在疑问，需要帮助请联系我们
 
-### Websocket行情
+# Websocket行情
 
-**Websocket API**
+## Websocket API
 
-**订阅方式**
+<b><a id="quote-websocket">订阅方式</a></b>
 
-可以订阅实时行情，推送包括实时candle，24小时涨跌幅数据，tick以及逐笔数据，以Json格式发送并接受请求。
+* 可以订阅实时行情，推送包括实时candle，24小时涨跌幅数据，tick以及逐笔数据，以Json格式发送并接受请求。
 
 > 订阅实时行情格式
 
@@ -323,7 +318,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-所有接口支持心跳方式检测服务器是否在线，心跳时长为30秒。若客户端超过30秒未发送心跳包，服务端会返回丢失心跳的通知，并主动断开该连接。
+* 所有接口支持心跳方式检测服务器是否在线，心跳时长为30秒。若客户端超过30秒未发送心跳包，服务端会返回丢失心跳的通知，并主动断开该连接。
 
 > 获取心跳示例
 
@@ -339,7 +334,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-同时支持UUID字段以标示不同连接(服务端返回相同UUID)。
+* 同时支持UUID字段以标示不同连接(服务端返回相同UUID)。
 
 > 支持UUID字段以标示不同连接示例
 
@@ -357,17 +352,17 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-所有Websocket接口支持服务端发送gZip格式数据，是否使用gZip以各Websocket的地址参数为准。如`wss://1token.trade/api/v1/ws/tick?gzip=true`则表明使用gZip压缩传输数据。
+* 所有Websocket接口支持服务端发送gZip格式数据，是否使用gZip以各Websocket的地址参数为准。如`wss://1token.trade/api/v1/ws/tick?gzip=true`则表明使用gZip压缩传输数据。
 
 <aside class="notice">除tick-v3行情Websocket接口，在用户没用指明是否使用gZip的情况下，其它接口均默认不使用gZip压缩数据传输。</aside>
 
-**实时tick、逐笔交易数据接口**
+## 实时tick、逐笔交易数据接口
 
-推送各交易所的tick、逐笔交易数据，每个web socket连接最多允许订阅 50个不同contract 的实时数据。
+* 推送各交易所的tick、逐笔交易数据，每个web socket连接最多允许订阅 50个不同contract 的实时数据。
 
 * 地址：`wss://1token.trade/api/v1/ws/tick`
 
-首先需要发送auth进行认证：
+* 订阅之前首先需要发送auth进行认证。
 
 > auth认证示例
 
@@ -383,7 +378,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-订阅tick数据, 如果需要请求多个tick， 可以在同一个websocket里面发送多个subscribe-single-tick-verbose的请求, 每个请求带着不同的contract
+* 订阅tick数据, 如果需要请求多个tick， 可以在同一个websocket里面发送多个subscribe-single-tick-verbose的请求, 每个请求带着不同的contract。
 
 > 订阅tick示例
 
@@ -422,7 +417,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-订阅逐笔数据, 如果需要请求多个contract的逐笔数据， 可以在同一个websocket里面发送多个subscribe-single-zhubi-verbose的请求, 每个请求带着不同的contract
+* 订阅逐笔数据, 如果需要请求多个contract的逐笔数据， 可以在同一个websocket里面发送多个subscribe-single-zhubi-verbose的请求, 每个请求带着不同的contract。
 
 > 订阅逐笔示例
 
@@ -455,7 +450,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-逐笔与tick数据支持订阅后退订，示例如下：
+* 逐笔与tick数据支持订阅后退订。
 
 > 退订示例
 
@@ -473,15 +468,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-**实时candle数据接口**
-
-推送各个交易所的实时candle数据，每个websocket连接最多允许订阅50个**不同时长**合约的实时数据*。
-
-* 地址: <wss://1token.trade/api/v1/ws/candle>
-
-* 支持不同时长：1m,5m,15m,30m,1h,2h,4h,6h,1d,1w。
-
-* 支持同一连接订阅多个合约。
+## 实时candle数据接口
 
 > 订阅candle示例
 
@@ -514,13 +501,17 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-**24小时涨跌幅数据接口**
+* 推送各个交易所的实时candle数据，每个websocket连接最多允许订阅50个**不同时长**合约的实时数据。
 
-推送各个合约的当前价格以及24小时涨跌幅。
+* 地址: <wss://1token.trade/api/v1/ws/candle>。
 
-* 地址: <wss://1token.trade/api/v1/ws/low-freq-quote-v2>
+* 支持不同时长：1m,5m,15m,30m,1h,2h,4h,6h,1d,1w。
 
-* 支持同时订阅不同交易所的不同合约。
+* 支持同一连接订阅多个合约。
+
+## 24小时涨跌幅数据接口
+
+* 推送各个合约的当前价格以及24小时涨跌幅。
 
 > 订阅24小时涨跌幅数据示例
 
@@ -556,6 +547,10 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
+* 地址: <wss://1token.trade/api/v1/ws/low-freq-quote-v2>。
+
+* 支持同时订阅不同交易所的不同合约。
+
 * 其中，rise的单位为百分比，同时推送float64以及string类型的当前价格（price）。
 
 * 支持订阅后退订。
@@ -575,17 +570,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-**实时增量tick行情 （tick-v3）**
-
-推送v3格式的tick行情，每隔30秒服务器会推送snapshot的全量行情，在此间隔内发送行情diff数据，客户端可以通过计算snapshot+diff得出当前行情。每个websocket连接最多允许订阅50个**不同contract**的实时数据。
-
-在diff类型的数据中，如bids或者asks中存在[x,y=0]的情况，则删除上个snapshot中bids或asks价格为x的行情，否则更新此价格行情的挂单数量为y。
-
-* 地址:<wss://1token.trade/api/v1/ws/tick-v3>
-
-* 该接口默认采用gZip压缩数据发送至客户端，客户端首先需要发送auth进行认证。
-
-* 接口支持同时订阅不同交易所的不同合约。
+## 实时增量tick行情 （tick-v3）
 
 > 订阅实时增量tick示例
 
@@ -647,11 +632,21 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 }
 ```
 
-**限速以及其他限制**
+* 推送v3格式的tick行情，每隔30秒服务器会推送snapshot的全量行情，在此间隔内发送行情diff数据，客户端可以通过计算snapshot+diff得出当前行情。每个websocket连接最多允许订阅50个**不同contract**的实时数据。
 
-websocket目前单个IP连接限制是30个, 单个IP带宽限制是 100KB每秒(800kbps). 其他的限 制比如每秒最大连接次数目前1Token没有特别的限制, 请在合理范围内使用. 如果超过带宽限制之后 服务端会向客户端发送 `{"uri":"status", "code": "rate-limit-exceed"}` 并断开链接
+* 在diff类型的数据中，如bids或者asks中存在[x,y=0]的情况，则删除上个snapshot中bids或asks价格为x的行情，否则更新此价格行情的挂单数量为y。
 
-如果您需要商务上的合作,比如获取全量的实时行情, 或者一些定制化专线行情的需求, 请联系1Token客服,备注 **企业版行情**
+* 地址:<wss://1token.trade/api/v1/ws/tick-v3>。
+
+* 该接口默认采用gZip压缩数据发送至客户端，客户端首先需要发送auth进行认证。
+
+* 接口支持同时订阅不同交易所的不同合约。
+
+## 限速以及其他限制
+
+* websocket目前单个IP连接限制是30个, 单个IP带宽限制是100KB每秒(800kbps). 其他的限制比如每秒最大连接次数目前1Token没有特别的限制, 请在合理范围内使用. 如果超过带宽限制之后 服务端会向客户端发送 `{"uri":"status", "code": "rate-limit-exceed"}` 并断开链接。
+
+* 如果您需要商务上的合作,比如获取全量的实时行情, 或者一些定制化专线行情的需求, 请联系1Token客服,备注 **企业版行情**。
 
 ![客服001](https://cdn.1tokentrade.cn/otimg-sh/web/common/qb-code.jpg)  
 
@@ -659,7 +654,7 @@ websocket目前单个IP连接限制是30个, 单个IP带宽限制是 100KB每秒
 
 
 
-## 私有接口
+# 私有接口
 
 私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。
 
@@ -887,7 +882,7 @@ key |	value
 
 ## 教程
 
-**请求地址**：`https://hist-quote.1tokentrade.cn`
+<b><a id="hist-quote">请求地址</b></a>：`https://hist-quote.1tokentrade.cn`
 
 <aside class="notice">
 可以先查看<a href='https://1token.trade/docs#/instruction/word-explanation' target="_blank">名词解释</a>和<a href='https://1token.trade/docs#/instruction/data-structure'>数据结构</a>两个小节了解字段含义。
@@ -1173,12 +1168,109 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 
 # 实盘交易API文档
 
+<b><a id="rest-api">RESTful API</a></b>
+
+* 1Token所有的API(包括websocket和REST) 都是以`https://1token.trade/api/v1/`开头的请参考网络相关；
+* 为了让用户更方便地调用API，1Token提供了Python SDK，用户可以通过`pip install onetoken -U`命令安装。
+
 对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：
 
-* <https://1token.trade/docs#/api-refer/quote-websocket>
+* [Quote Websocket](#quote-websocket)
 * [Swagger Basic API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
 * [Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
 * [Swagger Trade API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)
+
+## 基本信息
+
+* 基本信息的api可以拿到所有的交易所列表；
+
+* 以及一个交易所的所有的支持交易对（contract）的列表；
+
+* 和一些其他的基本公开信息。
+
+详细api请参考[基本信息API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)。
+
+## 行情API
+
+行情API支持rest的方式去获取最新的行情信息：
+
+* 各个交易所历史的candle；
+* 各个交易所中各个交易对历史逐笔；
+* 单个交易所当前的tick；
+* 单个交易所单个合约当前的tick。
+
+API的详细介绍请参考[行情 Swagger API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)。
+
+## 交易API
+
+通过交易API，您可以：
+
+* 获取到交易所某个账号的余额；
+* 获取到交易所某个账号的持仓信息；
+* 对某个交易所的某个合约进行下单；
+* 对已经下去的某个订单进行撤单；
+* 获取某个账号的充值地址；
+* 对某个账号进行提现。
+
+详情请参考[交易 Swagger API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)。
+
+## 历史数据API
+
+你可以通过API去下载所有的历史tick行情[Hist Quote](#hist-quote)。
+
+# SDK样例
+
+<b><a id='sdk'>1. 安装onetoken SDK</a></b>
+
+我们目前推荐使用提供python 3.6+的SDK, 不过API是语言无关的, 其他语言也可以使用。安装python的SDK，可以使用如下指令：
+
+`pip3 install onetoken -U`
+
+
+<b>2. 执行 quote 样例</b>
+
+`git clone https://github.com/1token-trade/onetoken`
+
+进入 onetoken 目录，命令行中运行命令 `python demo-python-async/quote.py`
+
+![step2](https://1token.trade/docs/img/102.png)
+
+看到类似以下输出说明 quote 连接成功 
+
+![step3](https://1token.trade/docs/img/103.png)
+
+<b>3. 执行 account 样例</b>
+
+进入 onetoken/demo-python-async 目录，命令行中运行命令 `python demo-python-async/account.py`
+
+![step4](https://1token.trade/docs/img/104.png)
+
+依次输入步骤 1 添加的 OT Key 和 OT Secret以及步骤 2 添加的账号，账号格式为”平台英文 标识符/账号”（请注意模拟账户的账号名是以mock-开头），
+
+常用平台英文标识符如下:
+
+交易平台 | 平台标识符
+--- | ---
+火币(现货) |	huobip
+火币(合约) |	huobif
+OKEX(现货) |	okex
+OKEX(合约) |	okef
+币安 |	binance
+币安(合约) |	binancef
+
+更多交易所标识符及信息介绍请参考 [交易所的详细介绍](#exchange-details)。
+
+以下图为例：
+
+![step5](https://1token.trade/docs/img/sdk_account_demo.png)
+ 
+火币的平台标识符为huobip, 账号名为mock-demo，则account参数应为：huobip/mock-demo。
+
+<aside class="notice">account 样例中下单测试的交易对为 'huobip/btc.usdt' 和 'huobip/eth.usdt'，如使用其他交易所或交易对请注意修改。</aside>
+
+看到如下输出说明样例执行成功:
+
+![step6](https://1token.trade/docs/img/105.png)
 
 # 细节和底层
 
@@ -1545,7 +1637,45 @@ exg-bad-gateway |	交易所 bad-gateway
 
 ![](https://1token.trade/docs/img/order-status-cn.png)
 
+## 交易所支持范围
+
+<b><a id="支持的交易所">支持的交易所</a></b>
+
+交易所 |	交易类型 |	交易所 Symbol |	国家
+--- | --- | ---  | --- | --- | ---
+[Bibox](https://www.bibox.com/) |	币币交易 |	bibox |	中国
+[币安 Binance](https://www.binance.com/) |	币币交易 |	binance |	日本
+ | 永续合约交易 | binancef | 日本
+[Bitflyer](https://bitflyer.jp/) |	现货交易 |	bitflyer |	日本
+ | 合约交易 |	bitflyex |	日本
+[Bithumb](https://www.bithumb.com/) |	现货交易 |	bithumb |	韩国
+[Bitmex](https://www.bitmex.com/) |	合约交易 |	bitmex |	塞舌尔
+[Bittrex](https://bittrex.com/) |	币币交易 |	bittrex |	美国
+[Gate](https://gate.io/) |	币币交易 |	gate |	中国
+[火币 Huobi](https://www.huobi.pro/) |	币币交易 |	huobip |	新加坡
+ | 杠杆交易 |	huobim |		新加坡
+ | 交割合约交易 |	huobif |	新加坡
+ | 永续合约交易 |	huobiswap | 新加坡
+[OKEX](https://www.okex.com/) |	币币交易 |	okex |		中国, 美国
+ | 交割合约交易 |	okef |	中国, 美国
+ | 永续合约交易 |	okswap |	中国, 美国
+[Poloniex](https://www.poloniex.com/) |	币币交易 |	poloniex |	美国
+ | 杠杆交易 |	尚未支持 	 |	美国
+[Quoinex](https://quoinex.com/) |	币币交易 |	quoinex  |	日本
+[ZB](https://zb.com/) |	币币交易 |	zb  |	中国
+
+<aside class="notice">各交易所详细说明<a href='#exchange-details'>点此跳转</a>。</aside>
+
+### 期货交易所
+
+目前支持的期货交易所：okex的合约交易、huobi的合约交易、binance的合约交易、bitmex的期货。
+
+* okex的期货合约，支持当周、次周、当季以及永续合约，具体交易规则可以参考OKex[说明文档](https://support.okex.com/hc/zh-cn/articles/115001627231-%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E5%90%88%E7%BA%A6-%E5%A6%82%E4%BD%95%E4%BA%A4%E6%98%93-)。
+* bitmex期货合约[说明文档](https://www.bitmex.com/app/tradingOverview)。
+
 ## 交易所详细介绍
+
+<b><a id="exchange-details">交易所详细介绍</a></b>
 
 1Token目前支持目前市场上的一级交易所，包括火币、币安、OKEX等。
 
@@ -1603,8 +1733,6 @@ exg-bad-gateway |	交易所 bad-gateway
 
 ### OKEX(永续合约)(代码: okswap)
 
-### Fcoin(代码: fcoin)
-
 ### Gate(代码: gate)
 
 * 用contract查询订单信息仅支持以下3种状态：pending, part-deal-pending, active
@@ -1619,11 +1747,6 @@ exg-bad-gateway |	交易所 bad-gateway
 * 不支持dealt-trans，交易所完全没有成交记录这个概念, 网页上可以查询到账单，但是API并不提供支持
 * 杠杆交易尚未支持
 * 不支持client_oid
-
-### Bitfinex(代码: bitfinex)
-
-* 背后的接口用的是bitfinex v2的websocket
-* bitfinex 的 v1 rest接口 非常不稳定
 
 ### bithumb(代码: bithumb)
 
