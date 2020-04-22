@@ -37,7 +37,7 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 ## 联系我们
 
-若您对文档存在疑问，需要帮助请联系我们（1Token微信客服：onetoken001）。
+若您对文档存在疑问，需要帮助请<a id='contact-us'>联系我们</a>（1Token微信客服：onetoken001）。
 
 ![客服001](https://cdn.1tokentrade.cn/otimg-sh/web/common/qb-code.jpg)
 
@@ -83,9 +83,9 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 ## 历史数据(tick)
 
-1Token提供历史行情的下载，具体教程请查看[历史数据](#hist-data)一节。
+1Token提供历史行情的下载，具体教程请查看[历史数据](#hist-quote)一节。
 
-# 模拟账号交易
+# 申请模拟账号
 
 <b><a id="mock-account">通过1Token网页来添加模拟账户进行模拟交易</a></b>
 
@@ -123,55 +123,55 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 # 用API交易
 
-**通过API来进行交易**
+<b><a id='通过API来进行交易'>通过API来进行交易</a></b>
 
-1Token API可以操作所有的账号 包括绑定账号 统一账号 和 模拟账号。在下面这个入门教程中，我们会使用模拟账号来当例子，其他账号也可以通过API来获取账户信息和下单。
+1Token API可以操作所有的账号 包括绑定账号、统一账号和模拟账号。在下面这个入门教程中，我们会使用模拟账号来当例子，其他账号也可以通过API来获取账户信息和下单。
 
 **1. 在使用API交易前先注册1Token以及创建模拟交易账户并添加资产**
 
-添加模拟账户请参考在1Token添加模拟账户
+* 添加模拟账户请参考在1Token[添加模拟账户](#mock-account)。
 
 **2. 创建OT Key和OT Secret，请务必保管好新建的OT Key和OT Secret**
 
-创建OT Key的页面：<https://1token.trade/account/apis>
+* 创建OT Key的页面：<https://1token.trade/account/apis>
 
 ![step1](https://1token.trade/docs/img/101.png)
 
 <b><a id='api-user'>3. Python示例代码</a></b>
 
-API是语言无关的，用户可以通过偏好的语言使用 我们目前提供python 3.6+的demo供用户参考, 后续将会提供更多语言的demo
+* API是语言无关的，用户可以通过偏好的语言使用，我们目前提供python 3.6+的demo供用户参考, 后续将会提供更多语言的demo。
 
 `git clone https://github.com/1token-trade/onetoken`
 
 * public接口demo
 
-进入demo-python-sync目录，命令行中运行命令`python demo_public.py`
+* 进入demo-python-sync目录，命令行中运行命令`python demo_public.py`
 
 ![step2](https://1token.trade/docs/img/demo_public_0.png)
 
-看到类似以下输出说明连接成功
+* 看到类似以下输出说明连接成功
 
 ![step3](https://1token.trade/docs/img/demo_public_1.png)
 
 * private接口demo
 
-进入demo-python-sync目录，命令行中运行命令`python demo_private.py`
+* 进入demo-python-sync目录，命令行中运行命令`python demo_private.py`
 
 ![step4](https://1token.trade/docs/img/demo_private_0.png)
 
-成功运行后会看到以下输出：
+* 成功运行后会看到以下输出：
 
 ![step5](https://1token.trade/docs/img/demo_private_1.png)
 
-依次输入之前的操作中添加的 OT Key，OT Secret以及账号，账号格式为”平台英文标识符/账号”，不清楚账号格式的请参考账号格式介绍。
+* 依次输入之前的操作中添加的 OT Key，OT Secret以及账号，账号格式为”平台英文标识符/账号”，不清楚账号格式的请参考[账号格式介绍](#account-symbol)。
 
-输入正确的参数后会看到以下输出：
+* 输入正确的参数后会看到以下输出：
 
 ![step6](https://1token.trade/docs/img/demo_private_2.png)
 
-### 使用API交易绑定账号
+## 使用API交易绑定账号
 
-**通过1Token网页来进行交易：**
+<a id='website-user'><b>通过1Token网页来进行交易：</b></a>
 
 **第一步 点击注册**
 
@@ -199,7 +199,7 @@ API是语言无关的，用户可以通过偏好的语言使用 我们目前提�
 
 ![step6](https://1token.trade/docs/img/006_2.png)
 
-### 使用API交易统一账号
+## 使用API交易统一账号
 
 **通过1Token网页来添加统一账户进行交易**
 
@@ -215,13 +215,15 @@ API是语言无关的，用户可以通过偏好的语言使用 我们目前提�
 
 **第三步 等待充值到账**
 
-### 账号格式介绍
+## 账号格式介绍
 
-在私有API接口中通常需要用到account参数，该参数格式为”平台英文 标识符/账号”
+<b><a id='account-symbol'>账号格式</a></b>
 
-例：火币的平台标识符为huobip, 账号名为mock-demo，则account参数应为：huobip/mock-demo
+* 在私有API接口中通常需要用到account参数，该参数格式为”平台英文 标识符/账号”。
 
-常用平台英文标识符如下:
+* 例：火币的平台标识符为huobip, 账号名为mock-demo，则account参数应为：huobip/mock-demo。
+
+* 常用平台英文标识符如下:
 
 交易平台 |	平台标识符
 --------- | ------- 
@@ -231,37 +233,85 @@ OKEX(合约) |	okef
 币安 |	binance
 币安(合约) |	binancef
 
-更多交易所标识符及信息介绍请参考交易所的详细介绍
+* 更多交易所标识符及信息介绍请参考[交易所的详细介绍](#exchange-details)
 
-查询自己的账户名称请参考下图：
+* 查询自己的账户名称请参考下图：
 
 ![](https://1token.trade/docs/img/sdk_account_demo.png)
 
-# API介绍
+# 实盘交易API文档
 
-## 公开接口
+<b><a id="rest-api">RESTful API</a></b>
+
+* 1Token所有的API(包括websocket和REST) 都是以`https://1token.trade/api/v1/`开头的请参考[网络相关](#网络相关)；
+* 为了让用户更方便地调用API，1Token提供了Python SDK，用户可以通过`pip install onetoken -U`命令安装。
+
+对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：
+
+* [Quote Websocket](#quote-websocket)
+* [Swagger Basic API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
+* [Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
+* [Swagger Trade API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)
+
+## 基本信息
+
+* 基本信息的api可以拿到所有的交易所列表；
+
+* 以及一个交易所的所有的支持交易对（contract）的列表；
+
+* 和一些其他的基本公开信息。
+
+详细api请参考[基本信息API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)。
+
+## 行情API
+
+行情API支持rest的方式去获取最新的行情信息：
+
+* 各个交易所历史的candle；
+* 各个交易所中各个交易对历史逐笔；
+* 单个交易所当前的tick；
+* 单个交易所单个合约当前的tick。
+
+API的详细介绍请参考[行情 Swagger API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)。
+
+## 交易API
+
+通过交易API，您可以：
+
+* 获取到交易所某个账号的余额；
+* 获取到交易所某个账号的持仓信息；
+* 对某个交易所的某个合约进行下单；
+* 对已经下去的某个订单进行撤单；
+* 获取某个账号的充值地址；
+* 对某个账号进行提现。
+
+详情请参考[交易 Swagger API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)。
+
+## 历史数据API
+
+你可以通过API去下载所有的历史tick行情[Hist Quote](#hist-quote)。
+
+# REST基础信息
 
 公共接口可用于获取配置信息和行情数据。公共请求无需认证即可调用。
-
-### REST基础信息
 
 **常用公共接口**
 
 * [获取交易所列表](https://1token.trade/swagger?url=/swagger/basic.yml#/Exchanges/get_exchanges)
 
-返回1Token支持的所有交易所（exchange）
+  * 返回1Token支持的所有交易所（exchange）
 
-<https://1token.trade/api/v1/basic/exchanges>
+  * <https://1token.trade/api/v1/basic/exchanges>
 
 * [获取交易所交易币对列表](https://1token.trade/swagger?url=/swagger/basic.yml#/Contracts/get_contracts)
 
-返回某个交易所（exchange）支持的交易对（contract）列表
+  * 返回某个交易所（exchange）支持的交易对（contract）列表
 
-例如查询火币交易所(huobip)：<https://1token.trade/api/v1/basic/contracts?exchange=huobip>
+  * 例如查询火币交易所(huobip)：<https://1token.trade/api/v1/basic/contracts?exchange=huobip>
 
-查询OKEX交易所合约交易(okef)：<https://1token.trade/api/v1/basic/contracts?exchange=okef>
+  * 查询OKEX交易所合约交易(okef)：<https://1token.trade/api/v1/basic/contracts?exchange=okef>
 
-交易对的信息包括：
+  * 交易对的信息包括：
 
 参数 |	描述 |  示例
 --------- | -------  | ------- 
@@ -273,33 +323,27 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 
 * [获取交易所最新tick](https://1token.trade/swagger?url=/swagger/quote.yml#/Tick/get_ticks)
 
-注意：REST接口返回的tick数据只有一档，需要多档数据请使用WebSocket接口
+  * REST接口返回的tick数据只有一档，需要多档数据请使用WebSocket接口；
 
-返回某个交易所（exchange）所有支持交易对的最新tick
+  * 返回某个交易所（exchange）所有支持交易对的最新tick，例如查询火币交易所(huobip)：<https://1token.trade/api/v1/quote/ticks?exchange=huobip>；
 
-例如查询火币交易所(huobip)：<https://1token.trade/api/v1/quote/ticks?exchange=huobip>
-
-返回某个交易所（exchange）单个支持交易对（contract）的最新tick
-
-例如查询OKEX交易所（okex）btc.usdt交易对：<https://1token.trade/api/v1/quote/single-tick/okex/btc.usdt>
+  * 返回某个交易所（exchange）单个支持交易对（contract）的最新tick，例如查询OKEX交易所（okex）btc.usdt交易对：<https://1token.trade/api/v1/quote/single-tick/okex/btc.usdt>。
 
 * [获取服务器时间](https://1token.trade/swagger?url=/swagger/basic.yml#/Server_Time/get_time)
 
-返回当前服务器时间
+  * 返回当前服务器时间：<https://1token.trade/api/v1/basic/time>；
 
-<https://1token.trade/api/v1/basic/time>
-
-获取服务器时间通常是为了统计延时或者进行测试，关于延时的更多信息请参考请参考网络相关
+  * 获取服务器时间通常是为了统计延时或者进行测试，关于延时的更多信息请参考请参考[网络相关](#网络相关)。
 
 * [获取服务器地址池](https://1token.trade/swagger?url=/swagger/basic.yml#/IP/get_ip_pool)
 
-<https://1token.trade/api/v1/basic/ip-pool>
+  * <https://1token.trade/api/v1/basic/ip-pool>
 
 **更多**
 
-* 详细api的参数列表 返回错误的指示请参考[基本信息Swagger文档](https://1token.trade/swagger?url=/swagger/basic.yml)
+* 详细api的参数列表 返回错误的指示请参考[基本信息Swagger文档](https://1token.trade/swagger?url=/swagger/basic.yml)；
 
-* 若您对文档存在疑问，需要帮助请联系我们
+* 若您对文档存在疑问，需要帮助请[联系我们](#contact-us)。
 
 # Websocket行情
 
@@ -656,13 +700,13 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 
 # 私有接口
 
-私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。
+## REST私有接口
 
-### REST私有接口
+私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。
 
 **签名**
 
-以下代码为签名原理介绍，我们的样例代码中提供了完整的签名方法，您无需自己完成签名代码，**请参考：**Python示例代码
+以下代码为签名原理介绍，我们的样例代码中提供了完整的签名方法，您无需自己完成签名代码，**请参考：**[Python示例代码](#api-user)。
 
 **OT-API/KEY 加密方式**
 
@@ -671,16 +715,16 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 key |	value
 --- | ---
 `Api-Nonce` |	一个在0到2^53大小范围内增加的值
-`Api-Key` |	在1token生成的`OT-KEY`（若没有，请参考生成OT_KEY）
+`Api-Key` |	在1token生成的`OT-KEY`（若没有，请参考[生成OT_KEY](#通过API来进行交易)）
 `Api-Signature` |	本次请求的签名，计算方法为`hex(HMAC_SHA256(ot_secret, verb + path + nonce + data))`
 
 **Api-Signature 签名例子**
 
-* `data` 应与本次请求发送到服务器的`raw body`相同, 在POST请求中是一个json字符串, 比如 `{"contract": "huobip/btc.usdt", "price": 1, "bs": "b", "amount": 0.6}`, 在 GET请求中是一个空字符串
+* `data` 应与本次请求发送到服务器的`raw body`相同, 在POST请求中是一个json字符串, 比如 `{"contract": "huobip/btc.usdt", "price": 1, "bs": "b", "amount": 0.6}`, 在 GET请求中是一个空字符串；
 
-* `verb` GET/POST/DELETE 需要大写
+* `verb` GET/POST/DELETE 需要大写；
 
-* `path` 比如完整的请求路径是 <https://1token.trade/api/v1/trade/okex/demo-account/orders?state=end> 那么签名的path是 `/okex/demo-account/orders`
+* `path` 比如完整的请求路径是 <https://1token.trade/api/v1/trade/okex/demo-account/orders?state=end> 那么签名的path是 `/okex/demo-account/orders`。
 
 > Python代码示例
 
@@ -770,28 +814,28 @@ if __name__ == '__main__':
 
 **常用私有接口**
 
-* 获取账户信息
-* 创建订单
-* 取消订单
-* 获取最近成交记录
+* [获取账户信息](https://1token.trade/swagger?url=/swagger/trade.yml#/Account/get__exchange___account__info)
+* [创建订单](https://1token.trade/swagger?url=/swagger/trade.yml#/Order/post__exchange___account__orders)
+* [取消订单](https://1token.trade/swagger?url=/swagger/trade.yml#/Order/delete__exchange___account__orders)
+* [获取最近成交记录](https://1token.trade/swagger?url=/swagger/trade.yml#/Order/get__exchange___account__trans)
 
 **遇到了问题？**
 
 * 如果本次请求包含`body`，请确保将`Content-Type`设置为`application/json`。
 
-* 更多详细接口内容请参考[深入了解API]()。
+* 更多详细接口内容请参考[深入了解API](#rest-api)。
 
-* 若您对文档存在疑问，需要帮助请[联系我们]()。
+* 若您对文档存在疑问，需要帮助请[联系我们](#contact-us)。
 
-### Websocket账户信息订阅
+## Websocket账户信息订阅
 
 **签名**
 
-支持API账户的账户信息和订单状态推送，每一个账户一个websocket连接。
+* 支持API账户的账户信息和订单状态推送，每一个账户一个websocket连接。
 
-地址: `wss://1token.trade/api/v1/ws/trade/{account_symbol}` 例如: `wss://1token.trade/api/v1/ws/trade/okex/1token-demo`
+* 地址: `wss://1token.trade/api/v1/ws/trade/{account_symbol}` 例如: `wss://1token.trade/api/v1/ws/trade/okex/1token-demo`
 
-**签名验证** 打开websocket连接时需要通过HTTP headers做验证:
+* **签名验证** 打开websocket连接时需要通过HTTP headers做验证:
 
 key |	value
 --- | ---
@@ -815,7 +859,6 @@ key |	value
 
 * 支持同一连接订阅多个频道。
 
-
 > 订阅账户信息示例
 
 ```json
@@ -829,7 +872,7 @@ key |	value
 
 * 每当交易所推动账户信息变动时，1token后台会同时向客户端推送一个账户信息的快照，其结构与account info接口数据一致。如果交易所ws推送不稳定客户端会受到status为failed的错误信息。 `{"status": "fail", "uri": "order"}`
 
-* 目前支持账户信息推送的交易所：binance、bitmex、okex、okef、okswap、huobip、huobif。
+* 目前支持账户信息推送的交易所：binance、binancef、bitmex、okex、okef、okswap、huobip、huobif。
 
 **订阅账户订单更新 sub-order**
 
@@ -885,18 +928,24 @@ key |	value
 <b><a id="hist-quote">请求地址</b></a>：`https://hist-quote.1tokentrade.cn`
 
 <aside class="notice">
-可以先查看<a href='https://1token.trade/docs#/instruction/word-explanation' target="_blank">名词解释</a>和<a href='https://1token.trade/docs#/instruction/data-structure'>数据结构</a>两个小节了解字段含义。
+可以先查看<a href='#word-explanation'>名词解释</a>和<a href='#data-structure'>数据结构</a>两个小节了解字段含义。
 </aside>
 
 **请求方式**
 
 * 请求历史数据需要提供OT-Key，OT-Key申请方式如下：
-  * 注册成为1Token用户；  
+
+  * 注册成为1Token用户；
+
   * 在<a href='https://1token.trade/account/apis' target="_blank">用户中心</a>申请OT-Key；
+
 * 请求历史数据时携带名称为ot-key的请求头，例如申请的API-Key为aaaa-bbbb-cccc-dddd，则请求时需要带上ot-key: aaaa-bbbb-cccc-dddd，否则会报错；
+
 * 系统会根据key及使用次数进行计费，请参考[具体的计费标准](https://1token.trade/dataservice)；
+
 * 返回数据时在HTTP Header中会携带当次请求扣减次数及剩余次数：
-* 使用Demo <a href='https://github.com/1token-trade/onetoken/blob/master/demo-python-sync/get_historical_quote.py' target="_blank">get_historical_quote.py</a> 下载数据
+
+* 使用Demo <a href='https://github.com/1token-trade/onetoken/blob/master/demo-python-sync/get_historical_quote.py' target="_blank">get_historical_quote.py</a> 下载数据。
 
 参数 | 描述
 --------- | ------- 
@@ -908,22 +957,38 @@ ot-quota-remaining | 剩余次数剩余次数
 **数据获取流程**
 
 * 通用规则
-  * 交易所信息可以参考：[支持的交易所](https://1token.trade/docs#/exchange-overview)；
-  * 交易对命名规则可以参考：[变量命名规则](https://1token.trade/docs#/instruction/naming-rules)；
+
+  * 交易所信息可以参考：[支持的交易所](#支持的交易所)；
+
+  * 交易对命名规则可以参考：[变量命名规则](#naming-rules)；
+
 * Tick(盘口+最新成交)数据
+
   * 从api 获取某一天的所有交易对的列表，比如[2020年4月12日的所有交易对列表](https://hist-quote.1tokentrade.cn/ticks/contracts?date=2020-04-12)；
+
   * 选好想要下载的交易对，比如okex/btc.usdt；
+
   * 选择需要完整亦或是简单快照数据，具体区别请参考历史tick小节；
+
   * 使用 `/ticks` 接口下载特定日期指定交易对的数据；
-* Trade(逐笔成交)数据  
+
+* Trade(逐笔成交)数据
+
   * 从api 获取某一天的所有交易对的列表，比如[2020年4月12日的所有交易对列表](https://hist-quote.1tokentrade.cn/trades/contracts?date=2020-04-12)；
+
   * 选好想要下载的交易对，比如okex/btc.usdt；
+
   * 使用 `/trades` 接口下载特定日期指定交易对的数据；
-* Candle(K线)数据  
+
+* Candle(K线)数据
+
   * 选好想要下载的交易对，比如okex/btc.usdt以及okef/btc.usd.q；
+
   * 可通过`/candles/since` 接口获得交易对数据的起始时间戳；
+
   * 可通过`/candles` 接口获得数据，可以指定时间区间、指定交易对以及周期；
-  * 一次最多返回15000根K线, 超过这个数量会返回 `400 {"code": "time-range-too-large", "message": "max candle size 15000"}`
+
+  * 一次最多返回15000根K线, 超过这个数量会返回 `400 {"code": "time-range-too-large", "message": "max candle size 15000"}`。
   
 
 ## 限制
@@ -936,8 +1001,10 @@ ot-quota-remaining | 剩余次数剩余次数
 
 
 * 不需要ot-key；
+
 * 请求中params含义如下：`date` 是指需要获取数据的日期，格式为`YYYY-MM-DD`；
-* 返回值为当前有数据的交易对列表
+
+* 返回值为当前有数据的交易对列表。
 
 <code>
 [
@@ -985,17 +1052,17 @@ time,last,volume,ask_0_p,ask_0_v,ask_1_p,ask_1_v,ask_2_p,ask_2_v,ask_3_p,ask_3_v
 ```
 
 * 获取tick历史数据，并且格式化后输出；
-  * 快照0.5s-1s产生一个 不同交易所会有所区别
+  * 快照0.5s-1s产生一个 不同交易所会有所区别；
 * 请求完整数据访问 `/ticks/full`；
   * 完整数据包含20档盘口数据的快照
 * 请求简单数据访问 `/ticks/simple`；
-  * 仅包含买一卖一档位的简单快照数据
+  * 仅包含买一卖一档位的简单快照数据；
 * 请求中params含义如下：  
-  * `date` 需要获取数据的日期，格式为`YYYY-MM-DD`
-  * `contract` 交易对
+  * `date` 需要获取数据的日期，格式为`YYYY-MM-DD`；
+  * `contract` 交易对；
 * 输出格式默认为gzip；
 * 数据格式默认为csv；
-* 返回数据的数据列名解释
+* 返回数据的数据列名解释。
 
 参数 | 描述
 --------- | ------- 
@@ -1080,11 +1147,8 @@ low | 最低价
   * `duration` candle的周期，支持1m/5m/15m/30m/1h/1d；
 * 返回数据字段含义：
   * `since` 最早一根candle的时间戳；
-* 示例:
-<https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m>
-
-* 历史Candle有一定的延时(数分钟), 如果需要更实时的Candle 请参考 <a target="_blank" href='https://1token.trade/swagger?url=/swagger/quote.yml#/Quote/get_candles'>1Token实时Candle文档</a>
-
+* 示例: <https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m>；
+* 历史Candle有一定的延时(数分钟), 如果需要更实时的Candle 请参考 <a target="_blank" href='https://1token.trade/swagger?url=/swagger/quote.yml#/Quote/get_candles'>1Token实时Candle文档</a>；
 * okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <https://hist-quote.1tokentrade.cn/candles/status/okex>；
 
 ## 历史Zhubi数据
@@ -1121,10 +1185,7 @@ exchange_timestamp | exchange_time 转换成时间戳 (单位是秒)
 time | 1Token收到这个逐笔时候 机器的isoformat时间
 timestamp | time 转换成时间戳(单位是秒)
 
-**示例**
-
-* <https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt>
-
+* 示例：<https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt>
 * 数据大部分为实时抓取，可能存在缺失
 * 部分数据存在冗余(出现重复的逐笔数据)
 
@@ -1166,57 +1227,6 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
   * 2019-04-24 15:30--18:00 (UTC+8)，数据来源为第三方数据源，数据有部分缺失。
 
 
-# 实盘交易API文档
-
-<b><a id="rest-api">RESTful API</a></b>
-
-* 1Token所有的API(包括websocket和REST) 都是以`https://1token.trade/api/v1/`开头的请参考网络相关；
-* 为了让用户更方便地调用API，1Token提供了Python SDK，用户可以通过`pip install onetoken -U`命令安装。
-
-对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：
-
-* [Quote Websocket](#quote-websocket)
-* [Swagger Basic API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
-* [Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
-* [Swagger Trade API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)
-
-## 基本信息
-
-* 基本信息的api可以拿到所有的交易所列表；
-
-* 以及一个交易所的所有的支持交易对（contract）的列表；
-
-* 和一些其他的基本公开信息。
-
-详细api请参考[基本信息API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)。
-
-## 行情API
-
-行情API支持rest的方式去获取最新的行情信息：
-
-* 各个交易所历史的candle；
-* 各个交易所中各个交易对历史逐笔；
-* 单个交易所当前的tick；
-* 单个交易所单个合约当前的tick。
-
-API的详细介绍请参考[行情 Swagger API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)。
-
-## 交易API
-
-通过交易API，您可以：
-
-* 获取到交易所某个账号的余额；
-* 获取到交易所某个账号的持仓信息；
-* 对某个交易所的某个合约进行下单；
-* 对已经下去的某个订单进行撤单；
-* 获取某个账号的充值地址；
-* 对某个账号进行提现。
-
-详情请参考[交易 Swagger API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)。
-
-## 历史数据API
-
-你可以通过API去下载所有的历史tick行情[Hist Quote](#hist-quote)。
 
 # SDK样例
 
@@ -1276,40 +1286,48 @@ OKEX(合约) |	okef
 
 ## 名词解释
 
-为了让之后文档的描述更加准确和清晰，对下列名词进行解释。具体数据结构请查看数据结构一节。
+<b><a id='word-explanation'>名词解释</a></b>
+
+为了让之后文档的描述更加准确和清晰，对下列名词进行解释。具体数据结构请查看[数据结构](#data-structure)一节。
 
 **Zhubi**
 
-* 针对一条成交记录
-* 逐笔(zhubi)成交记录，主要包含了该次交易的合约、成交时间、价格、成交量、方向（买或是卖）
+* 针对一条成交记录；
+
+* 逐笔(zhubi)成交记录，主要包含了该次交易的合约、成交时间、价格、成交量、方向（买或是卖）；
 
 **Tick**
 
-* Tick是针对一个标的某个时间点的快照
+* Tick是针对一个标的某个时间点的快照；
 
-* 一个Tick会包含这个时间点的订单簿(orderbook)的买卖单（bids,asks)
+* 一个Tick会包含这个时间点的订单簿(orderbook)的买卖单（bids,asks)；
 
-* 最新成交价（last）: 根据该合约最近时刻的逐笔得出
+* 最新成交价（last）: 根据该合约最近时刻的逐笔得出。
 
 ## 变量命名规则
+
+<a id='naming-rules'><b>命名规则</b></a>
 
 参数 | 规则 |	示例 |	详细解释
 --- | --- | --- | ---
 account |	{exchange}/{user_name} |	okex/demo
-contract |	{exchange}/{base}.{quote}(.{delivery}) |	okex/btc.usdt或okef/btc.usd.n |	普通币币交易和杠杆交易两个币种用点（.）分隔，用quote货币计价来买卖base货币。合约交易在两个币种之后还要添加交割时间标识。
-client_oid |	{contract}-{string} |	okex/btc.usdt-1234abcdABCD |	由用户指定，用于追踪订单信息。{string}是由 "A-Za-z0-9" 组成，最长28位最短12位的字符串。对于client_oid的支持与否各交易所有所不同，请参考交易所的详细介绍，特殊格式要求的交易所: Gate的{string}为最长16位最短12位 。
+contract |	{exchange}/{base}.{quote}(.{delivery}) |	okex/btc.usdt或okef/btc.usd.n |	普通币币交易和杠杆交易两个币种用点（.）分隔，用quote货币计价来买卖base货币。合约交易在两个币种之后还要添加[交割时间标识](#期货交易代码)。
+client_oid |	{contract}-{string} |	okex/btc.usdt-1234abcdABCD |	由用户指定，用于追踪订单信息。{string}是由 "A-Za-z0-9" 组成，最长28位最短12位的字符串。对于client_oid的支持与否各交易所有所不同，请参考交易所的[详细介绍](#exchange-details)，特殊格式要求的交易所: Gate的{string}为最长16位最短12位 。
 exchange_oid |	{contract}-{string} |	okex/btc.usd-123或okef/btc.usd.n-123 |	由交易所生成，用于追踪订单信息。
 exchange_tid |	{contract}-{string} |	quoinex/btc.jpy-12345 |	由交易所生成，用于追踪历史成交信息。
 
 **币币交易代码**
 
-币币交易代码由3部分组成，`{exchange}/{underlying}.{quote_currency}` 例如：
+币币交易代码由3部分组成，`{exchange}/{underlying}.{quote_currency}` 
 
-`binance/btc.usdt 表示币安交易所的usdt计价的btc交易`
+> sample
 
-`okex/eth.btc  表示okex交易所btc计价的eth交易`
+```
+binance/btc.usdt 表示币安交易所的usdt计价的btc交易
+okex/eth.btc  表示okex交易所btc计价的eth交易
+```
 
-**期货交易代码**
+<a id='期货交易代码'><b>期货交易代码</b></a>
 
 期货交易代码由4部分组成，`{exchange}/{underlying}.{quote_currency}.{delivery}`，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。
 
@@ -1351,7 +1369,11 @@ binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
 
 ## 数据结构
 
+<b><a id='data-structure'>交易相关的数据结构</a></b>
+
 **行情信息**
+
+* Tick
 
 > Tick
 
@@ -1376,6 +1398,8 @@ binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
 }
 ```
 
+* 逐笔(Zhubi)
+
 > 逐笔(Zhubi)
 
 ```json
@@ -1392,7 +1416,13 @@ binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
          ...
      ],
 ]
-//逐笔 V3 (Zhubi.v3) (alpha)
+```
+
+* 逐笔 V3 (Zhubi.v3)
+
+> 逐笔 V3 (Zhubi.v3)
+
+```json
 [
      {
          "p": 9218.5,                          // price
@@ -1411,7 +1441,6 @@ binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
 
 * OneToken支持3种不同的账户类型：现货账户，杠杆交易账户，期货账户
 
-* 实际返回与文档不匹配的字段可能已废弃，请勿使用
 
 > 现货账户
 
@@ -1540,6 +1569,8 @@ binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
 }
 ```
 
+* 订单信息
+
 > 订单信息
 
 ```json
@@ -1565,6 +1596,8 @@ binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
 }
 ```
 
+* 成交记录
+
 > 成交记录
 
 ```json
@@ -1584,6 +1617,8 @@ binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
     "tags": {}                                          #
 }
 ```
+
+<aside class="notice">实际返回与文档不匹配的字段可能已废弃，请勿使用。</aside>
 
 ## 错误码
 
@@ -1681,7 +1716,7 @@ exg-bad-gateway |	交易所 bad-gateway
 
 需要注意的是每个交易所都有细微的差异，以下文档详细说明了各个交易所的差异。
 
-`client_oid`仅在交易所支持`client_oid`时可用，在交易所详情中会标明交易所是否支持`client_oid`。由于`client_oid`重复时各个交易所行为不一致，所以请勿使用重复的`client_oid`。请参考命名规则
+`client_oid`仅在交易所支持`client_oid`时可用，在交易所详情中会标明交易所是否支持`client_oid`。由于`client_oid`重复时各个交易所行为不一致，所以请勿使用重复的`client_oid`。请参考[命名规则](#naming-rules)。
 
 ### 币安(代码: binance)
 
@@ -1695,7 +1730,7 @@ exg-bad-gateway |	交易所 bad-gateway
 * 一般接口限制每个ip的weight累加不得超过**每分钟1200**
 * 交易接口限制每个账号**每秒10单，每天限制100000单**
 * 单个交易对支持最近**500条**历史成交记录
-* 币安会对下单使用机器学习的限制 具体详见 币安API交易规则说明
+* 币安会对下单使用机器学习的限制 具体详见[币安API交易规则说明](#https://support.binance.com/hc/zh-cn/articles/115003235691-%E5%B8%81%E5%AE%89API%E4%BA%A4%E6%98%93%E8%A7%84%E5%88%99%E8%AF%B4%E6%98%8E)
 * websocket 推送才能拿到所有的挂单
 * 支持client_oid
 
@@ -1771,6 +1806,8 @@ exg-bad-gateway |	交易所 bad-gateway
 
 ## 网络相关
 
+<b><a id='网络相关'>网络相关</a></b>
+
 * 1Token的主节点部署在香港阿里云服务器 另外一些辅助代理节点部署在全球各大交易所地理位置周边
 
 * <https://1token.trade> 使用了CloudFlare作为CDN 由于CDN节点都部署在海外, 从国内服务器/终端直连可能会被墙出现连接失败等现象，推荐程序化交易的用户使用海外服务器。
@@ -1825,7 +1862,7 @@ exg-bad-gateway |	交易所 bad-gateway
 
 用户在实际操作时，请务必确认所填入的IP在[IP列表](https://1token.trade/api/v1/basic/ip-pool)中能够查到
 
-后续的使用请参考通过1Token网页进行交易或是通过1Token API进行交易。
+后续的使用请参考通过[1Token网页进行交易](#website-user)或是通过[1Token API进行交易](#通过API来进行交易)。
 
 ### 1Token持有的ip
 
