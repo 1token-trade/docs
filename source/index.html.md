@@ -61,6 +61,16 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 2. Python示例代码
 
+## API用户进阶
+
+对于想自己直接对接API的用户，1Token提供有关API的详细swagger说明，用户可以按需查阅：
+
+* [Swagger Basic API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
+* [Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
+* [Swagger Trade API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)
+
+在直接查阅详细API之前，推荐先阅读[API Reference](#rest-api)这一小节，大致了解基本信息、行情API、交易加密方式、交易API、历史数据API，之后的API对接会更加容易上手。
+
 ## onetoken SDK
 
 **注意**: 1Token提供的API是**语言无关**的，可以通过任何支持网络访问的编程语言来使用API。SDK在API上做了一层包装，使得用户可以更加轻松快速地入手，将注意力更多地放在交易本身，而不用过多关注API的细节， 我们用不同语言实现了强壮完善的SDK(目前支持[Python 3.6+](https://github.com/1token-trade/onetoken/blob/master/readme.md)(推荐) ，[golang](https://github.com/1token-trade/onetoken-go-sdk)，[c++](https://github.com/1token-trade/1token-ctp))，更多语言正在开发中。
@@ -71,21 +81,11 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 2.通过运行样例来初步了解SDK中quote和account相关功能, 请参考[SDK样例](#sdk)。
 
-## 详细的API说明
-
-对于想自己直接对接API的用户，1Token提供有关API的详细swagger说明，用户可以按需查阅：
-
-* [Swagger Basic API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
-* [Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
-* [Swagger Trade API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)
-
-在直接查阅详细API之前，推荐先阅读[API Reference](#rest-api)这一小节，大致了解基本信息、行情API、交易加密方式、交易API、历史数据API，之后的API对接会更加容易上手。
-
 ## 历史数据(tick)
 
 1Token提供历史行情的下载，具体教程请查看[历史数据](#hist-quote)一节。
 
-# 申请模拟账号
+# 模拟账号申请与交易
 
 <b><a id="mock-account">通过1Token网页来添加模拟账户进行模拟交易</a></b>
 
@@ -121,7 +121,7 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 ![step5](https://1token.trade/docs/img/008.png)
 
-# 用API交易
+# API交易入门指南
 
 <b><a id='通过API来进行交易'>通过API来进行交易</a></b>
 
@@ -239,7 +239,7 @@ OKEX(合约) |	okef
 
 ![](https://1token.trade/docs/img/sdk_account_demo.png)
 
-# 实盘交易API文档
+# API交易详细文档
 
 <b><a id="rest-api">RESTful API</a></b>
 
@@ -291,7 +291,7 @@ API的详细介绍请参考[行情 Swagger API](https://1token.trade/r/swagger?u
 
 你可以通过API去下载所有的历史tick行情[Hist Quote](#hist-quote)。
 
-# REST基础信息
+# REST基础信息（公共接口）
 
 公共接口可用于获取配置信息和行情数据。公共请求无需认证即可调用。
 
@@ -345,7 +345,7 @@ symbol | 交易对的唯一标示 ${exchange}/${currency}.${underlying}
 
 * 若您对文档存在疑问，需要帮助请[联系我们](#contact-us)。
 
-# Websocket行情
+# Websocket行情（公共接口）
 
 ## Websocket API
 
@@ -921,6 +921,60 @@ key |	value
 
 * 目前支持订单信息推送的交易所：huobip、huobif、binance、bitmex、okex、okef、bitfinex、coinbase。
 
+# SDK样例
+
+<b><a id='sdk'>1. 安装onetoken SDK</a></b>
+
+我们目前推荐使用提供python 3.6+的SDK, 不过API是语言无关的, 其他语言也可以使用。安装python的SDK，可以使用如下指令：
+
+`pip3 install onetoken -U`
+
+
+<b>2. 执行 quote 样例</b>
+
+`git clone https://github.com/1token-trade/onetoken`
+
+进入 onetoken 目录，命令行中运行命令 `python demo-python-async/quote.py`
+
+![step2](https://1token.trade/docs/img/102.png)
+
+看到类似以下输出说明 quote 连接成功 
+
+![step3](https://1token.trade/docs/img/103.png)
+
+<b>3. 执行 account 样例</b>
+
+进入 onetoken/demo-python-async 目录，命令行中运行命令 `python demo-python-async/account.py`
+
+![step4](https://1token.trade/docs/img/104.png)
+
+依次输入步骤 1 添加的 OT Key 和 OT Secret以及步骤 2 添加的账号，账号格式为”平台英文 标识符/账号”（请注意模拟账户的账号名是以mock-开头），
+
+常用平台英文标识符如下:
+
+交易平台 | 平台标识符
+--- | ---
+火币(现货) |	huobip
+火币(合约) |	huobif
+OKEX(现货) |	okex
+OKEX(合约) |	okef
+币安 |	binance
+币安(合约) |	binancef
+
+更多交易所标识符及信息介绍请参考 [交易所的详细介绍](#exchange-details)。
+
+以下图为例：
+
+![step5](https://1token.trade/docs/img/sdk_account_demo.png)
+ 
+火币的平台标识符为huobip, 账号名为mock-demo，则account参数应为：huobip/mock-demo。
+
+<aside class="notice">account 样例中下单测试的交易对为 'huobip/btc.usdt' 和 'huobip/eth.usdt'，如使用其他交易所或交易对请注意修改。</aside>
+
+看到如下输出说明样例执行成功:
+
+![step6](https://1token.trade/docs/img/105.png)
+
 # 获取历史行情
 
 ## 教程
@@ -1189,13 +1243,13 @@ timestamp | time 转换成时间戳(单位是秒)
 * 数据大部分为实时抓取，可能存在缺失
 * 部分数据存在冗余(出现重复的逐笔数据)
 
-# 数据质量
+## 数据质量
 
 * 所有的Tick和逐笔数据是从交易所采集的原始数据，1Token未进行任何的加工处理，数据可能因为交易所的错误和1Token的错误出现丢失遗弃和错误。1Token不保证数据的质量和数据的完整性。
 
 * 大部分的candle数据是从交易所直接获取的。
 
-## 数据信息
+### 数据信息
 
 * 下表列出了部分主要交易所的开设时间，以及可从1Token获取数据的最早日期；
 * 并非所有交易对均能在该起始日期获取到数据，具体请使用根据教程获得指定日期下可用的交易对。
@@ -1212,8 +1266,9 @@ OK交割 (okef) |	2014/10 |	2017/11/13 |	2017/11/14 |	2017/11/14
 OK永续 (okswap) |	2019/12/18 |	2019/12/18 |	2019/12/18 |	2019/12/18
 BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 
+***
 
-## 维护信息
+### 维护信息
 
 * 数据为实时抓取，有一些已知的缺失，我们有计划逐步恢复缺失的部分数据；
 * json数据可能某些行是不完整的json格式, 请丢弃那些错误行；
@@ -1226,61 +1281,6 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
   * 2018-10-19 14:00--16:00（UTC+8）,币安有维护；
   * 2019-04-24 15:30--18:00 (UTC+8)，数据来源为第三方数据源，数据有部分缺失。
 
-
-
-# SDK样例
-
-<b><a id='sdk'>1. 安装onetoken SDK</a></b>
-
-我们目前推荐使用提供python 3.6+的SDK, 不过API是语言无关的, 其他语言也可以使用。安装python的SDK，可以使用如下指令：
-
-`pip3 install onetoken -U`
-
-
-<b>2. 执行 quote 样例</b>
-
-`git clone https://github.com/1token-trade/onetoken`
-
-进入 onetoken 目录，命令行中运行命令 `python demo-python-async/quote.py`
-
-![step2](https://1token.trade/docs/img/102.png)
-
-看到类似以下输出说明 quote 连接成功 
-
-![step3](https://1token.trade/docs/img/103.png)
-
-<b>3. 执行 account 样例</b>
-
-进入 onetoken/demo-python-async 目录，命令行中运行命令 `python demo-python-async/account.py`
-
-![step4](https://1token.trade/docs/img/104.png)
-
-依次输入步骤 1 添加的 OT Key 和 OT Secret以及步骤 2 添加的账号，账号格式为”平台英文 标识符/账号”（请注意模拟账户的账号名是以mock-开头），
-
-常用平台英文标识符如下:
-
-交易平台 | 平台标识符
---- | ---
-火币(现货) |	huobip
-火币(合约) |	huobif
-OKEX(现货) |	okex
-OKEX(合约) |	okef
-币安 |	binance
-币安(合约) |	binancef
-
-更多交易所标识符及信息介绍请参考 [交易所的详细介绍](#exchange-details)。
-
-以下图为例：
-
-![step5](https://1token.trade/docs/img/sdk_account_demo.png)
- 
-火币的平台标识符为huobip, 账号名为mock-demo，则account参数应为：huobip/mock-demo。
-
-<aside class="notice">account 样例中下单测试的交易对为 'huobip/btc.usdt' 和 'huobip/eth.usdt'，如使用其他交易所或交易对请注意修改。</aside>
-
-看到如下输出说明样例执行成功:
-
-![step6](https://1token.trade/docs/img/105.png)
 
 # 细节和底层
 
