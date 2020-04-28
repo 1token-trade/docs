@@ -58,26 +58,35 @@ body {
   height: 60px;
   left: 0;
   top: 0;
-  background: #131625;
+  background: #141414;
   box-shadow: 0 1px 0 0 #000;
   z-index: 100;
 
   .header-logo {
     display: block;
-    height: 45px;
+    height: 32px;
   }
 
   .nav-box {
-    position: relative;
     margin-left: 56px;
+    display: flex;
 
     .item {
       font-size: 16px;
       margin-left: 30px;
+      height: 60px;
+      line-height: 60px;
 
       a {
-        color: #fff;
+        color: #a1a1a1;
         text-decoration: none;
+      }
+
+      &.active {
+        border-bottom: 2px solid #ffab25;
+        a {
+          color: #ffab25;
+        }
       }
     }
   }
@@ -95,7 +104,6 @@ body {
   width: $nav-width;
   background-color: $nav-bg;
   font-size: 14px;
-  font-weight: bold;
 
   // language selector for mobile devices
   .lang-selector {
@@ -108,10 +116,9 @@ body {
 
   // This is the logo at the top of the ToC
   .logo {
-    display: none;
-    // display: block;
-    // max-width: 100%;
-    // margin-bottom: $logo-margin;
+    display: block;
+    max-width: 100%;
+    margin-bottom: $logo-margin;
   }
 
   & > .search {
@@ -128,13 +135,19 @@ body {
       outline: none;
       color: $nav-text;
       border-radius: 0; /* ios has a default border radius */
+      border: 1px solid #676565;
+      transition: all 300ms;
+      &:active,
+      &:focus {
+        border: 1px solid #ffab25;
+      }
     }
 
     &:before {
       position: absolute;
       top: 17px;
-      left: $nav-padding;
-      color: $nav-text;
+      left: 20px;
+      color: #969696;
       @extend %icon-search;
     }
   }
@@ -177,7 +190,7 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: 34px;
   }
 
   li {
@@ -189,7 +202,7 @@ body {
 
   // This is the currently selected ToC entry
   .toc-link.active {
-    background-color: $nav-active-bg;
+    background-color: #ffba25;
     color: $nav-active-text;
   }
 
@@ -208,6 +221,7 @@ body {
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
     font-size: 12px;
+    color: #afacac;
   }
 
   .toc-footer {
@@ -655,6 +669,10 @@ body {
 
 @media (max-width: $phone-width) {
   .dark-box {
+    display: none;
+  }
+
+  .fixed-header .nav-box {
     display: none;
   }
 

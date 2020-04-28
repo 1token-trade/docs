@@ -53,19 +53,18 @@ under the License.
     <div class="fixed-header">
       <%= image_tag "logo_header.png", class: 'header-logo' %>
       <div class="nav-box">
-        <span class="item">
-          <a href="https://1token.trade">1Token使用指南</a>
-        </span>
-        <span class="item">
-          <a href="https://1token.trade">历史数据</a>
-        </span>
-        <span class="item">
-          <a href="https://1token.trade/swagger">API浏览器</a>
-        </span>
+        <div class="item active">
+          <a href="https://1token-trade.github.io/docs/guide/">1Token使用指南</a>
+        </div>
+        <div class="item">
+          <a href="https://1token-trade.github.io/docs/hist-data/">历史数据</a>
+        </div>
+        <div class="item">
+          <a href="https://1token.trade/swagger" target="_blank">API浏览器</a>
+        </div>
       </div>
     </div>
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
