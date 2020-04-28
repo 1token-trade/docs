@@ -1,3 +1,11 @@
+set -e
+git checkout guide
+git pull
+git checkout hist-data
+git pull
+git checkout gh-pages
+git pull
+
 rm /tmp/docs-guide -rf
 rm /tmp/docs-hist-data -rf
 
@@ -18,3 +26,7 @@ rm hist-data guide -rf
 
 cp /tmp/docs-guide guide -R
 cp /tmp/docs-hist-data hist-data -R
+
+git add .
+git commit -a -m "deploy"
+git push
