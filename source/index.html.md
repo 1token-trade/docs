@@ -21,7 +21,7 @@ search: true
 <b>请求地址</b>：<code>https://hist-quote.1tokentrade.cn</code>
 
 <aside class="notice">
-可以先查看<a href='https://1token.trade/docs#/instruction/word-explanation' target="_blank">名词解释</a>和<a href='https://1token.trade/docs#/instruction/data-structure'>数据结构</a>两个小节了解字段含义。
+可以先查看<a href='https://1token-trade.github.io/docs/guide/#word-explanation' target="_blank">名词解释</a>和<a href='https://1token-trade.github.io/docs/guide/#data-structure'>数据结构</a>两个小节了解字段含义。
 </aside>
 
 <b>请求方式</b>
@@ -44,8 +44,8 @@ ot-quota-remaining | 剩余次数剩余次数
 <b>数据获取流程</b>
 
 * 通用规则
-  * 交易所信息可以参考：<a href='https://1token.trade/docs#/exchange-overview'>支持的交易所</a>；
-  * 交易对命名规则可以参考：<a href='https://1token.trade/docs#/instruction/naming-rules'>变量命名规则</a>；
+  * 交易所信息可以参考：<a href='https://1token-trade.github.io/docs/guide/#exchange-overview'>支持的交易所</a>；
+  * 交易对命名规则可以参考：<a href='https://1token-trade.github.io/docs/guide/#naming-rules'>变量命名规则</a>；
 * Tick(盘口+最新成交)数据
   * 从api 获取某一天的所有交易对的列表，比如<a href='https://hist-quote.1tokentrade.cn/ticks/contracts?date=2020-04-12'>2020年4月12日的所有交易对列表</a>；
   * 选好想要下载的交易对，比如okex/btc.usdt；
@@ -306,7 +306,7 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 
 对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：
 
-* https://1token.trade/docs#/api-refer/quote-websocket
+* <a href='https://1token-trade.github.io/docs/guide/#quote-websocket'>quote websocket</a>
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Basic API</a>
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Quote API</a>
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/trade.yml'>Swagger Trade API</a>
