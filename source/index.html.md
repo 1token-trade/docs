@@ -83,7 +83,7 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 ## 历史数据(tick)
 
-1Token提供历史行情的下载，具体教程请查看[历史数据](https://1token-trade.github.io/docs/hist-data)一节。
+1Token提供历史行情的下载，具体教程请查看[历史数据](https://1token-trade.github.io/docs/hist-quote)一节。
 
 # 模拟账号申请与交易
 
@@ -289,7 +289,7 @@ API的详细介绍请参考[行情 Swagger API](https://1token.trade/r/swagger?u
 
 ## 历史数据API
 
-你可以通过API去下载所有的历史tick行情[Hist Quote](https://1token-trade.github.io/docs/hist-data)。
+你可以通过API去下载所有的历史tick行情[Hist Quote](https://1token-trade.github.io/docs/hist-quote)。
 
 # REST基础信息（公共接口）
 
