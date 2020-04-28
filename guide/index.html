@@ -1,0 +1,2299 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>1Token使用指南</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen-6c29857b.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;json&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="fixed-header">
+      <img src="images/logo_header-25c985bb.png" class="header-logo" alt="Logo header" />
+      <div class="nav-box">
+        <span class="item">
+          <a href="https://1token.trade">1Token使用指南</a>
+        </span>
+        <span class="item">
+          <a href="https://1token.trade">历史数据</a>
+        </span>
+        <span class="item">
+          <a href="https://1token.trade/swagger">API浏览器</a>
+        </span>
+      </div>
+    </div>
+    <div class="toc-wrapper">
+      <img src="images/logo-7825b82c.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">json</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#1token" class="toc-h1 toc-link" data-title="1Token使用指南">1Token使用指南</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1token-2" class="toc-h2 toc-link" data-title="1Token可以做什么？">1Token可以做什么？</a>
+                  </li>
+                  <li>
+                    <a href="#152d3db758" class="toc-h2 toc-link" data-title="联系我们">联系我们</a>
+                  </li>
+                  <li>
+                    <a href="#a2489f0a8a" class="toc-h2 toc-link" data-title="初次使用">初次使用</a>
+                  </li>
+                  <li>
+                    <a href="#api" class="toc-h2 toc-link" data-title="API用户入门">API用户入门</a>
+                  </li>
+                  <li>
+                    <a href="#api-2" class="toc-h2 toc-link" data-title="API用户进阶">API用户进阶</a>
+                  </li>
+                  <li>
+                    <a href="#onetoken-sdk" class="toc-h2 toc-link" data-title="onetoken SDK">onetoken SDK</a>
+                  </li>
+                  <li>
+                    <a href="#tick" class="toc-h2 toc-link" data-title="历史数据(tick)">历史数据(tick)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#fbdfe24d0f" class="toc-h1 toc-link" data-title="模拟账号申请与交易">模拟账号申请与交易</a>
+          </li>
+          <li>
+            <a href="#api-3" class="toc-h1 toc-link" data-title="API交易入门指南">API交易入门指南</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-4" class="toc-h2 toc-link" data-title="使用API交易绑定账号">使用API交易绑定账号</a>
+                  </li>
+                  <li>
+                    <a href="#api-5" class="toc-h2 toc-link" data-title="使用API交易统一账号">使用API交易统一账号</a>
+                  </li>
+                  <li>
+                    <a href="#3cfd8ca558" class="toc-h2 toc-link" data-title="账号格式介绍">账号格式介绍</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api-6" class="toc-h1 toc-link" data-title="API交易详细文档">API交易详细文档</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#b122f813d5" class="toc-h2 toc-link" data-title="基本信息">基本信息</a>
+                  </li>
+                  <li>
+                    <a href="#api-7" class="toc-h2 toc-link" data-title="行情API">行情API</a>
+                  </li>
+                  <li>
+                    <a href="#api-8" class="toc-h2 toc-link" data-title="交易API">交易API</a>
+                  </li>
+                  <li>
+                    <a href="#api-9" class="toc-h2 toc-link" data-title="历史数据API">历史数据API</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rest" class="toc-h1 toc-link" data-title="REST基础信息（公共接口）">REST基础信息（公共接口）</a>
+          </li>
+          <li>
+            <a href="#websocket" class="toc-h1 toc-link" data-title="Websocket行情（公共接口）">Websocket行情（公共接口）</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#websocket-api" class="toc-h2 toc-link" data-title="Websocket API">Websocket API</a>
+                  </li>
+                  <li>
+                    <a href="#tick-2" class="toc-h2 toc-link" data-title="实时tick、逐笔交易数据接口">实时tick、逐笔交易数据接口</a>
+                  </li>
+                  <li>
+                    <a href="#candle" class="toc-h2 toc-link" data-title="实时candle数据接口">实时candle数据接口</a>
+                  </li>
+                  <li>
+                    <a href="#24" class="toc-h2 toc-link" data-title="24小时涨跌幅数据接口">24小时涨跌幅数据接口</a>
+                  </li>
+                  <li>
+                    <a href="#tick-tick-v3" class="toc-h2 toc-link" data-title="实时增量tick行情 （tick-v3）">实时增量tick行情 （tick-v3）</a>
+                  </li>
+                  <li>
+                    <a href="#89e976a59f" class="toc-h2 toc-link" data-title="限速以及其他限制">限速以及其他限制</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#6115959cbb" class="toc-h1 toc-link" data-title="私有接口">私有接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rest-2" class="toc-h2 toc-link" data-title="REST私有接口">REST私有接口</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-2" class="toc-h2 toc-link" data-title="Websocket账户信息订阅">Websocket账户信息订阅</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sdk" class="toc-h1 toc-link" data-title="SDK样例">SDK样例</a>
+          </li>
+          <li>
+            <a href="#ced107c323" class="toc-h1 toc-link" data-title="细节和底层">细节和底层</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#49469dfec8" class="toc-h2 toc-link" data-title="名词解释">名词解释</a>
+                  </li>
+                  <li>
+                    <a href="#3fbb9d182c" class="toc-h2 toc-link" data-title="变量命名规则">变量命名规则</a>
+                  </li>
+                  <li>
+                    <a href="#83fb598b89" class="toc-h2 toc-link" data-title="数据结构">数据结构</a>
+                  </li>
+                  <li>
+                    <a href="#e08c1d4f9a" class="toc-h2 toc-link" data-title="错误码">错误码</a>
+                  </li>
+                  <li>
+                    <a href="#05a620fcde" class="toc-h2 toc-link" data-title="订单状态流程">订单状态流程</a>
+                  </li>
+                  <li>
+                    <a href="#707a0a490e" class="toc-h2 toc-link" data-title="交易所支持范围">交易所支持范围</a>
+                  </li>
+                  <li>
+                    <a href="#b3f585e877" class="toc-h2 toc-link" data-title="交易所详细介绍">交易所详细介绍</a>
+                  </li>
+                  <li>
+                    <a href="#55a75abe22" class="toc-h2 toc-link" data-title="网络相关">网络相关</a>
+                  </li>
+                  <li>
+                    <a href="#e9ffb5b811" class="toc-h2 toc-link" data-title="缓存机制">缓存机制</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#9b0c6c7858" class="toc-h1 toc-link" data-title="更多">更多</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#7b7bd4a90d" class="toc-h2 toc-link" data-title="添加白名单">添加白名单</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='1token'>1Token使用指南</h1><h2 id='1token-2'>1Token可以做什么？</h2>
+<p>现在市面上有很多数字货币的交易所，一些交易者想要在多个交易所进行交易，因此需要自行管理多家交易所的账号，编写不同的程序去对接不同交易所的API————这对任何个人和机构来说都不算一件轻松愉快的事。</p>
+
+<p>1Token将不同交易所的API进行整理和封装，提供给用户一套统一的API。用户使用1Token提供的统一API，以及对应的<a href="#支持的交易所">交易所标识</a>就可在对应交易所进行交易。</p>
+
+<p>举例来说，Abo是一个数字货币的交易者，他想在huobi.pro和gate.io这两个交易所做跨交易所套利。</p>
+
+<ul>
+<li><p><strong>不使用1Token</strong>: Abo需要编写两个程序来分别实现与huobi.pro和gate.io两个交易所API的对接，或是在huobi.pro和gate.io的网站之间切换以进行交易。</p></li>
+<li><p><strong>使用1Token</strong>：Abo在1Token完成相应账户设置之后，只需使用1Token提供的SDK(或自己实现1Token API的对接），或是直接在1Token网站内即可完成huobi.pro和gate.io两个交易所的交易。</p></li>
+</ul>
+
+<p>Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系统，变为只需对接1Token一个系统（使用1Token SDK可以大大加速这一步），工作量由2变为1甚至更少。如果Abo想要在n个交易所进行交易，1Token可以将交易前的准备工作量由n变为1。</p>
+
+<p><strong>交易者涉及的交易所越多，1Token的优势越明显。</strong></p>
+
+<p>1Token将交易者从繁杂的多交易所账号管理和API对接之中解放出来，帮助交易者将更多的精力集中于交易本身。</p>
+<h2 id='152d3db758'>联系我们</h2>
+<p>若您对文档存在疑问，需要帮助请<a id='contact-us'>联系我们</a>（1Token微信客服：onetoken001）。</p>
+
+<p><img src="https://cdn.1tokentrade.cn/otimg-sh/web/common/qb-code.jpg" alt="客服001" /></p>
+<h2 id='a2489f0a8a'>初次使用</h2>
+<p>请先阅读使用<a href="#mock-account">模拟账号交易</a>。该小节对以下几点进行了说明：</p>
+
+<ol>
+<li><p>如何申请1Token模拟账号；</p></li>
+<li><p>如何给模拟账号添加资产；</p></li>
+<li><p>1Token交易界面主要元素介绍。</p></li>
+</ol>
+<h2 id='api'>API用户入门</h2>
+<p>通过API，用户可以拿到基本的信息，比如交易所列表，交易所的合约的信息等。其中，通过Websocket API（<a href="#quote-websocket">websocket API教程</a>）来订阅逐笔和tick；通过Rest API（<a href="#rest-api">Rest API教程</a>）来进行下单等交易操作。</p>
+
+<p>如果用户想要通过API连接1Token并完成相关操作, 请参考<a href="#api-user">API用户入门指南</a>。该小节讲述了以下内容：</p>
+
+<ol>
+<li><p>如何在1Token生成用于api操作的<code>ot-key</code>和<code>ot-secret</code></p></li>
+<li><p>Python示例代码</p></li>
+</ol>
+<h2 id='api-2'>API用户进阶</h2>
+<p>对于想自己直接对接API的用户，1Token提供有关API的详细swagger说明，用户可以按需查阅：</p>
+
+<ul>
+<li><a href="https://1token.trade/r/swagger?url=/r/swagger/quote.yml">Swagger Basic API</a></li>
+<li><a href="https://1token.trade/r/swagger?url=/r/swagger/quote.yml">Swagger Quote API</a></li>
+<li><a href="https://1token.trade/r/swagger?url=/r/swagger/trade.yml">Swagger Trade API</a></li>
+</ul>
+
+<p>在直接查阅详细API之前，推荐先阅读<a href="#rest-api">API Reference</a>这一小节，大致了解基本信息、行情API、交易加密方式、交易API、历史数据API，之后的API对接会更加容易上手。</p>
+<h2 id='onetoken-sdk'>onetoken SDK</h2>
+<p><strong>注意</strong>: 1Token提供的API是<strong>语言无关</strong>的，可以通过任何支持网络访问的编程语言来使用API。SDK在API上做了一层包装，使得用户可以更加轻松快速地入手，将注意力更多地放在交易本身，而不用过多关注API的细节， 我们用不同语言实现了强壮完善的SDK(目前支持<a href="https://github.com/1token-trade/onetoken/blob/master/readme.md">Python 3.6+</a>(推荐) ，<a href="https://github.com/1token-trade/onetoken-go-sdk">golang</a>，<a href="https://github.com/1token-trade/1token-ctp">c++</a>)，更多语言正在开发中。</p>
+
+<p>1.onetoken SDK的安装(Python 3.6+)；</p>
+
+<p><code>pip3 install onetoken -U</code></p>
+
+<p>2.通过运行样例来初步了解SDK中quote和account相关功能, 请参考<a href="#sdk">SDK样例</a>。</p>
+<h2 id='tick'>历史数据(tick)</h2>
+<p>1Token提供历史行情的下载，具体教程请查看<a href="https://1token-trade.github.io/docs/#8e47fdfb6e">历史数据</a>一节。</p>
+<h1 id='fbdfe24d0f'>模拟账号申请与交易</h1>
+<p><b><a id="mock-account">通过1Token网页来添加模拟账户进行模拟交易</a></b></p>
+
+<ul>
+<li><p>1Token模拟账户拥有与实盘账户完全相同的功能，可以在各交易所自由模拟交易;</p></li>
+<li><p>模拟账户介绍页面：<a href="https://1token.trade/help/account/360047348011">https://1token.trade/help/account/360047348011</a>。</p></li>
+</ul>
+
+<p><strong>第一步 登录账号后，添加新的模拟账户</strong></p>
+
+<p><img src="https://1token.trade/docs/img/201.png" alt="step1" /></p>
+
+<p><strong>第二步 设置模拟账户交易所和账户名</strong></p>
+
+<ul>
+<li>每个交易所可以设置多个模拟账户。</li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/202.png" alt="step2" /></p>
+
+<p><strong>第三步 模拟账户添加完成</strong></p>
+
+<ul>
+<li>每个添加的模拟账户都有初始资产，用户也可以通过选项来添加模拟资产。</li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/203.png" alt="step3" /></p>
+
+<p><strong>第四步 添加模拟资产</strong></p>
+
+<ul>
+<li>模拟账户可以任意添加模拟资产。</li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/204.png" alt="step4" /></p>
+
+<p><strong>第五步 进入币币交易界面进行交易</strong></p>
+
+<ul>
+<li>模拟交易请选择mock开头的模拟账户。</li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/008.png" alt="step5" /></p>
+<h1 id='api-3'>API交易入门指南</h1>
+<p><b><a id='通过API来进行交易'>通过API来进行交易</a></b></p>
+
+<p>1Token API可以操作所有的账号 包括绑定账号、统一账号和模拟账号。在下面这个入门教程中，我们会使用模拟账号来当例子，其他账号也可以通过API来获取账户信息和下单。</p>
+
+<p><strong>1. 在使用API交易前先注册1Token以及创建模拟交易账户并添加资产</strong></p>
+
+<ul>
+<li>添加模拟账户请参考在1Token<a href="#mock-account">添加模拟账户</a>。</li>
+</ul>
+
+<p><strong>2. 创建OT Key和OT Secret，请务必保管好新建的OT Key和OT Secret</strong></p>
+
+<ul>
+<li>创建OT Key的页面：<a href="https://1token.trade/account/apis">https://1token.trade/account/apis</a></li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/101.png" alt="step1" /></p>
+
+<p><b><a id='api-user'>3. Python示例代码</a></b></p>
+
+<ul>
+<li>API是语言无关的，用户可以通过偏好的语言使用，我们目前提供python 3.6+的demo供用户参考, 后续将会提供更多语言的demo。</li>
+</ul>
+
+<p><code>git clone https://github.com/1token-trade/onetoken</code></p>
+
+<ul>
+<li><p>public接口demo</p></li>
+<li><p>进入demo-python-sync目录，命令行中运行命令<code>python demo_public.py</code></p></li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/demo_public_0.png" alt="step2" /></p>
+
+<ul>
+<li>看到类似以下输出说明连接成功</li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/demo_public_1.png" alt="step3" /></p>
+
+<ul>
+<li><p>private接口demo</p></li>
+<li><p>进入demo-python-sync目录，命令行中运行命令<code>python demo_private.py</code></p></li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/demo_private_0.png" alt="step4" /></p>
+
+<ul>
+<li>成功运行后会看到以下输出：</li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/demo_private_1.png" alt="step5" /></p>
+
+<ul>
+<li><p>依次输入之前的操作中添加的 OT Key，OT Secret以及账号，账号格式为”平台英文标识符/账号”，不清楚账号格式的请参考<a href="#account-symbol">账号格式介绍</a>。</p></li>
+<li><p>输入正确的参数后会看到以下输出：</p></li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/demo_private_2.png" alt="step6" /></p>
+<h2 id='api-4'>使用API交易绑定账号</h2>
+<p><a id='website-user'><b>通过1Token网页来进行交易：</b></a></p>
+
+<p><strong>第一步 点击注册</strong></p>
+
+<p><img src="https://1token.trade/docs/img/001.png" alt="step1" /></p>
+
+<p><strong>第二步 填写信息 完成注册</strong></p>
+
+<p><img src="https://1token.trade/docs/img/002.png" alt="step2" /></p>
+
+<p><strong>第三步 登录交易所，点击API管理，创建API （以火币为例）</strong></p>
+
+<p><img src="https://1token.trade/docs/img/003.png" alt="step3" /></p>
+
+<p><img src="https://1token.trade/docs/img/004.png" alt="step3" /></p>
+
+<p><strong>第四步 设置API备注，创建API, 保存访问密钥和私密密钥</strong></p>
+
+<p><img src="https://1token.trade/docs/img/005.png" alt="step4" /></p>
+
+<p><strong>第五步 进入1Token用户中心，添加绑定账户</strong></p>
+
+<p><img src="https://1token.trade/docs/img/006_1.png" alt="step5" /></p>
+
+<p><strong>第六步 输入绑定交易所的密钥与私钥，添加API</strong></p>
+
+<p><img src="https://1token.trade/docs/img/006_2.png" alt="step6" /></p>
+<h2 id='api-5'>使用API交易统一账号</h2>
+<p><strong>通过1Token网页来添加统一账户进行交易</strong></p>
+
+<p>统一账户介绍页面：<a href="https://1token.trade/help/account/360019846492">https://1token.trade/help/account/360019846492</a></p>
+
+<p><strong>第一步 登录账号后，开通统一账户</strong></p>
+
+<p><img src="https://1token.trade/docs/img/301.png" alt="step1" /></p>
+
+<p><strong>第二步 选择账户充币</strong></p>
+
+<p><img src="https://1token.trade/docs/img/302.png" alt="step2" /></p>
+
+<p><strong>第三步 等待充值到账</strong></p>
+<h2 id='3cfd8ca558'>账号格式介绍</h2>
+<p><b><a id='account-symbol'>账号格式</a></b></p>
+
+<ul>
+<li><p>在私有API接口中通常需要用到account参数，该参数格式为”平台英文 标识符/账号”。</p></li>
+<li><p>例：火币的平台标识符为huobip, 账号名为mock-demo，则account参数应为：huobip/mock-demo。</p></li>
+<li><p>常用平台英文标识符如下:</p></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>交易平台</th>
+<th>平台标识符</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>火币</td>
+<td>huobip</td>
+</tr>
+<tr>
+<td>OKEX(现货)</td>
+<td>okex</td>
+</tr>
+<tr>
+<td>OKEX(合约)</td>
+<td>okef</td>
+</tr>
+<tr>
+<td>币安</td>
+<td>binance</td>
+</tr>
+<tr>
+<td>币安(合约)</td>
+<td>binancef</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><p>更多交易所标识符及信息介绍请参考<a href="#exchange-details">交易所的详细介绍</a></p></li>
+<li><p>查询自己的账户名称请参考下图：</p></li>
+</ul>
+
+<p><img src="https://1token.trade/docs/img/sdk_account_demo.png" alt="Sdk account demo" /></p>
+<h1 id='api-6'>API交易详细文档</h1>
+<p><b><a id="rest-api">RESTful API</a></b></p>
+
+<ul>
+<li>1Token所有的API(包括websocket和REST) 都是以<code>https://1token.trade/api/v1/</code>开头的请参考<a href="#网络相关">网络相关</a>；</li>
+<li>为了让用户更方便地调用API，1Token提供了Python SDK，用户可以通过<code>pip install onetoken -U</code>命令安装。</li>
+</ul>
+
+<p>对于想对接1Token API进行实盘交易的用户，以下是1Token API的详细swagger文档：</p>
+
+<ul>
+<li><a href="#quote-websocket">Quote Websocket</a></li>
+<li><a href="https://1token.trade/r/swagger?url=/r/swagger/quote.yml">Swagger Basic API</a></li>
+<li><a href="https://1token.trade/r/swagger?url=/r/swagger/quote.yml">Swagger Quote API</a></li>
+<li><a href="https://1token.trade/r/swagger?url=/r/swagger/trade.yml">Swagger Trade API</a></li>
+</ul>
+<h2 id='b122f813d5'>基本信息</h2>
+<ul>
+<li><p>基本信息的api可以拿到所有的交易所列表；</p></li>
+<li><p>以及一个交易所的所有的支持交易对（contract）的列表；</p></li>
+<li><p>和一些其他的基本公开信息。</p></li>
+</ul>
+
+<p>详细api请参考<a href="https://1token.trade/r/swagger?url=/r/swagger/quote.yml">基本信息API</a>。</p>
+<h2 id='api-7'>行情API</h2>
+<p>行情API支持rest的方式去获取最新的行情信息：</p>
+
+<ul>
+<li>各个交易所历史的candle；</li>
+<li>各个交易所中各个交易对历史逐笔；</li>
+<li>单个交易所当前的tick；</li>
+<li>单个交易所单个合约当前的tick。</li>
+</ul>
+
+<p>API的详细介绍请参考<a href="https://1token.trade/r/swagger?url=/r/swagger/quote.yml">行情 Swagger API</a>。</p>
+<h2 id='api-8'>交易API</h2>
+<p>通过交易API，您可以：</p>
+
+<ul>
+<li>获取到交易所某个账号的余额；</li>
+<li>获取到交易所某个账号的持仓信息；</li>
+<li>对某个交易所的某个合约进行下单；</li>
+<li>对已经下去的某个订单进行撤单；</li>
+<li>获取某个账号的充值地址；</li>
+<li>对某个账号进行提现。</li>
+</ul>
+
+<p>详情请参考<a href="https://1token.trade/r/swagger?url=/r/swagger/trade.yml">交易 Swagger API</a>。</p>
+<h2 id='api-9'>历史数据API</h2>
+<p>你可以通过API去下载所有的历史tick行情<a href="https://1token-trade.github.io/docs/#8e47fdfb6e">Hist Quote</a>。</p>
+<h1 id='rest'>REST基础信息（公共接口）</h1>
+<p>公共接口可用于获取配置信息和行情数据。公共请求无需认证即可调用。</p>
+
+<p><strong>常用公共接口</strong></p>
+
+<ul>
+<li><p><a href="https://1token.trade/swagger?url=/swagger/basic.yml#/Exchanges/get_exchanges">获取交易所列表</a></p>
+
+<ul>
+<li>返回1Token支持的所有交易所（exchange）</li>
+<li><a href="https://1token.trade/api/v1/basic/exchanges">https://1token.trade/api/v1/basic/exchanges</a></li>
+</ul></li>
+<li><p><a href="https://1token.trade/swagger?url=/swagger/basic.yml#/Contracts/get_contracts">获取交易所交易币对列表</a></p>
+
+<ul>
+<li>返回某个交易所（exchange）支持的交易对（contract）列表</li>
+<li>例如查询火币交易所(huobip)：<a href="https://1token.trade/api/v1/basic/contracts?exchange=huobip">https://1token.trade/api/v1/basic/contracts?exchange=huobip</a></li>
+<li>查询OKEX交易所合约交易(okef)：<a href="https://1token.trade/api/v1/basic/contracts?exchange=okef">https://1token.trade/api/v1/basic/contracts?exchange=okef</a></li>
+<li>交易对的信息包括：</li>
+</ul></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>min_change</td>
+<td>价格跳动的最小单位</td>
+<td>比如 eos.usdt min_change = 0.01 代表挂单买入eos.usdt的价格可以是 4.01/4.02/...</td>
+</tr>
+<tr>
+<td>min_amount</td>
+<td>下单数量的最小值</td>
+<td>比如 eos.usdt min_amount = 1 代表最少需要买入/卖出 1个eos</td>
+</tr>
+<tr>
+<td>unit_amount</td>
+<td>下单数量的最小变动单位</td>
+<td>比如 eos.usdt unit_amount = 0.1 代表可以买入/卖出 1.0/1.1/1.2/... 个 eos</td>
+</tr>
+<tr>
+<td>min_notional</td>
+<td>下单的最小资产 （ price * amount )</td>
+<td>比如 eos.usdt 的min_notional = 10 代表至少挂单的price* amount 需要&gt;=10 这个字段不是所有交易所都会有</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>交易对的唯一标示 ${exchange}/${currency}.${underlying}</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><p><a href="https://1token.trade/swagger?url=/swagger/quote.yml#/Tick/get_ticks">获取交易所最新tick</a></p>
+
+<ul>
+<li>REST接口返回的tick数据只有一档，需要多档数据请使用WebSocket接口；</li>
+<li>返回某个交易所（exchange）所有支持交易对的最新tick，例如查询火币交易所(huobip)：<a href="https://1token.trade/api/v1/quote/ticks?exchange=huobip">https://1token.trade/api/v1/quote/ticks?exchange=huobip</a>；</li>
+<li>返回某个交易所（exchange）单个支持交易对（contract）的最新tick，例如查询OKEX交易所（okex）btc.usdt交易对：<a href="https://1token.trade/api/v1/quote/single-tick/okex/btc.usdt">https://1token.trade/api/v1/quote/single-tick/okex/btc.usdt</a>。</li>
+</ul></li>
+<li><p><a href="https://1token.trade/swagger?url=/swagger/basic.yml#/Server_Time/get_time">获取服务器时间</a></p>
+
+<ul>
+<li>返回当前服务器时间：<a href="https://1token.trade/api/v1/basic/time">https://1token.trade/api/v1/basic/time</a>；</li>
+<li>获取服务器时间通常是为了统计延时或者进行测试，关于延时的更多信息请参考请参考<a href="#网络相关">网络相关</a>。</li>
+</ul></li>
+<li><p><a href="https://1token.trade/swagger?url=/swagger/basic.yml#/IP/get_ip_pool">获取服务器地址池</a></p>
+
+<ul>
+<li><a href="https://1token.trade/api/v1/basic/ip-pool">https://1token.trade/api/v1/basic/ip-pool</a></li>
+</ul></li>
+</ul>
+
+<p><strong>更多</strong></p>
+
+<ul>
+<li><p>详细api的参数列表 返回错误的指示请参考<a href="https://1token.trade/swagger?url=/swagger/basic.yml">基本信息Swagger文档</a>；</p></li>
+<li><p>若您对文档存在疑问，需要帮助请<a href="#contact-us">联系我们</a>。</p></li>
+</ul>
+<h1 id='websocket'>Websocket行情（公共接口）</h1><h2 id='websocket-api'>Websocket API</h2>
+<p><b><a id="quote-websocket">订阅方式</a></b></p>
+
+<ul>
+<li>可以订阅实时行情，推送包括实时candle，24小时涨跌幅数据，tick以及逐笔数据，以Json格式发送并接受请求。</li>
+</ul>
+
+<blockquote>
+<p>订阅实时行情格式</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"command"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>所有接口支持心跳方式检测服务器是否在线，心跳时长为30秒。若客户端超过30秒未发送心跳包，服务端会返回丢失心跳的通知，并主动断开该连接。</li>
+</ul>
+
+<blockquote>
+<p>获取心跳示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ping"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pong"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1526357597.237</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>同时支持UUID字段以标示不同连接(服务端返回相同UUID)。</li>
+</ul>
+
+<blockquote>
+<p>支持UUID字段以标示不同连接示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ping"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this-is-a-uuid"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pong"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this-is-a-uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1526357597.237</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>所有Websocket接口支持服务端发送gZip格式数据，是否使用gZip以各Websocket的地址参数为准。如<code>wss://1token.trade/api/v1/ws/tick?gzip=true</code>则表明使用gZip压缩传输数据。</li>
+</ul>
+
+<aside class="notice">除tick-v3行情Websocket接口，在用户没用指明是否使用gZip的情况下，其它接口均默认不使用gZip压缩数据传输。</aside>
+<h2 id='tick-2'>实时tick、逐笔交易数据接口</h2>
+<ul>
+<li><p>推送各交易所的tick、逐笔交易数据，每个web socket连接最多允许订阅 50个不同contract 的实时数据。</p></li>
+<li><p>地址：<code>wss://1token.trade/api/v1/ws/tick</code></p></li>
+<li><p>订阅之前首先需要发送auth进行认证。</p></li>
+</ul>
+
+<blockquote>
+<p>auth认证示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"auth"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//</span><span class="w"> </span><span class="err">Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Auth succeed."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>订阅tick数据, 如果需要请求多个tick， 可以在同一个websocket里面发送多个subscribe-single-tick-verbose的请求, 每个请求带着不同的contract。</li>
+</ul>
+
+<blockquote>
+<p>订阅tick示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">发送订阅请求</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe-single-tick-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">返回订阅成功一次</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe-single-tick-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//每当Tick更新时</span><span class="w"> </span><span class="err">返回</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"single-tick-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"asks"</span><span class="p">:</span><span class="w">
+         </span><span class="p">[</span><span class="w">
+             </span><span class="p">{</span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9218.5</span><span class="p">,</span><span class="w"> </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.7371</span><span class="p">},</span><span class="w">
+             </span><span class="err">...</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="s2">"bids"</span><span class="p">:</span><span class="w">
+         </span><span class="p">[</span><span class="w">
+             </span><span class="p">{</span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9218.4</span><span class="p">,</span><span class="w"> </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.81871728</span><span class="p">},</span><span class="w">
+             </span><span class="err">...</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="mf">9219.3</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">最新成交价</span><span class="w">
+         </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T16:16:41.630400+08:00"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="mi">1</span><span class="err">Token的系统时间</span><span class="w"> </span><span class="err">ISO</span><span class="w"> </span><span class="err">格式</span><span class="w"> </span><span class="err">带时区</span><span class="w">
+         </span><span class="s2">"exchange_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T16:16:41.450400+08:00"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">交易所给的时间</span><span class="w"> </span><span class="err">ISO</span><span class="w"> </span><span class="err">格式</span><span class="w"> </span><span class="err">带时区</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>订阅逐笔数据, 如果需要请求多个contract的逐笔数据， 可以在同一个websocket里面发送多个subscribe-single-zhubi-verbose的请求, 每个请求带着不同的contract。</li>
+</ul>
+
+<blockquote>
+<p>订阅逐笔示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe-single-zhubi-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">(订阅成功后返回一次)</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe-single-zhubi-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">(持续)</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"single-zhubi-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.21</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"exchange_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T08:14:20.307000+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9231.8</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T16:14:20.541068+08:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>逐笔与tick数据支持订阅后退订。</li>
+</ul>
+
+<blockquote>
+<p>退订示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribe-single-tick-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//或</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribe-single-zhubi-verbose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='candle'>实时candle数据接口</h2>
+<blockquote>
+<p>订阅candle示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe-single-candle"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe-single-candle"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-candle"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">16592.4</span><span class="p">,</span><span class="w"> </span><span class="err">//成交量</span><span class="w">
+    </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">9220.11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mi">9221</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">9220.07</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">9220.07</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="err">//成交额</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T07:30:00Z"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">时间戳</span><span class="w"> </span><span class="err">isoformat</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li><p>推送各个交易所的实时candle数据，每个websocket连接最多允许订阅50个<strong>不同时长</strong>合约的实时数据。</p></li>
+<li><p>地址: <a href="wss://1token.trade/api/v1/ws/candle">wss://1token.trade/api/v1/ws/candle</a>。</p></li>
+<li><p>支持不同时长：1m,5m,15m,30m,1h,2h,4h,6h,1d,1w。</p></li>
+<li><p>支持同一连接订阅多个合约。</p></li>
+</ul>
+<h2 id='24'>24小时涨跌幅数据接口</h2>
+<ul>
+<li>推送各个合约的当前价格以及24小时涨跌幅。</li>
+</ul>
+
+<blockquote>
+<p>订阅24小时涨跌幅数据示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"batch-subscribe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contracts"</span><span class="p">:[</span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"huobip/ht.usdt"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"batch-subscribe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"low-freq-quote"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"contract"</span><span class="p">:</span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w"> 
+            </span><span class="s2">"rise"</span><span class="p">:</span><span class="mf">3.345103</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">6152.32</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price_s"</span><span class="p">:</span><span class="s2">"6152.32"</span><span class="w">         </span><span class="err">//根据交易所的min_change</span><span class="w"> </span><span class="err">format的字符串</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"contract"</span><span class="p">:</span><span class="s2">"huobip/ht.usdt"</span><span class="p">,</span><span class="w"> 
+            </span><span class="s2">"rise"</span><span class="p">:</span><span class="mf">-0.539916</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">3.7027</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price_s"</span><span class="p">:</span><span class="s2">"3.7027"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li><p>地址: <a href="wss://1token.trade/api/v1/ws/low-freq-quote-v2">wss://1token.trade/api/v1/ws/low-freq-quote-v2</a>。</p></li>
+<li><p>支持同时订阅不同交易所的不同合约。</p></li>
+<li><p>其中，rise的单位为百分比，同时推送float64以及string类型的当前价格（price）。</p></li>
+<li><p>支持订阅后退订。</p></li>
+</ul>
+
+<blockquote>
+<p>退订24小时涨跌幅数据示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"batch-unsubscribe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contracts"</span><span class="p">:[</span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"huobip/ht.usdt"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"batch-unsubscribe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='tick-tick-v3'>实时增量tick行情 （tick-v3）</h2>
+<blockquote>
+<p>订阅实时增量tick示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"auth"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Auth succeed."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Client</span><span class="w"> </span><span class="err">request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"subscribe-single-tick-verbose"</span><span class="p">,</span><span class="s2">"contract"</span><span class="p">:</span><span class="s2">"huobip/btc.usdt"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response(snapshot)</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"tp"</span><span class="p">:</span><span class="s2">"s"</span><span class="p">,</span><span class="w">                      </span><span class="err">//type</span><span class="p">:</span><span class="w"> </span><span class="err">snapshot</span><span class="w">
+     </span><span class="s2">"ui"</span><span class="p">:</span><span class="mi">16222</span><span class="p">,</span><span class="w">                    </span><span class="err">//update_id</span><span class="p">:</span><span class="w"> </span><span class="mi">16222</span><span class="w">
+     </span><span class="s2">"tm"</span><span class="p">:</span><span class="mf">1527401596.654875</span><span class="p">,</span><span class="w">        </span><span class="err">//time</span><span class="w">
+     </span><span class="s2">"et"</span><span class="p">:</span><span class="mf">1527401596.511</span><span class="w">            </span><span class="err">//exchange_time</span><span class="w">
+     </span><span class="s2">"c"</span><span class="p">:</span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w">         </span><span class="err">//contract</span><span class="w">
+     </span><span class="s2">"l"</span><span class="p">:</span><span class="mf">7291.79</span><span class="p">,</span><span class="w">                   </span><span class="err">//last</span><span class="w">
+     </span><span class="s2">"b"</span><span class="p">:</span><span class="w">                           </span><span class="err">//bids</span><span class="w">
+     </span><span class="p">[</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7291.97</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w">                </span><span class="err">//</span><span class="p">[</span><span class="err">price</span><span class="p">,</span><span class="w"> </span><span class="err">volume</span><span class="p">]</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7232.65</span><span class="p">,</span><span class="mf">0.1155</span><span class="p">]</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="s2">"a"</span><span class="p">:</span><span class="w">                           </span><span class="err">//asks</span><span class="w">
+     </span><span class="p">[</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7292.51</span><span class="p">,</span><span class="mf">0.001</span><span class="p">],</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7455.15</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//Websocket</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="err">response(diff)</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tp"</span><span class="p">:</span><span class="s2">"d"</span><span class="p">,</span><span class="w">                       </span><span class="err">//type</span><span class="p">:</span><span class="w"> </span><span class="err">diff</span><span class="w">
+    </span><span class="s2">"ui"</span><span class="p">:</span><span class="mi">16223</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tm"</span><span class="p">:</span><span class="mf">1527401598.138354</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"et"</span><span class="p">:</span><span class="mf">1527401598.013</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"c"</span><span class="p">:</span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"l"</span><span class="p">:</span><span class="mf">7291.97</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"b"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7291.97</span><span class="p">,</span><span class="mf">0.8298</span><span class="p">],</span><span class="w">
+        </span><span class="err">...</span><span class="p">,</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7232.65</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"a"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7297.19</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="w">
+        </span><span class="err">...</span><span class="p">,</span><span class="w">
+        </span><span class="p">[</span><span class="mf">7455.15</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li><p>推送v3格式的tick行情，每隔30秒服务器会推送snapshot的全量行情，在此间隔内发送行情diff数据，客户端可以通过计算snapshot+diff得出当前行情。每个websocket连接最多允许订阅50个<strong>不同contract</strong>的实时数据。</p></li>
+<li><p>在diff类型的数据中，如bids或者asks中存在[x,y=0]的情况，则删除上个snapshot中bids或asks价格为x的行情，否则更新此价格行情的挂单数量为y。</p></li>
+<li><p>地址:<a href="wss://1token.trade/api/v1/ws/tick-v3">wss://1token.trade/api/v1/ws/tick-v3</a>。</p></li>
+<li><p>该接口默认采用gZip压缩数据发送至客户端，客户端首先需要发送auth进行认证。</p></li>
+<li><p>接口支持同时订阅不同交易所的不同合约。</p></li>
+</ul>
+<h2 id='89e976a59f'>限速以及其他限制</h2>
+<ul>
+<li><p>websocket目前单个IP连接限制是30个, 单个IP带宽限制是100KB每秒(800kbps). 其他的限制比如每秒最大连接次数目前1Token没有特别的限制, 请在合理范围内使用. 如果超过带宽限制之后 服务端会向客户端发送 <code>{&quot;uri&quot;:&quot;status&quot;, &quot;code&quot;: &quot;rate-limit-exceed&quot;}</code> 并断开链接。</p></li>
+<li><p>如果您需要商务上的合作,比如获取全量的实时行情, 或者一些定制化专线行情的需求, 请联系1Token客服,备注 <strong>企业版行情</strong>。</p></li>
+</ul>
+
+<p><img src="https://cdn.1tokentrade.cn/otimg-sh/web/common/qb-code.jpg" alt="客服001" />  </p>
+
+<p><img src="https://1token.trade/docs/img/qrcode002.png" alt="客服002" /></p>
+<h1 id='6115959cbb'>私有接口</h1><h2 id='rest-2'>REST私有接口</h2>
+<p>私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。</p>
+
+<p><strong>签名</strong></p>
+
+<p>以下代码为签名原理介绍，我们的样例代码中提供了完整的签名方法，您无需自己完成签名代码，<strong>请参考：</strong><a href="#api-user">Python示例代码</a>。</p>
+
+<p><strong>OT-API/KEY 加密方式</strong></p>
+
+<p>用API来交易时需要在请求的<code>HTTP header</code>中加入以下内容以完成<strong>身份验证</strong>：</p>
+
+<table><thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Api-Nonce</code></td>
+<td>一个在0到2^53大小范围内增加的值</td>
+</tr>
+<tr>
+<td><code>Api-Key</code></td>
+<td>在1token生成的<code>OT-KEY</code>（若没有，请参考<a href="#通过API来进行交易">生成OT_KEY</a>）</td>
+</tr>
+<tr>
+<td><code>Api-Signature</code></td>
+<td>本次请求的签名，计算方法为<code>hex(HMAC_SHA256(ot_secret, verb + path + nonce + data))</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Api-Signature 签名例子</strong></p>
+
+<ul>
+<li><p><code>data</code> 应与本次请求发送到服务器的<code>raw body</code>相同, 在POST请求中是一个json字符串, 比如 <code>{&quot;contract&quot;: &quot;huobip/btc.usdt&quot;, &quot;price&quot;: 1, &quot;bs&quot;: &quot;b&quot;, &quot;amount&quot;: 0.6}</code>, 在 GET请求中是一个空字符串；</p></li>
+<li><p><code>verb</code> GET/POST/DELETE 需要大写；</p></li>
+<li><p><code>path</code> 比如完整的请求路径是 <a href="https://1token.trade/api/v1/trade/okex/demo-account/orders?state=end">https://1token.trade/api/v1/trade/okex/demo-account/orders?state=end</a> 那么签名的path是 <code>/okex/demo-account/orders</code>。</p></li>
+</ul>
+
+<blockquote>
+<p>Python代码示例</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c"># 填入你的ot_key</span>
+<span class="n">ot_key</span> <span class="o">=</span> <span class="s">''</span>
+<span class="c"># 填入你的ot_secret</span>
+<span class="n">ot_secret</span> <span class="o">=</span> <span class="s">''</span>
+
+<span class="k">def</span> <span class="nf">gen_nonce</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">gen_headers</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'Api-Nonce'</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
+        <span class="s">'Api-Key'</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+        <span class="s">'Api-Signature'</span><span class="p">:</span> <span class="n">sig</span><span class="p">,</span>
+        <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">headers</span>
+
+
+<span class="k">def</span> <span class="nf">gen_sign</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">verb</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">data_str</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+        <span class="c"># server并不要求data_str按key排序，只需此处用来签名的data_str和所发送请求中的data相同即可，是否排序请按实际情况选择</span>
+        <span class="n">data_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">parsed_url</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">parsed_path</span> <span class="o">=</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">path</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="n">verb</span> <span class="o">+</span> <span class="n">parsed_path</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nonce</span><span class="p">)</span> <span class="o">+</span> <span class="n">data_str</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="s">'utf8'</span><span class="p">),</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="s">'utf8'</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'nonce:'</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'parsed_path:'</span><span class="p">,</span> <span class="n">parsed_path</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'data_str:'</span><span class="p">,</span> <span class="n">data_str</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'message:'</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">signature</span>
+
+
+<span class="k">def</span> <span class="nf">place_order</span><span class="p">():</span>
+    <span class="n">verb</span> <span class="o">=</span> <span class="s">'POST'</span>
+
+    <span class="c"># 下单的api前缀如下，具体请查看1token API文档</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://1token.trade/api/v1/trade'</span>
+
+    <span class="c"># path的具体构成方法请查看1token API文档</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s">'/huobip/zannb/orders'</span>
+
+    <span class="n">nonce</span> <span class="o">=</span> <span class="n">gen_nonce</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"contract"</span><span class="p">:</span> <span class="s">"huobip/btc.usdt"</span><span class="p">,</span> <span class="s">"price"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"bs"</span><span class="p">:</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"amount"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">}</span>
+    <span class="n">sig</span> <span class="o">=</span> <span class="n">gen_sign</span><span class="p">(</span><span class="n">ot_secret</span><span class="p">,</span> <span class="n">verb</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">gen_headers</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">ot_key</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+    <span class="c"># server并不要求请求中的data按key排序，只需所发送请求中的data与用来签名的data_str和相同即可，是否排序请按实际情况选择</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">path</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">get_info</span><span class="p">():</span>
+    <span class="n">verb</span> <span class="o">=</span> <span class="s">'GET'</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://1token.trade/api/v1/trade'</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s">'/huobip/zannb/info'</span>
+    <span class="n">nonce</span> <span class="o">=</span> <span class="n">gen_nonce</span><span class="p">()</span>
+    <span class="n">sig</span> <span class="o">=</span> <span class="n">gen_sign</span><span class="p">(</span><span class="n">ot_secret</span><span class="p">,</span> <span class="n">verb</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">gen_headers</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">ot_key</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">path</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">place_order</span><span class="p">()</span>
+    <span class="n">get_info</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre>
+<p><strong>常用私有接口</strong></p>
+
+<ul>
+<li><a href="https://1token.trade/swagger?url=/swagger/trade.yml#/Account/get__exchange___account__info">获取账户信息</a></li>
+<li><a href="https://1token.trade/swagger?url=/swagger/trade.yml#/Order/post__exchange___account__orders">创建订单</a></li>
+<li><a href="https://1token.trade/swagger?url=/swagger/trade.yml#/Order/delete__exchange___account__orders">取消订单</a></li>
+<li><a href="https://1token.trade/swagger?url=/swagger/trade.yml#/Order/get__exchange___account__trans">获取最近成交记录</a></li>
+</ul>
+
+<p><strong>遇到了问题？</strong></p>
+
+<ul>
+<li><p>如果本次请求包含<code>body</code>，请确保将<code>Content-Type</code>设置为<code>application/json</code>。</p></li>
+<li><p>更多详细接口内容请参考<a href="#rest-api">深入了解API</a>。</p></li>
+<li><p>若您对文档存在疑问，需要帮助请<a href="#contact-us">联系我们</a>。</p></li>
+</ul>
+<h2 id='websocket-2'>Websocket账户信息订阅</h2>
+<p><strong>签名</strong></p>
+
+<ul>
+<li><p>支持API账户的账户信息和订单状态推送，每一个账户一个websocket连接。</p></li>
+<li><p>地址: <code>wss://1token.trade/api/v1/ws/trade/{account_symbol}</code> 例如: <code>wss://1token.trade/api/v1/ws/trade/okex/1token-demo</code></p></li>
+<li><p><strong>签名验证</strong> 打开websocket连接时需要通过HTTP headers做验证:</p></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Api-Nonce</code></td>
+<td>一个递增的数字，0到2^53</td>
+</tr>
+<tr>
+<td><code>Api-Key</code></td>
+<td>你的 1Token OT-key</td>
+</tr>
+<tr>
+<td><code>Api-Signature</code></td>
+<td>请求签名，计算方法<code>hex(HMAC_SHA256(ot_secret, verb + path + nonce + data))</code>，这里的path为/ws/{account_name}，例如/ws/1token-demo，1token-demo是account symbol中的账户名部分。 需要注意的是, 这里签名的部分由于历史原因是 <strong>/ws/1token-demo 而不是 /ws/okex/1token-demo</strong></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>打开连接后会收到验证成功或失败的反馈</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//header</span><span class="w"> </span><span class="err">里面没有包含</span><span class="w"> </span><span class="err">api-key</span><span class="w"> </span><span class="err">api-signature</span><span class="w"> </span><span class="err">三秒后断开</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait-for-jwt"</span><span class="p">}</span><span class="w">
+</span><span class="err">//签名验证失败</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth"</span><span class="p">,</span><span class="w"> </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w"> </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">ot-error</span><span class="p">}}</span><span class="w">
+</span><span class="err">//连接成功</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status"</span><span class="p">,</span><span class="w"> </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="p">,</span><span class="w"> </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account: ****"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>订阅账户资产信息更新 sub-info</strong></p>
+
+<ul>
+<li>支持同一连接订阅多个频道。</li>
+</ul>
+
+<blockquote>
+<p>订阅账户信息示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//request</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"sub-info"</span><span class="p">}</span><span class="w">
+</span><span class="err">//response</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub-info"</span><span class="p">,</span><span class="w"> </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">}</span><span class="w">
+</span><span class="err">//推送信息格式</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info"</span><span class="p">,</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w"> </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">acc-info</span><span class="p">}}</span><span class="w">
+</span></code></pre>
+<ul>
+<li><p>每当交易所推动账户信息变动时，1token后台会同时向客户端推送一个账户信息的快照，其结构与account info接口数据一致。如果交易所ws推送不稳定客户端会受到status为failed的错误信息。 <code>{&quot;status&quot;: &quot;fail&quot;, &quot;uri&quot;: &quot;order&quot;}</code></p></li>
+<li><p>目前支持账户信息推送的交易所：binance、binancef、bitmex、okex、okef、okswap、huobip、huobif。</p></li>
+</ul>
+
+<p><strong>订阅账户订单更新 sub-order</strong></p>
+
+<blockquote>
+<p>订阅订单变化示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//request</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"sub-order"</span><span class="p">}</span><span class="w">
+</span><span class="err">//response</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub-order"</span><span class="p">,</span><span class="w"> </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">}</span><span class="w">
+</span><span class="err">//推送信息格式</span><span class="w">
+</span><span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="w"> </span><span class="err">(or</span><span class="w"> </span><span class="s2">"update"</span><span class="err">)</span><span class="p">,</span><span class="w"> </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">order</span><span class="p">]}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>当用户首次订阅订单信息时，将会收到一份当前挂单列表，之后每当交易所推送订单相关信息时，1token会将发生变化的订单推送到客户端，数据结构与Restful API的get order接口返回一致。</li>
+</ul>
+
+<blockquote>
+<p>发生变化的订单返回示例</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huobip/ot-user1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"exchange_oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huobip/btc.usdt-123445566"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entrust_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">7045.5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entrust_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"entrust_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-20T13:55:33.421000+08:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"average_dealt_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dealt_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_dealt_amount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closed_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"exchange_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commission"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"client_oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-client-oid"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-20T13:56:10.066477+08:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ots_closed_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canceled_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<ul>
+<li>目前支持订单信息推送的交易所：huobip、huobif、binance、bitmex、okex、okef、bitfinex、coinbase。</li>
+</ul>
+<h1 id='sdk'>SDK样例</h1>
+<p><b><a id='sdk'>1. 安装onetoken SDK</a></b></p>
+
+<p>我们目前推荐使用提供python 3.6+的SDK, 不过API是语言无关的, 其他语言也可以使用。安装python的SDK，可以使用如下指令：</p>
+
+<p><code>pip3 install onetoken -U</code></p>
+
+<p><b>2. 执行 quote 样例</b></p>
+
+<p><code>git clone https://github.com/1token-trade/onetoken</code></p>
+
+<p>进入 onetoken 目录，命令行中运行命令 <code>python demo-python-async/quote.py</code></p>
+
+<p><img src="https://1token.trade/docs/img/102.png" alt="step2" /></p>
+
+<p>看到类似以下输出说明 quote 连接成功 </p>
+
+<p><img src="https://1token.trade/docs/img/103.png" alt="step3" /></p>
+
+<p><b>3. 执行 account 样例</b></p>
+
+<p>进入 onetoken/demo-python-async 目录，命令行中运行命令 <code>python demo-python-async/account.py</code></p>
+
+<p><img src="https://1token.trade/docs/img/104.png" alt="step4" /></p>
+
+<p>依次输入步骤 1 添加的 OT Key 和 OT Secret以及步骤 2 添加的账号，账号格式为”平台英文 标识符/账号”（请注意模拟账户的账号名是以mock-开头），</p>
+
+<p>常用平台英文标识符如下:</p>
+
+<table><thead>
+<tr>
+<th>交易平台</th>
+<th>平台标识符</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>火币(现货)</td>
+<td>huobip</td>
+</tr>
+<tr>
+<td>火币(合约)</td>
+<td>huobif</td>
+</tr>
+<tr>
+<td>OKEX(现货)</td>
+<td>okex</td>
+</tr>
+<tr>
+<td>OKEX(合约)</td>
+<td>okef</td>
+</tr>
+<tr>
+<td>币安</td>
+<td>binance</td>
+</tr>
+<tr>
+<td>币安(合约)</td>
+<td>binancef</td>
+</tr>
+</tbody></table>
+
+<p>更多交易所标识符及信息介绍请参考 <a href="#exchange-details">交易所的详细介绍</a>。</p>
+
+<p>以下图为例：</p>
+
+<p><img src="https://1token.trade/docs/img/sdk_account_demo.png" alt="step5" /></p>
+
+<p>火币的平台标识符为huobip, 账号名为mock-demo，则account参数应为：huobip/mock-demo。</p>
+
+<aside class="notice">account 样例中下单测试的交易对为 'huobip/btc.usdt' 和 'huobip/eth.usdt'，如使用其他交易所或交易对请注意修改。</aside>
+
+<p>看到如下输出说明样例执行成功:</p>
+
+<p><img src="https://1token.trade/docs/img/105.png" alt="step6" /></p>
+<h1 id='ced107c323'>细节和底层</h1><h2 id='49469dfec8'>名词解释</h2>
+<p><b><a id='word-explanation'>名词解释</a></b></p>
+
+<p>为了让之后文档的描述更加准确和清晰，对下列名词进行解释。具体数据结构请查看<a href="#data-structure">数据结构</a>一节。</p>
+
+<p><strong>Zhubi</strong></p>
+
+<ul>
+<li><p>针对一条成交记录；</p></li>
+<li><p>逐笔(zhubi)成交记录，主要包含了该次交易的合约、成交时间、价格、成交量、方向（买或是卖）；</p></li>
+</ul>
+
+<p><strong>Tick</strong></p>
+
+<ul>
+<li><p>Tick是针对一个标的某个时间点的快照；</p></li>
+<li><p>一个Tick会包含这个时间点的订单簿(orderbook)的买卖单（bids,asks)；</p></li>
+<li><p>最新成交价（last）: 根据该合约最近时刻的逐笔得出。</p></li>
+</ul>
+<h2 id='3fbb9d182c'>变量命名规则</h2>
+<p><a id='naming-rules'><b>命名规则</b></a></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>规则</th>
+<th>示例</th>
+<th>详细解释</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account</td>
+<td>{exchange}/{user_name}</td>
+<td>okex/demo</td>
+<td></td>
+</tr>
+<tr>
+<td>contract</td>
+<td>{exchange}/{base}.{quote}(.{delivery})</td>
+<td>okex/btc.usdt或okef/btc.usd.n</td>
+<td>普通币币交易和杠杆交易两个币种用点（.）分隔，用quote货币计价来买卖base货币。合约交易在两个币种之后还要添加<a href="#期货交易代码">交割时间标识</a>。</td>
+</tr>
+<tr>
+<td>client_oid</td>
+<td>{contract}-{string}</td>
+<td>okex/btc.usdt-1234abcdABCD</td>
+<td>由用户指定，用于追踪订单信息。{string}是由 &quot;A-Za-z0-9&quot; 组成，最长28位最短12位的字符串。对于client_oid的支持与否各交易所有所不同，请参考交易所的<a href="#exchange-details">详细介绍</a>，特殊格式要求的交易所: Gate的{string}为最长16位最短12位 。</td>
+</tr>
+<tr>
+<td>exchange_oid</td>
+<td>{contract}-{string}</td>
+<td>okex/btc.usd-123或okef/btc.usd.n-123</td>
+<td>由交易所生成，用于追踪订单信息。</td>
+</tr>
+<tr>
+<td>exchange_tid</td>
+<td>{contract}-{string}</td>
+<td>quoinex/btc.jpy-12345</td>
+<td>由交易所生成，用于追踪历史成交信息。</td>
+</tr>
+</tbody></table>
+
+<p><strong>币币交易代码</strong></p>
+
+<p>币币交易代码由3部分组成，<code>{exchange}/{underlying}.{quote_currency}</code> </p>
+
+<blockquote>
+<p>sample</p>
+</blockquote>
+<pre class="highlight plaintext"><code>binance/btc.usdt 表示币安交易所的usdt计价的btc交易
+okex/eth.btc  表示okex交易所btc计价的eth交易
+</code></pre>
+<p><a id='期货交易代码'><b>期货交易代码</b></a></p>
+
+<p>期货交易代码由4部分组成，<code>{exchange}/{underlying}.{quote_currency}.{delivery}</code>，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。</p>
+
+<table><thead>
+<tr>
+<th>交易代码</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>okef/btc.usd.i</td>
+<td>表示ok交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask</td>
+</tr>
+<tr>
+<td>okef/btc.usd.t</td>
+<td>表示ok交易所BTC当周合约 t是this week的缩写</td>
+</tr>
+<tr>
+<td>okef/btc.usd.n</td>
+<td>表示ok交易所BTC次周合约 n是next week的缩写</td>
+</tr>
+<tr>
+<td>okef/btc.usd.q</td>
+<td>表示ok交易所BTC当季合约 q是quarter的缩写</td>
+</tr>
+<tr>
+<td>okef/btc.usd.b</td>
+<td>表示ok交易所BTC次季合约 b是biquarter的缩写</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.i</td>
+<td>表示huobi交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.t</td>
+<td>表示huobi交易所BTC当周合约 t是this week的缩写</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.n</td>
+<td>表示huobi交易所BTC次周合约 n是next week的缩写</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.q</td>
+<td>表示huobi交易所BTC当季合约 q是quarter的缩写</td>
+</tr>
+<tr>
+<td>okswap/btc.usd.td</td>
+<td>表示OKEx 交易所BTC的永续合约</td>
+</tr>
+<tr>
+<td>bitmex/eth.btc.2018-06-29</td>
+<td>表示bitmex交易所2018年6月29日到期的eth.btc合约</td>
+</tr>
+<tr>
+<td>bitmex/btc.usd.td</td>
+<td>表示bitmex交易所btc.usd的掉期合约(永续合约)</td>
+</tr>
+<tr>
+<td>btimex/btc.usd</td>
+<td>表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask</td>
+</tr>
+<tr>
+<td>binancef/btc.usdt.td</td>
+<td>表示币安交易所btc.usdt的永续合约</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> 
+1. okef 里面的 f 是future的缩写.
+2. okef的合约是连续的，当周交割后次周自动变为当周，因此不同时刻当周、次周、当季合约对应的到期日不是固定的。
+</aside>
+
+<p><strong>部分标的代码变更</strong></p>
+
+<p>为了让标的更加方便区分，我们对部分标的的代码做了调整，在调整过程中会陆续更新：</p>
+
+<ul>
+<li><p>bchsv =&gt; bsv</p></li>
+<li><p>bchabc =&gt; bch</p></li>
+<li><p>gxs =&gt; gxc</p></li>
+<li><p>miota =&gt; iota</p></li>
+</ul>
+<h2 id='83fb598b89'>数据结构</h2>
+<p><b><a id='data-structure'>交易相关的数据结构</a></b></p>
+
+<p><strong>行情信息</strong></p>
+
+<ul>
+<li>Tick</li>
+</ul>
+
+<blockquote>
+<p>Tick</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+     </span><span class="s2">"asks"</span><span class="p">:</span><span class="w">
+     </span><span class="p">[</span><span class="w">
+         </span><span class="p">{</span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9218.5</span><span class="p">,</span><span class="w"> </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.7371</span><span class="p">},</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="s2">"bids"</span><span class="p">:</span><span class="w">
+     </span><span class="p">[</span><span class="w">
+         </span><span class="p">{</span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9218.4</span><span class="p">,</span><span class="w"> </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.81871728</span><span class="p">},</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="mf">9219.3</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">最新成交价</span><span class="w">
+     </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T16:16:41.630400+08:00"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="mi">1</span><span class="err">Token的系统时间</span><span class="w"> </span><span class="err">ISO</span><span class="w"> </span><span class="err">格式</span><span class="w"> </span><span class="err">带时区</span><span class="w">
+     </span><span class="s2">"exchange_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T16:16:41.450400+08:00"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">交易所给的时间</span><span class="w"> </span><span class="err">ISO</span><span class="w"> </span><span class="err">格式</span><span class="w"> </span><span class="err">带时区</span><span class="w">
+     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">16592.4</span><span class="p">,</span><span class="w">  </span><span class="err">//上一个snapshot到这一个snapshot中间的成交额</span><span class="w"> </span><span class="err">(CNY)</span><span class="w">
+     </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">上一个snapshot到这一个snapshot中间的成交量</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>逐笔(Zhubi)</li>
+</ul>
+
+<blockquote>
+<p>逐笔(Zhubi)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+     </span><span class="p">[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9218.5</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.371</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">成交量(按币对，</span><span class="w"> </span><span class="err">比如这里是BTC的数量），</span><span class="w"> </span><span class="err">这个地方暂时是amount</span><span class="w"> </span><span class="err">之后会改成volume</span><span class="w"> </span><span class="err">和tick统一起来</span><span class="w">
+             </span><span class="s2">"bs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T16:16:41.630400+08:00"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="mi">1</span><span class="err">Token的系统时间</span><span class="w"> </span><span class="err">ISO</span><span class="w"> </span><span class="err">格式</span><span class="w"> </span><span class="err">带时区</span><span class="w">
+             </span><span class="s2">"exchange_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-03T16:16:41.450400+08:00"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">交易所给的时间</span><span class="w"> </span><span class="err">ISO</span><span class="w"> </span><span class="err">格式</span><span class="w"> </span><span class="err">带时区</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="err">...</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<ul>
+<li>逐笔 V3 (Zhubi.v3)</li>
+</ul>
+
+<blockquote>
+<p>逐笔 V3 (Zhubi.v3)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="mf">9218.5</span><span class="p">,</span><span class="w">                          </span><span class="err">//</span><span class="w"> </span><span class="err">price</span><span class="w">
+         </span><span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.371</span><span class="p">,</span><span class="w">                           </span><span class="err">//</span><span class="w"> </span><span class="err">成交量(按币对，</span><span class="w"> </span><span class="err">比如这里是BTC的数量)</span><span class="w">
+         </span><span class="s2">"v"</span><span class="p">:</span><span class="w"> </span><span class="mf">21203.24</span><span class="p">,</span><span class="w">                        </span><span class="err">//</span><span class="w"> </span><span class="err">成交额（按CNY</span><span class="w"> </span><span class="err">计价）</span><span class="w">
+         </span><span class="s2">"bs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w">                            </span><span class="err">//</span><span class="w"> </span><span class="err">b</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">buy</span><span class="p">,</span><span class="w"> </span><span class="err">s</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">sell</span><span class="w">
+         </span><span class="s2">"c"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitfinex/btc.usd"</span><span class="p">,</span><span class="w">              </span><span class="err">//</span><span class="w"> </span><span class="err">contract</span><span class="w">
+         </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mf">1528435679.272815</span><span class="p">,</span><span class="w">               </span><span class="err">//</span><span class="w"> </span><span class="mi">1</span><span class="err">Token</span><span class="w"> </span><span class="err">系统时间</span><span class="w"> </span><span class="err">(单位为秒</span><span class="w"> </span><span class="err">精确到微秒)</span><span class="w">
+         </span><span class="s2">"et"</span><span class="p">:</span><span class="w"> </span><span class="mf">1528435679.297</span><span class="p">,</span><span class="w">                 </span><span class="err">//</span><span class="w"> </span><span class="err">exchange</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">（单位为秒</span><span class="w"> </span><span class="err">精确到秒/毫秒/微妙</span><span class="w"> </span><span class="err">分交易所）</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>账户信息</strong></p>
+
+<ul>
+<li>OneToken支持3种不同的账户类型：现货账户，杠杆交易账户，期货账户</li>
+</ul>
+
+<blockquote>
+<p>现货账户</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">4362.166242423991</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">总资产</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">现金</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">虚拟货币市值</span><span class="w">
+  </span><span class="s2">"cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">                                  </span><span class="err">#</span><span class="w"> </span><span class="err">现金（根据人民币汇率计算）</span><span class="w">
+  </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">4362.166242423991</span><span class="p">,</span><span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="err">货币市值</span><span class="w">
+  </span><span class="s2">"market_value_detail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">每个币种的市值</span><span class="w">
+    </span><span class="s2">"btc"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usdt"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"eth"</span><span class="p">:</span><span class="w"> </span><span class="mf">4362.166242423991</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">                                </span><span class="err">#</span><span class="w"> </span><span class="err">货币持仓，默认包含btc，usdt或法币</span><span class="w">
+      </span><span class="s2">"total_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">总数</span><span class="w">
+      </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">                        </span><span class="err">#</span><span class="w"> </span><span class="err">币种</span><span class="w">
+      </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">4362.166242423991</span><span class="p">,</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="err">市值</span><span class="w">
+      </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97</span><span class="p">,</span><span class="w">                        </span><span class="err">#</span><span class="w"> </span><span class="err">可用数量</span><span class="w">
+      </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03</span><span class="p">,</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">冻结数量</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot"</span><span class="w">                            </span><span class="err">#</span><span class="w"> </span><span class="err">类型，spot表示现货持仓</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"total_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value_cny"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"total_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>杠杆交易账户</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">589943.9724</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">总资产</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">现金</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">虚拟货币市值</span><span class="w">
+    </span><span class="s2">"cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">6198.5392</span><span class="p">,</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">现金（根据人民币汇率计算）</span><span class="w">
+    </span><span class="s2">"market_value: 583745.4332,             # 货币市值
+    "</span><span class="err">market_value_detail</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">市值详细情况</span><span class="w">
+        </span><span class="err">eos</span><span class="p">:</span><span class="w"> </span><span class="mf">583745.4332</span><span class="p">,</span><span class="w">
+        </span><span class="err">usdt</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eos.usdt"</span><span class="p">,</span><span class="w">         </span><span class="err">#</span><span class="w"> </span><span class="s2">"&lt;coin&gt;.&lt;base&gt;"</span><span class="w">
+            </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">583745.4332</span><span class="p">,</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="err">市值</span><span class="w">
+            </span><span class="s2">"amount_coin"</span><span class="p">:</span><span class="w"> </span><span class="mf">20071.4762</span><span class="p">,</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="err">总数</span><span class="w">
+            </span><span class="s2">"available_coin"</span><span class="p">:</span><span class="w"> </span><span class="mf">18971.4762</span><span class="p">,</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="err">可用数量</span><span class="w">
+            </span><span class="s2">"frozen_coin"</span><span class="p">:</span><span class="w"> </span><span class="mf">1100.0</span><span class="p">,</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="err">冻结数量</span><span class="w">
+            </span><span class="s2">"pl_coin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">pl_coin</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">profit</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">lose</span><span class="w"> </span><span class="err">(or</span><span class="w"> </span><span class="err">interest)</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">coins</span><span class="w">
+            </span><span class="s2">"loan_coin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">loan</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">coins</span><span class="w">
+            </span><span class="s2">"market_value_detail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"eos"</span><span class="p">:</span><span class="w"> </span><span class="mf">583745.4332</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"usdt"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"value_cny"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">CNY</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">contract</span><span class="w"> </span><span class="err">(if</span><span class="w"> </span><span class="err">available)</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"margin"</span><span class="p">,</span><span class="w">               </span><span class="err">#</span><span class="w"> </span><span class="err">position</span><span class="w"> </span><span class="err">type</span><span class="w">
+            </span><span class="s2">"mv_coin"</span><span class="p">:</span><span class="w"> </span><span class="mf">583745.4332</span><span class="p">,</span><span class="w">         </span><span class="err">#</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">coins</span><span class="w">
+            </span><span class="s2">"amount_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">979.0929</span><span class="p">,</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">amount</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">currency</span><span class="w">
+            </span><span class="s2">"mv_base"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">currency</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">USDT</span><span class="w">
+            </span><span class="s2">"available_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">7029.3753</span><span class="p">,</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="err">amount</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">currency</span><span class="w">
+            </span><span class="s2">"frozen_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">4511.19</span><span class="p">,</span><span class="w">         </span><span class="err">#</span><span class="w"> </span><span class="err">frozen</span><span class="w"> </span><span class="err">amount</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">currency</span><span class="w">
+            </span><span class="s2">"pl_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">-73.4164</span><span class="p">,</span><span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="err">pl_base</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">profit</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">lose</span><span class="w"> </span><span class="err">(or</span><span class="w"> </span><span class="err">interest)</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">currency</span><span class="w">
+            </span><span class="s2">"loan_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">-10448.056</span><span class="p">,</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="err">loan</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">currency</span><span class="w">
+            </span><span class="s2">"value_cny_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">6198.5392</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="err">CNY</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">currency</span><span class="w"> </span><span class="err">(if</span><span class="w"> </span><span class="err">available)</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>期货账户</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">4361345.793589303</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">总资产</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">现金</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">虚拟货币市值</span><span class="w">
+  </span><span class="s2">"cash"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">                                  </span><span class="err">#</span><span class="w"> </span><span class="err">现金（根据人民币汇率计算）</span><span class="w">
+  </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">8728917.770172266</span><span class="p">,</span><span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="err">虚拟货币市值</span><span class="w">
+  </span><span class="s2">"market_value_detail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">每个币种的市值</span><span class="w">
+    </span><span class="s2">"btc"</span><span class="p">:</span><span class="w"> </span><span class="mf">8728917.770172266</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">                                </span><span class="err">#</span><span class="w"> </span><span class="err">持仓，默认包含btc，usdt或法币现货</span><span class="w">
+    </span><span class="s2">"total_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">74.90222428</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">4361345.793589303</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">74.90222428</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_cny"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">6904.0</span><span class="p">,</span><span class="w">                     </span><span class="err">#</span><span class="w"> </span><span class="err">总数</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc.usd.q"</span><span class="p">,</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="err">合约</span><span class="w">
+    </span><span class="s2">"market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">4367571.976582963</span><span class="p">,</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="err">市值</span><span class="w">
+    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">6904.0</span><span class="p">,</span><span class="w">                        </span><span class="err">#</span><span class="w"> </span><span class="err">可用数量</span><span class="w">
+    </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">                              </span><span class="err">#</span><span class="w"> </span><span class="err">冻结数量</span><span class="w">
+    </span><span class="s2">"pl"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.64417643</span><span class="p">,</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">profit</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">lose</span><span class="w">
+    </span><span class="s2">"market_value_detail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                    </span><span class="err">#</span><span class="w">
+      </span><span class="s2">"btc"</span><span class="p">:</span><span class="w"> </span><span class="mf">4367571.976582963</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future"</span><span class="p">,</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">类型，future表示期货持仓</span><span class="w">
+    </span><span class="s2">"total_xtc_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.00915342001107</span><span class="p">,</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="err">历史字段，请忽略</span><span class="w">
+    </span><span class="s2">"available_xtc"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.00915342001107</span><span class="p">,</span><span class="w">         </span><span class="err">#</span><span class="w"> </span><span class="err">历史字段，请忽略</span><span class="w">
+    </span><span class="s2">"frozen_xtc"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">                          </span><span class="err">#</span><span class="w"> </span><span class="err">历史字段，请忽略</span><span class="w">
+    </span><span class="s2">"available_long"</span><span class="p">:</span><span class="w"> </span><span class="mf">6905.0</span><span class="p">,</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">多头仓位</span><span class="w">
+    </span><span class="s2">"available_short"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">空头仓位</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>订单信息</li>
+</ul>
+
+<blockquote>
+<p>订单信息</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/test_account"</span><span class="p">,</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="err">账户名</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/ltc.usdt"</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">合约标识</span><span class="w">
+    </span><span class="s2">"bs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w">                                      </span><span class="err">#</span><span class="w"> </span><span class="s2">"b"</span><span class="err">对应买或</span><span class="s2">"s"</span><span class="err">对应卖</span><span class="w">
+    </span><span class="s2">"client_oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/ltc.usdt-xxx123"</span><span class="p">,</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="err">由用户给定或由OneToken系统生成的订单追踪ID</span><span class="w">
+    </span><span class="s2">"exchange_oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/ltc.usdt-xxx456"</span><span class="p">,</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="err">由交易所生成的订单追踪ID</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"part-deal-pending"</span><span class="p">,</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="err">订单状态</span><span class="w">
+    </span><span class="s2">"entrust_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">委托价格</span><span class="w">
+    </span><span class="s2">"entrust_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">委托数量</span><span class="w">
+    </span><span class="s2">"entrust_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-03T12:21:13+08:00"</span><span class="p">,</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="err">下单时间</span><span class="w">
+    </span><span class="s2">"average_dealt_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">112.1</span><span class="p">,</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">平均成交价</span><span class="w">
+    </span><span class="s2">"dealt_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                              </span><span class="err">#</span><span class="w"> </span><span class="err">成交数量</span><span class="w">
+    </span><span class="s2">"last_dealed_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">最近一次成交数量</span><span class="w">
+    </span><span class="s2">"commission"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0025</span><span class="p">,</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">成交手续费</span><span class="w">
+    </span><span class="s2">"last_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-03T12:22:56+08:00"</span><span class="p">,</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="err">最近更新时间</span><span class="w">
+    </span><span class="s2">"canceled_time"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w">                          </span><span class="err">#</span><span class="w"> </span><span class="err">撤单时间</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">                                  </span><span class="err">#</span><span class="w">
+    </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">                            </span><span class="err">#</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">                                      </span><span class="err">#</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li>成交记录</li>
+</ul>
+
+<blockquote>
+<p>成交记录</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/test_account"</span><span class="p">,</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="err">账户名</span><span class="w">
+    </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/ltc.usdt"</span><span class="p">,</span><span class="w">                     </span><span class="err">#</span><span class="w"> </span><span class="err">合约标识</span><span class="w">
+    </span><span class="s2">"bs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w">                                          </span><span class="err">#</span><span class="w"> </span><span class="s2">"b"</span><span class="err">对应买或</span><span class="s2">"s"</span><span class="err">对应卖</span><span class="w">
+    </span><span class="s2">"client_oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/ltc.usdt-xxx123"</span><span class="p">,</span><span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="err">由用户给定或由OneToken系统生成的订单追踪ID</span><span class="w">
+    </span><span class="s2">"exchange_oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/ltc.usdt-xxx456"</span><span class="p">,</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="err">由交易所生成的订单追踪ID</span><span class="w">
+    </span><span class="s2">"exchange_tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"binance/ltc.usdt-xxx789"</span><span class="p">,</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="err">由交易所生成的成交ID</span><span class="w">
+    </span><span class="s2">"dealt_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                                  </span><span class="err">#</span><span class="w"> </span><span class="err">成交数量</span><span class="w">
+    </span><span class="s2">"dealt_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                                   </span><span class="err">#</span><span class="w"> </span><span class="err">成交价格</span><span class="w">
+    </span><span class="s2">"dealt_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-03T12:22:56+08:00"</span><span class="p">,</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="err">成交时间</span><span class="w">
+    </span><span class="s2">"dealt_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maker"</span><span class="p">,</span><span class="w">                              </span><span class="err">#</span><span class="w"> </span><span class="err">主动成交</span><span class="s2">"taker"</span><span class="err">、被动成交</span><span class="s2">"maker"</span><span class="w">
+    </span><span class="s2">"commission"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0025</span><span class="p">,</span><span class="w">                               </span><span class="err">#</span><span class="w"> </span><span class="err">成交手续费</span><span class="w">
+    </span><span class="s2">"commission_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ltc"</span><span class="p">,</span><span class="w">                       </span><span class="err">#</span><span class="w"> </span><span class="err">手续费币种</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">                                          </span><span class="err">#</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<aside class="notice">实际返回与文档不匹配的字段可能已废弃，请勿使用。</aside>
+<h2 id='e08c1d4f9a'>错误码</h2><h3 id='1token-3'>1Token 错误码</h3>
+<table><thead>
+<tr>
+<th>错误代码</th>
+<th>解释</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invalid-white-list</td>
+<td>错误的白名单 ip, 1Token 并不支持的 ip</td>
+</tr>
+<tr>
+<td>invalid-jwt</td>
+<td>错误的用户 jwt</td>
+</tr>
+<tr>
+<td>invalid-api-key</td>
+<td>错误用户 ot-key, ot-secret</td>
+</tr>
+<tr>
+<td>no-valid-authentication</td>
+<td>无可用的用户认证(jwt 或 api_key)</td>
+</tr>
+<tr>
+<td>no-permission</td>
+<td>无权限访问</td>
+</tr>
+<tr>
+<td>not-allowed</td>
+<td>有权限但当前资源不可用</td>
+</tr>
+<tr>
+<td>partial-success</td>
+<td>batch operations 部分成功</td>
+</tr>
+<tr>
+<td>unexpected-error</td>
+<td>1Token 系统内部错误</td>
+</tr>
+<tr>
+<td>invalid-param</td>
+<td>错误的 1Token 的参数</td>
+</tr>
+<tr>
+<td>client_oid-not-found</td>
+<td>指定的 client order id 不存在</td>
+</tr>
+<tr>
+<td>client_oid-already-existed</td>
+<td>指定的 client order id 已经存在</td>
+</tr>
+<tr>
+<td>exchange_oid-not-found</td>
+<td>指定的 exchange order id 不存在，或根据 client order id 没有找到对应的 exchange order id</td>
+</tr>
+<tr>
+<td>client_wid-not-found</td>
+<td>指定的 client withdraw id 不存在</td>
+</tr>
+<tr>
+<td>client_wid-already-existed</td>
+<td>指定的 client withdraw id 已经存在</td>
+</tr>
+<tr>
+<td>exchange_wid-not-found</td>
+<td>指定的 exchange withdraw id 不存在，或根据 client withdraw id 没有找到对应的 exchange withdraw id</td>
+</tr>
+<tr>
+<td>contract-not-exist</td>
+<td>指定的 contract 不存在或不可用</td>
+</tr>
+<tr>
+<td>invalid-account-config</td>
+<td>错误的 account config</td>
+</tr>
+<tr>
+<td>wait-for-initializing</td>
+<td>等待账户后台初始化</td>
+</tr>
+<tr>
+<td>upstream-error</td>
+<td>上层ot服务不可用</td>
+</tr>
+<tr>
+<td>no-available-proxy</td>
+<td>无可用 proxy-ip 出口</td>
+</tr>
+<tr>
+<td>proxy-ip-banned</td>
+<td>proxy-ip 已经被暂时禁用</td>
+</tr>
+<tr>
+<td>proxy-connect-fail</td>
+<td>连接 proxy 失败</td>
+</tr>
+</tbody></table>
+
+<p><strong>第三方交易所相关的错误码</strong></p>
+
+<table><thead>
+<tr>
+<th>错误代码</th>
+<th>解释</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>exg-account-error</td>
+<td>账户被冻结,被禁止使用等错误</td>
+</tr>
+<tr>
+<td>exg-invalid-api-key</td>
+<td>无效的API key</td>
+</tr>
+<tr>
+<td>exg-rate-limit-exceeded</td>
+<td>请求超出交易所限制</td>
+</tr>
+<tr>
+<td>exg-invalid-param</td>
+<td>交易所接受参数错误</td>
+</tr>
+<tr>
+<td>exg-unexpected-data-format</td>
+<td>交易所返回错误的数据格式</td>
+</tr>
+<tr>
+<td>exg-place-order-no-money</td>
+<td>账户资金不足</td>
+</tr>
+<tr>
+<td>exg-place-order-min-notional</td>
+<td>账户下单金额低于交易所最低限制</td>
+</tr>
+<tr>
+<td>exg-place-order-error-amount</td>
+<td>账户下单数量错误</td>
+</tr>
+<tr>
+<td>exg-place-order-error-price</td>
+<td>账户下单价格错误</td>
+</tr>
+<tr>
+<td>exg-cancel-order-not-exist</td>
+<td>订单已被撤销或订单不存在</td>
+</tr>
+<tr>
+<td>exg-undefined-error</td>
+<td>还没有及时被 ot 系统识别的错误</td>
+</tr>
+<tr>
+<td>exg-timeout</td>
+<td>访问交易所超时</td>
+</tr>
+<tr>
+<td>exg-unknown-error</td>
+<td>交易所系统错误, 状态不明</td>
+</tr>
+<tr>
+<td>exg-bad-gateway</td>
+<td>交易所 bad-gateway</td>
+</tr>
+</tbody></table>
+<h2 id='05a620fcde'>订单状态流程</h2>
+<p><img src="https://1token.trade/docs/img/order-status-cn.png" alt="Order status cn" /></p>
+<h2 id='707a0a490e'>交易所支持范围</h2>
+<p><b><a id="支持的交易所">支持的交易所</a></b></p>
+
+<table><thead>
+<tr>
+<th>交易所</th>
+<th>交易类型</th>
+<th>交易所 Symbol</th>
+<th>国家</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://www.bibox.com/">Bibox</a></td>
+<td>币币交易</td>
+<td>bibox</td>
+<td>中国</td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com/">币安 Binance</a></td>
+<td>币币交易</td>
+<td>binance</td>
+<td>日本</td>
+</tr>
+<tr>
+<td></td>
+<td>永续合约交易</td>
+<td>binancef</td>
+<td>日本</td>
+</tr>
+<tr>
+<td><a href="https://bitflyer.jp/">Bitflyer</a></td>
+<td>现货交易</td>
+<td>bitflyer</td>
+<td>日本</td>
+</tr>
+<tr>
+<td></td>
+<td>合约交易</td>
+<td>bitflyex</td>
+<td>日本</td>
+</tr>
+<tr>
+<td><a href="https://www.bithumb.com/">Bithumb</a></td>
+<td>现货交易</td>
+<td>bithumb</td>
+<td>韩国</td>
+</tr>
+<tr>
+<td><a href="https://www.bitmex.com/">Bitmex</a></td>
+<td>合约交易</td>
+<td>bitmex</td>
+<td>塞舌尔</td>
+</tr>
+<tr>
+<td><a href="https://bittrex.com/">Bittrex</a></td>
+<td>币币交易</td>
+<td>bittrex</td>
+<td>美国</td>
+</tr>
+<tr>
+<td><a href="https://gate.io/">Gate</a></td>
+<td>币币交易</td>
+<td>gate</td>
+<td>中国</td>
+</tr>
+<tr>
+<td><a href="https://www.huobi.pro/">火币 Huobi</a></td>
+<td>币币交易</td>
+<td>huobip</td>
+<td>新加坡</td>
+</tr>
+<tr>
+<td></td>
+<td>杠杆交易</td>
+<td>huobim</td>
+<td>新加坡</td>
+</tr>
+<tr>
+<td></td>
+<td>交割合约交易</td>
+<td>huobif</td>
+<td>新加坡</td>
+</tr>
+<tr>
+<td></td>
+<td>永续合约交易</td>
+<td>huobiswap</td>
+<td>新加坡</td>
+</tr>
+<tr>
+<td><a href="https://www.okex.com/">OKEX</a></td>
+<td>币币交易</td>
+<td>okex</td>
+<td>中国, 美国</td>
+</tr>
+<tr>
+<td></td>
+<td>交割合约交易</td>
+<td>okef</td>
+<td>中国, 美国</td>
+</tr>
+<tr>
+<td></td>
+<td>永续合约交易</td>
+<td>okswap</td>
+<td>中国, 美国</td>
+</tr>
+<tr>
+<td><a href="https://www.poloniex.com/">Poloniex</a></td>
+<td>币币交易</td>
+<td>poloniex</td>
+<td>美国</td>
+</tr>
+<tr>
+<td></td>
+<td>杠杆交易</td>
+<td>尚未支持</td>
+<td>美国</td>
+</tr>
+<tr>
+<td><a href="https://quoinex.com/">Quoinex</a></td>
+<td>币币交易</td>
+<td>quoinex</td>
+<td>日本</td>
+</tr>
+<tr>
+<td><a href="https://zb.com/">ZB</a></td>
+<td>币币交易</td>
+<td>zb</td>
+<td>中国</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">各交易所详细说明<a href='#exchange-details'>点此跳转</a>。</aside>
+<h3 id='0895c9d28d'>期货交易所</h3>
+<p>目前支持的期货交易所：okex的合约交易、huobi的合约交易、binance的合约交易、bitmex的期货。</p>
+
+<ul>
+<li>okex的期货合约，支持当周、次周、当季以及永续合约，具体交易规则可以参考OKex<a href="https://support.okex.com/hc/zh-cn/articles/115001627231-%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E5%90%88%E7%BA%A6-%E5%A6%82%E4%BD%95%E4%BA%A4%E6%98%93-">说明文档</a>。</li>
+<li>bitmex期货合约<a href="https://www.bitmex.com/app/tradingOverview">说明文档</a>。</li>
+</ul>
+<h2 id='b3f585e877'>交易所详细介绍</h2>
+<p><b><a id="exchange-details">交易所详细介绍</a></b></p>
+
+<p>1Token目前支持目前市场上的一级交易所，包括火币、币安、OKEX等。</p>
+
+<p>需要注意的是每个交易所都有细微的差异，以下文档详细说明了各个交易所的差异。</p>
+
+<p><code>client_oid</code>仅在交易所支持<code>client_oid</code>时可用，在交易所详情中会标明交易所是否支持<code>client_oid</code>。由于<code>client_oid</code>重复时各个交易所行为不一致，所以请勿使用重复的<code>client_oid</code>。请参考<a href="#naming-rules">命名规则</a>。</p>
+<h3 id='binance'>币安(代码: binance)</h3>
+<p><strong>行情</strong></p>
+
+<p>币安的orderbook 限制了只会每秒来一个, 但是逐笔数据是实时的, 所以如果想要判断最及时的行情 可以使用逐笔数据</p>
+
+<p><strong>交易</strong></p>
+
+<ul>
+<li>请求限制每个ip的weight</li>
+<li>一般接口限制每个ip的weight累加不得超过<strong>每分钟1200</strong></li>
+<li>交易接口限制每个账号<strong>每秒10单，每天限制100000单</strong></li>
+<li>单个交易对支持最近<strong>500条</strong>历史成交记录</li>
+<li>币安会对下单使用机器学习的限制 具体详见<a href="#https://support.binance.com/hc/zh-cn/articles/115003235691-%E5%B8%81%E5%AE%89API%E4%BA%A4%E6%98%93%E8%A7%84%E5%88%99%E8%AF%B4%E6%98%8E">币安API交易规则说明</a></li>
+<li>websocket 推送才能拿到所有的挂单</li>
+<li>支持client_oid</li>
+</ul>
+<h3 id='binancef'>币安(永续合约)(代码: binancef)</h3>
+<ul>
+<li>请求限制每个ip的weight</li>
+<li>一般接口限制每个ip的weight累加不得超过每分钟1200</li>
+<li>单个交易对支持最近100条历史成交记录</li>
+<li>支持client_oid</li>
+</ul>
+<h3 id='huobip-huobim'>火币(代码: huobip(币币交易), huobim(杠杆交易))</h3>
+<ul>
+<li>可以查询所有的挂单 但是这个方法在火币的document里面是不存在的（他们doc要求一定要传入contract） 所以查询所有挂单这个请求可能失效</li>
+<li>查询订单信息时如果不添加contract会返回所有交易对的订单</li>
+<li>单个交易对支持最近<strong>1天</strong>的成交记录</li>
+<li>限制每个交易接口<em>10秒最多100次请求</em> 按用户限制</li>
+<li>火币现在没有提供websocket接口。所有查询都是通过rest的</li>
+</ul>
+<h3 id='hbdm-huobif'>火币期货(HBDM)(代码: huobif)</h3><h3 id='okex-okex'>OKEX(现货)(代码: okex)</h3>
+<ul>
+<li>单个交易对支持最近<strong>2天</strong>的成交记录</li>
+<li>不支持查询成交记录 (dealt-trans接口)</li>
+<li>不支持拿所有的挂单</li>
+<li>okex 有v1和v3两种API 1Token目前支持v1的API, v3的API在测试中 预期2019年夏季上线</li>
+</ul>
+<h3 id='okex-okef'>OKEX(交割合约)(代码: okef)</h3>
+<ul>
+<li>现阶段只支持<strong>全仓20倍</strong>杠杆。如果不是全仓20倍杠杆，需要手动去账户上平仓，然后改成全仓20倍杠杆</li>
+<li>开仓和平仓的选择：在options 参数中填写 open: true 或 close: true，具体请参考<a href="https://1token.trade/r/swagger?url=/r/swagger/quote.yml">Swagger Quote API</a>中，创建订单部分</li>
+<li>如果不发送开平仓参数，则每次下单前会检查是否有足够仓位可以平仓 如果有的话 会尝试平仓，如果仓位不够平仓 则会主动开仓
+
+<ul>
+<li>例子，如果现在持有2张多头 请求 sell 1张 则会去平掉这一张</li>
+<li>例子，如果现在持有2张多头 请求 sell 3张 则会开出3张空单</li>
+</ul></li>
+</ul>
+<h3 id='okex-okswap'>OKEX(永续合约)(代码: okswap)</h3><h3 id='gate-gate'>Gate(代码: gate)</h3>
+<ul>
+<li>用contract查询订单信息仅支持以下3种状态：pending, part-deal-pending, active</li>
+<li>撤单时向交易所发送无效的exchange_oid(比如已经撤掉的单子)也会返回撤单成功，不会返回错误。</li>
+<li>单个交易对支持最近<strong>1天</strong>的成交记录</li>
+<li>交易所下单之后 要过两三秒钟才能查询到撤单</li>
+<li>client_oid有长度限制，由用户指定的{string}最大长度16位</li>
+<li>支持client_oid下单，不支持client_oid查/撤单</li>
+</ul>
+<h3 id='zb-zb'>ZB(代码: zb)</h3>
+<ul>
+<li>不支持dealt-trans，交易所完全没有成交记录这个概念, 网页上可以查询到账单，但是API并不提供支持</li>
+<li>杠杆交易尚未支持</li>
+<li>不支持client_oid</li>
+</ul>
+<h3 id='bithumb-bithumb'>bithumb(代码: bithumb)</h3><h3 id='bitmex-bitmex'>BitMEX(代码: bitmex)</h3>
+<ul>
+<li>交易频繁/行情剧烈的时候 bitmex经常会system overload</li>
+<li>bitmex 普通时候 交易数秒才能返回 都是正常的 (不是网络因素 他们系统的因素)</li>
+<li>bitmex 对用户的请求有非常严格的限制 任何400错误都需要被优雅的处理 如果您的API连续发出了400错误, API会被BitMEX封锁</li>
+</ul>
+<h3 id='bittrex-bittrex'>BITTREX(代码: bittrex)</h3>
+<ul>
+<li>查询订单信息<strong>无法获得entrust_price</strong></li>
+<li>限制最多同时<strong>500个</strong>未成交订单</li>
+<li>限制每天最多下<strong>200000单</strong></li>
+</ul>
+<h3 id='poloniex-poloniex'>Poloniex(代码：poloniex)</h3>
+<ul>
+<li>用contract查询订单信息仅支持以下3种状态：pending, part-deal-pending, active</li>
+<li>单个交易对支持最近<strong>1天</strong>的成交记录</li>
+</ul>
+<h3 id='bibox-bibox'>Bibox(代码: bibox)</h3><h2 id='55a75abe22'>网络相关</h2>
+<p><b><a id='网络相关'>网络相关</a></b></p>
+
+<ul>
+<li><p>1Token的主节点部署在香港阿里云服务器 另外一些辅助代理节点部署在全球各大交易所地理位置周边</p></li>
+<li><p><a href="https://1token.trade">https://1token.trade</a> 使用了CloudFlare作为CDN 由于CDN节点都部署在海外, 从国内服务器/终端直连可能会被墙出现连接失败等现象，推荐程序化交易的用户使用海外服务器。</p></li>
+<li><p>国内调试推荐使用<code>https://cdn.1tokentrade.cn/api/v1</code> 这台前置节点在上海阿里云, 通过VPN和1Token香港阿里云之间连接, 中间的网络由于GFW的关系而抖动, <strong>请勿在生产环境使用</strong>。比如<a href="https://cdn.1tokentrade.cn/api/v1/basic/time">https://cdn.1tokentrade.cn/api/v1/basic/time</a></p></li>
+<li><p>1Token服务器到主流交易所的延时（毫秒）</p></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>币安</th>
+<th>火币</th>
+<th>OKEX现货</th>
+<th>OKEX合约</th>
+<th>BITMEX</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>延时(ms)</td>
+<td>60</td>
+<td>90</td>
+<td>20</td>
+<td>20</td>
+<td>310</td>
+</tr>
+</tbody></table>
+<h2 id='e9ffb5b811'>缓存机制</h2>
+<ul>
+<li><p>由于交易所存在访问接口频率限制，在用户连续请求余额/仓位等数据时，1Token会缓存数据以避免访问超速，因此获取数据会有一定的延时。</p></li>
+<li><p>数据延时通常在几十毫秒到几百毫秒，视交易所及网络的情况而定，当市场波动较大或交易所服务器卡顿时，可能会由于拿不到最新数据而使延时达到数秒。</p></li>
+</ul>
+<h1 id='9b0c6c7858'>更多</h1><h2 id='7b7bd4a90d'>添加白名单</h2><h3 id='key-secret'>给key和secret加保险</h3>
+<p>推荐在其他交易所生成api-key与api-secret时，将下方所列经认证为1Token所持有的ip地址加入该key-secret的白名单，以确保只有1Token可以使用该key-secret进行交易。这样，就算key与secret不慎被盗，别人也无法通过白名单之外的设备进行交易，从而更高地保护您的个人财产。</p>
+
+<p>以火币Huobi为例</p>
+
+<p>1.在生成<code>key</code>, <code>secret</code>时填入1Token持有的ip中的一个或多个。如下图中将生成一对专供在1Token交易使用的<code>key</code>, <code>secret</code>，我们将他命名为<strong>1Token</strong>，并将<a href="https://1token.trade/api/v1/basic/ip-pool">1Token持有的ip</a>中的一个或几个填入图中的指定ip地址。</p>
+
+<p>以下假设用户将添加的白名单ip为<code>12.34.56.78</code>(用户在实际操作时，请务必确认所填入的IP在<a href="https://1token.trade/api/v1/basic/ip-pool">IP列表</a>中能够查到)。</p>
+
+<p><img src="https://1token.trade/docs/img/add-white-list-ip.png" alt="step1" /></p>
+
+<p>2.生成并确认</p>
+
+<p><img src="https://1token.trade/docs/img/success.png" alt="step2" /></p>
+
+<p><img src="https://1token.trade/docs/img/my-key.png" alt="step3" /></p>
+
+<p>3.在1Token官网的账户管理中添加该账户，并将<code>key</code>, <code>secret</code>以及<code>白名单IP</code>填入。此处的白名单ip与第一步中在huobi填入的ip应该一致，否则1Token将无法得知应当使用哪台机器来完成本对<code>key-secret</code>相关操作。在第一步中我们填入了<code>12.34.56.78</code>，则在此处填入相同的IP。</p>
+
+<p><img src="https://1token.trade/docs/img/add_in_1token.png" alt="step4" /></p>
+
+<p>4.之后可在账户的api列表中查看刚添加的一项。可以看到，在ip一项里有第一步中填入的ip<code>12.34.56.78</code>，至此，白名单的添加就完成了。</p>
+
+<p><img src="https://1token.trade/docs/img/api-key-list.png" alt="step5" /></p>
+
+<p>这样子就只有通过<code>12.34.56.78</code>这个ip发出的交易请求才会被huobi接受，大大增加了个人账户的安全性。</p>
+<h3 id='f08b55c42c'>注意</h3>
+<p>用户在实际操作时，请务必确认所填入的IP在<a href="https://1token.trade/api/v1/basic/ip-pool">IP列表</a>中能够查到</p>
+
+<p>后续的使用请参考通过<a href="#website-user">1Token网页进行交易</a>或是通过<a href="#通过API来进行交易">1Token API进行交易</a>。</p>
+<h3 id='1token-ip'>1Token持有的ip</h3>
+<p>请参考ip列表 <a href="https://1token.trade/api/v1/basic/ip-pool">https://1token.trade/api/v1/basic/ip-pool</a></p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">json</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
