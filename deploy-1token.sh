@@ -30,3 +30,6 @@ cp /tmp/docs-hist-quote hist-quote -R
 git add .
 git commit -a -m "deploy"
 git push
+
+rm /tmp/docs-guide -rf
+rm /tmp/docs-hist-quote -rf
