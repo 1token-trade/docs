@@ -319,6 +319,9 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 
 交易代码 | 描述
 --- | ---
+okex/btc.usdt  | 表示ok交易所BTCUSDT币币交易对
+huobip/btc.usdt | 表示huobip交易所BTCUSDT币币交易对
+binance/btc.usdt | 表示binance交易所BTCUSDT币币交易对
 okef/btc.usd.i | 表示ok交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
 okef/btc.usd.t | 表示ok交易所BTC当周合约 t是this week的缩写
 okef/btc.usd.n | 表示ok交易所BTC次周合约 n是next week的缩写
