@@ -268,6 +268,9 @@
           <li>
             <a href="#api" class="toc-h1 toc-link" data-title="实盘交易API文档">实盘交易API文档</a>
           </li>
+          <li>
+            <a href="#278fa9d974" class="toc-h1 toc-link" data-title="变量命名规则与介绍">变量命名规则与介绍</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -779,6 +782,76 @@
 <li><a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Quote API</a></li>
 <li><a href='https://1token.trade/r/swagger?url=/r/swagger/trade.yml'>Swagger Trade API</a></li>
 </ul>
+<h1 id='278fa9d974'>变量命名规则与介绍</h1>
+<ul>
+<li>现货（币币）交易代码由3部分组成，<code>{exchange}/{underlying}.{quote_currency}</code></li>
+<li>期货交易代码由4部分组成，<code>{exchange}/{underlying}.{quote_currency}.{delivery}</code>，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。</li>
+<li>更多内容可以查看<a href="https://1token-trade.github.io/docs/guide#naming-rules">变量命名规则</a>与<a href="https://1token-trade.github.io/docs/guide#exchange-details">交易所详细介绍</a>两个小节进一步了解。</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>交易代码</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>okef/btc.usd.i</td>
+<td>表示ok交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask</td>
+</tr>
+<tr>
+<td>okef/btc.usd.t</td>
+<td>表示ok交易所BTC当周合约 t是this week的缩写</td>
+</tr>
+<tr>
+<td>okef/btc.usd.n</td>
+<td>表示ok交易所BTC次周合约 n是next week的缩写</td>
+</tr>
+<tr>
+<td>okef/btc.usd.q</td>
+<td>表示ok交易所BTC当季合约 q是quarter的缩写</td>
+</tr>
+<tr>
+<td>okef/btc.usd.b</td>
+<td>表示ok交易所BTC次季合约 b是biquarter的缩写</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.i</td>
+<td>表示huobi交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.t</td>
+<td>表示huobi交易所BTC当周合约 t是this week的缩写</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.n</td>
+<td>表示huobi交易所BTC次周合约 n是next week的缩写</td>
+</tr>
+<tr>
+<td>huobif/btc.usd.q</td>
+<td>表示huobi交易所BTC当季合约 q是quarter的缩写</td>
+</tr>
+<tr>
+<td>okswap/btc.usd.td</td>
+<td>表示OKEx 交易所BTC的永续合约</td>
+</tr>
+<tr>
+<td>bitmex/eth.btc.2018-06-29</td>
+<td>表示bitmex交易所2018年6月29日到期的eth.btc合约</td>
+</tr>
+<tr>
+<td>bitmex/btc.usd.td</td>
+<td>表示bitmex交易所btc.usd的掉期合约(永续合约)</td>
+</tr>
+<tr>
+<td>btimex/btc.usd</td>
+<td>表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask</td>
+</tr>
+<tr>
+<td>binancef/btc.usdt.td</td>
+<td>表示币安交易所btc.usdt的永续合约</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
