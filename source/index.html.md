@@ -311,3 +311,26 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/quote.yml'>Swagger Quote API</a>
 * <a href='https://1token.trade/r/swagger?url=/r/swagger/trade.yml'>Swagger Trade API</a>
 
+# 变量命名规则与介绍
+
+* 现货（币币）交易代码由3部分组成，`{exchange}/{underlying}.{quote_currency}`
+* 期货交易代码由4部分组成，`{exchange}/{underlying}.{quote_currency}.{delivery}`，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。
+* 更多内容可以查看[变量命名规则](https://1token-trade.github.io/docs/guide#naming-rules)与[交易所详细介绍](https://1token-trade.github.io/docs/guide#exchange-details)两个小节进一步了解。
+
+交易代码 | 描述
+--- | ---
+okef/btc.usd.i | 表示ok交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
+okef/btc.usd.t | 表示ok交易所BTC当周合约 t是this week的缩写
+okef/btc.usd.n | 表示ok交易所BTC次周合约 n是next week的缩写
+okef/btc.usd.q | 表示ok交易所BTC当季合约 q是quarter的缩写
+okef/btc.usd.b | 表示ok交易所BTC次季合约 b是biquarter的缩写
+huobif/btc.usd.i | 表示huobi交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
+huobif/btc.usd.t | 表示huobi交易所BTC当周合约 t是this week的缩写
+huobif/btc.usd.n | 表示huobi交易所BTC次周合约 n是next week的缩写
+huobif/btc.usd.q | 表示huobi交易所BTC当季合约 q是quarter的缩写
+okswap/btc.usd.td | 表示OKEx 交易所BTC的永续合约
+bitmex/eth.btc.2018-06-29 |  表示bitmex交易所2018年6月29日到期的eth.btc合约
+bitmex/btc.usd.td |          表示bitmex交易所btc.usd的掉期合约(永续合约)
+btimex/btc.usd |             表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask
+binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
+
