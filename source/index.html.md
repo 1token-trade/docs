@@ -179,7 +179,7 @@ ask_N_v | 卖N量
 since | candle的开始时间，格式为isoformat时间戳或偏移量的形式（如now-1d表示1天以前的时间点），默认为一天前。
 until | candle的结束时间，格式同since，默认为当前时间。
 contract | 交易对。
-duration | candle的周期，支持1m/5m/15m/30m/1h/1d。
+duration | candle的周期，支持1m/5m/15m/30m/1h。
 format | 输出格式，可选项：json、csv。不填默认为json。
 
 * 返回数据字段含义：
