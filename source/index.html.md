@@ -322,11 +322,16 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 okex/btc.usdt  | 表示ok交易所BTCUSDT币币交易对
 huobip/btc.usdt | 表示huobip交易所BTCUSDT币币交易对
 binance/btc.usdt | 表示binance交易所BTCUSDT币币交易对
-okef/btc.usd.i | 表示ok交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
-okef/btc.usd.t | 表示ok交易所BTC当周合约 t是this week的缩写
-okef/btc.usd.n | 表示ok交易所BTC次周合约 n是next week的缩写
-okef/btc.usd.q | 表示ok交易所BTC当季合约 q是quarter的缩写
-okef/btc.usd.b | 表示ok交易所BTC次季合约 b是biquarter的缩写
+okef/btc.usd.i | 表示ok交易所以BTC为保证金的BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
+okef/btc.usd.t | 表示ok交易所以BTC为保证金的BTC当周合约 t是this week的缩写 
+okef/btc.usd.n | 表示ok交易所以BTC为保证金的BTC次周合约 n是next week的缩写
+okef/btc.usd.q | 表示ok交易所以BTC为保证金的BTC当季合约 q是quarter的缩写
+okef/btc.usd.b | 表示ok交易所以BTC为保证金的BTC次季合约 b是biquarter的缩写
+okef/btc.usdt.i | 表示ok交易所以USDT为保证金的BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
+okef/btc.usdt.t | 表示ok交易所以USDT为保证金的BTC当周合约 t是this week的缩写 
+okef/btc.usdt.n | 表示ok交易所以USDT为保证金的BTC次周合约 n是next week的缩写
+okef/btc.usdt.q | 表示ok交易所以USDT为保证金的BTC当季合约 q是quarter的缩写
+okef/btc.usdt.b | 表示ok交易所以USDT为保证金的BTC次季合约 b是biquarter的缩写
 huobif/btc.usd.i | 表示huobi交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
 huobif/btc.usd.t | 表示huobi交易所BTC当周合约 t是this week的缩写
 huobif/btc.usd.n | 表示huobi交易所BTC次周合约 n是next week的缩写
