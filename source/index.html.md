@@ -1442,7 +1442,9 @@ exg-bad-gateway |	交易所 bad-gateway
 * 限制每个交易接口*10秒最多100次请求* 按用户限制
 * 火币现在没有提供websocket接口。所有查询都是通过rest的
 
-### 火币期货(HBDM)(代码: huobif)
+### HBDM(火币交割合约)(代码: huobif)
+
+### HBDM(火币永续合约)(代码: huobiswap)
 
 ### OKEX(现货)(代码: okex)
 
@@ -1453,7 +1455,7 @@ exg-bad-gateway |	交易所 bad-gateway
 
 ### OKEX(交割合约)(代码: okef)
 
-* 现阶段只支持**全仓20倍**杠杆。如果不是全仓20倍杠杆，需要手动去账户上平仓，然后改成全仓20倍杠杆
+* 现阶段只支持全仓模式。自行在用户中心开通的账户不可调杠杆，如需调整杠杆可联系客服。
 * 开仓和平仓的选择：在options 参数中填写 open: true 或 close: true，具体请参考[Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)中，创建订单部分
 * 如果不发送开平仓参数，则每次下单前会检查是否有足够仓位可以平仓 如果有的话 会尝试平仓，如果仓位不够平仓 则会主动开仓
   * 例子，如果现在持有2张多头 请求 sell 1张 则会去平掉这一张
