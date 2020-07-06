@@ -319,24 +319,26 @@ BitMEX (bitmex) |	2015 |	2017/06/02 |	2018/06/06 |	2017/01/01
 
 交易代码 | 描述
 --- | ---
-okex/btc.usdt  | 表示ok交易所BTCUSDT币币交易对
+okex/btc.usdt  | 表示OKEX交易所BTCUSDT币币交易对
 huobip/btc.usdt | 表示huobip交易所BTCUSDT币币交易对
 binance/btc.usdt | 表示binance交易所BTCUSDT币币交易对
-okef/btc.usd.i | 表示ok交易所以BTC为保证金的BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
-okef/btc.usd.t | 表示ok交易所以BTC为保证金的BTC当周合约 t是this week的缩写 
-okef/btc.usd.n | 表示ok交易所以BTC为保证金的BTC次周合约 n是next week的缩写
-okef/btc.usd.q | 表示ok交易所以BTC为保证金的BTC当季合约 q是quarter的缩写
-okef/btc.usd.b | 表示ok交易所以BTC为保证金的BTC次季合约 b是biquarter的缩写
-okef/btc.usdt.i | 表示ok交易所以USDT为保证金的BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
-okef/btc.usdt.t | 表示ok交易所以USDT为保证金的BTC当周合约 t是this week的缩写 
-okef/btc.usdt.n | 表示ok交易所以USDT为保证金的BTC次周合约 n是next week的缩写
-okef/btc.usdt.q | 表示ok交易所以USDT为保证金的BTC当季合约 q是quarter的缩写
-okef/btc.usdt.b | 表示ok交易所以USDT为保证金的BTC次季合约 b是biquarter的缩写
+okef/btc.usd.i | 表示OKEX交易所以BTC为保证金的BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
+okef/btc.usd.t | 表示OKEX交易所以BTC为保证金的BTC当周合约 t是this week的缩写 
+okef/btc.usd.n | 表示OKEX交易所以BTC为保证金的BTC次周合约 n是next week的缩写
+okef/btc.usd.q | 表示OKEX交易所以BTC为保证金的BTC当季合约 q是quarter的缩写
+okef/btc.usd.b | 表示OKEX交易所以BTC为保证金的BTC次季合约 b是biquarter的缩写
+okef/btc.usdt.i | 表示OKEX交易所以USDT为保证金的BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
+okef/btc.usdt.t | 表示OKEX交易所以USDT为保证金的BTC当周合约 t是this week的缩写 
+okef/btc.usdt.n | 表示OKEX交易所以USDT为保证金的BTC次周合约 n是next week的缩写
+okef/btc.usdt.q | 表示OKEX交易所以USDT为保证金的BTC当季合约 q是quarter的缩写
+okef/btc.usdt.b | 表示OKEx交易所以USDT为保证金的BTC次季合约 b是biquarter的缩写
+okswap/btc.usd.td | 表示OKEX交易所BTC的永续合约
+okswap/btc.usdt.td | 表示OKEX交易所以USDT为保证金的BTC永续合约
 huobif/btc.usd.i | 表示huobi交易所BTC合约的指数 i是index的缩写 指数不能交易 所以指数没有bid ask
 huobif/btc.usd.t | 表示huobi交易所BTC当周合约 t是this week的缩写
 huobif/btc.usd.n | 表示huobi交易所BTC次周合约 n是next week的缩写
 huobif/btc.usd.q | 表示huobi交易所BTC当季合约 q是quarter的缩写
-okswap/btc.usd.td | 表示OKEx 交易所BTC的永续合约
+huobiswap/btc.usd.td | 表示huobi交易所BTC的永续合约
 bitmex/eth.btc.2018-06-29 |  表示bitmex交易所2018年6月29日到期的eth.btc合约
 bitmex/btc.usd.td |          表示bitmex交易所btc.usd的掉期合约(永续合约)
 btimex/btc.usd |             表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask
