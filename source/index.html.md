@@ -131,6 +131,7 @@ time,last,volume,ask_0_p,ask_0_v,ask_1_p,ask_1_v,ask_2_p,ask_2_v,ask_3_p,ask_3_v
   * <code>contract</code> 交易对
 * 输出格式默认为gzip；
 * 数据格式默认为csv；
+* 交易所时间格式与UNIX时间戳一致，包含时区信息，若无时区则默认为UTC时区；
 * 返回数据的数据列名解释
 
 参数 | 描述
@@ -220,6 +221,8 @@ low | 最低价
 <a href='https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m'>https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m</a>
 
 * 历史Candle有一定的延时(数分钟), 如果需要更实时的Candle 请参考 <a target="_blank" href='https://1token.trade/swagger?url=/swagger/quote.yml#/Quote/get_candles'>1Token实时Candle文档</a>
+ 
+* 交易所时间格式与UNIX时间戳一致，包含时区信息，若无时区则默认为UTC时区
 
 * okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <a href='https://hist-quote.1tokentrade.cn/candles/status/okex'>https://hist-quote.1tokentrade.cn/candles/status/okex</a>；
 
@@ -263,6 +266,7 @@ timestamp | time 转换成时间戳(单位是秒)
 
 * 数据大部分为实时抓取，可能存在缺失
 * 部分数据存在冗余(出现重复的逐笔数据)
+* 交易所时间格式与UNIX时间戳一致，包含时区信息，若无时区则默认为UTC时区
 
 # 数据质量
 
