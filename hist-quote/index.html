@@ -424,6 +424,7 @@
 </ul></li>
 <li>输出格式默认为gzip；</li>
 <li>数据格式默认为csv；</li>
+<li>交易所时间格式与UNIX时间戳一致，包含时区信息，若无时区则默认为UTC时区；</li>
 <li>返回数据的数据列名解释</li>
 </ul>
 
@@ -598,6 +599,7 @@
 <li><p>示例:
 <a href='https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&duration=1m'>https://hist-quote.1tokentrade.cn/candles/since?contract=huobip/btc.usdt&amp;duration=1m</a></p></li>
 <li><p>历史Candle有一定的延时(数分钟), 如果需要更实时的Candle 请参考 <a target="_blank" href='https://1token.trade/swagger?url=/swagger/quote.yml#/Quote/get_candles'>1Token实时Candle文档</a></p></li>
+<li><p>交易所时间格式与UNIX时间戳一致，包含时区信息，若无时区则默认为UTC时区</p></li>
 <li><p>okex早期（2018年5月）部分日期存在较多数据缺失，以下csv文件列出了okex早期的一分钟k线每日完整性： <a href='https://hist-quote.1tokentrade.cn/candles/status/okex'>https://hist-quote.1tokentrade.cn/candles/status/okex</a>；</p></li>
 </ul>
 <h2 id='zhubi'>历史Zhubi数据</h2>
@@ -672,6 +674,7 @@
 <li><p><a href='https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&contract=okex/btc.usdt'>https://hist-quote.1tokentrade.cn/trades?date=2018-01-02&amp;contract=okex/btc.usdt</a></p></li>
 <li><p>数据大部分为实时抓取，可能存在缺失</p></li>
 <li><p>部分数据存在冗余(出现重复的逐笔数据)</p></li>
+<li><p>交易所时间格式与UNIX时间戳一致，包含时区信息，若无时区则默认为UTC时区</p></li>
 </ul>
 <h1 id='4674be7310'>数据质量</h1>
 <ul>
