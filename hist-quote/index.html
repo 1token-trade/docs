@@ -241,6 +241,9 @@
                     <a href="#ac90b44261" class="toc-h2 toc-link" data-title="限制">限制</a>
                   </li>
                   <li>
+                    <a href="#944257fc0d" class="toc-h2 toc-link" data-title="时间戳">时间戳</a>
+                  </li>
+                  <li>
                     <a href="#3280102eb6" class="toc-h2 toc-link" data-title="获取支持的合约列表">获取支持的合约列表</a>
                   </li>
                   <li>
@@ -349,6 +352,17 @@
 </ul>
 <h2 id='ac90b44261'>限制</h2>
 <aside class="warning">接口限制为1秒10个请求，超过这个数量会返回HTTP 429错误。</aside>
+<h2 id='944257fc0d'>时间戳</h2>
+<p>历史数据内包含相关的交易所时间，时间格式与UNIX时间戳格式一致，主要包括以下格式：</p>
+
+<ul>
+<li>1595395700</li>
+<li>2020-07-22T05:28:20.000000Z</li>
+<li>2020-07-22T05:28:20.000000+00:00</li>
+<li>2020-07-22T13:28:20.000000+08:00</li>
+</ul>
+
+<p>以上四个时间戳均代表了北京时间2020年7月22日下午13点28分20秒。</p>
 <h2 id='3280102eb6'>获取支持的合约列表</h2>
 <p><code>GET /[ticks|trades]/contracts?date={date} </code></p>
 
