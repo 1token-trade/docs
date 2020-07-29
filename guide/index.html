@@ -333,6 +333,20 @@
             <a href="#sdk" class="toc-h1 toc-link" data-title="SDK样例">SDK样例</a>
           </li>
           <li>
+            <a href="#vnpy-1token" class="toc-h1 toc-link" data-title="VNPY 1Token文档">VNPY 1Token文档</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#sdk-2" class="toc-h2 toc-link" data-title="更新SDK">更新SDK</a>
+                  </li>
+                  <li>
+                    <a href="#8e4b902c12" class="toc-h2 toc-link" data-title="行情">行情</a>
+                  </li>
+                  <li>
+                    <a href="#dfe799947f" class="toc-h2 toc-link" data-title="交易">交易</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#ced107c323" class="toc-h1 toc-link" data-title="细节和底层">细节和底层</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1416,6 +1430,40 @@
 <p>看到如下输出说明样例执行成功:</p>
 
 <p><img src="https://1token.trade/docs/img/105.png" alt="step6" /></p>
+<h1 id='vnpy-1token'>VNPY 1Token文档</h1><h2 id='sdk-2'>更新SDK</h2>
+<p>把 <code>https://raw.githubusercontent.com/1token-trade/vnpy/dev-1token/vnpy/gateway/onetoken/onetoken_gateway.py</code> 复制到 <code>c:\vnstudio\lib\site-packages\vnpy\gateway\onetoken</code> 下面</p>
+<h2 id='8e4b902c12'>行情</h2>
+<p>我们提供了一个供测试的</p>
+
+<ul>
+<li><p>输入测试 OT Key: vglTLYcq-Unx1gO3S-VCHQaMs5-HvVRQkcX</p></li>
+<li><p>输入测试 OT Secret: NNXveWWx-TqbNNtMZ-xB6sska0-CVDQBP40</p></li>
+<li><p>交易所选择 OKEX</p></li>
+<li><p>账号填写 mock-vnpyplay</p></li>
+<li><p>代理地址留空</p></li>
+<li><p>代理端口填0</p></li>
+</ul>
+
+<p>在左上角选择交易所, 填入交易对, 按回车键, 一切正常的话, 行情会添加在右侧图表里面</p>
+
+<ul>
+<li><p>由于1Token和VNPY的架构有所不同 所以选择有一定的区别</p>
+
+<ul>
+<li>比如okef的期货交易所 在左上角只需要选择OKEX, 下面代码填写 eth.usd.q 即可</li>
+<li>比如okex的现货交易所 在左上角只需要选择OKEX, 下面代码填写 eth.usdt 即可</li>
+</ul></li>
+</ul>
+
+<p>https://1token.trade/docs#/instruction/naming-rules?id=币币交易代码</p>
+
+<p><img src="https://raw.githubusercontent.com/1token-trade/vnpy/dev-1token/vnpy/gateway/onetoken/quote.png" alt="vnpy quote" /></p>
+<h2 id='dfe799947f'>交易</h2>
+<ul>
+<li>模拟账号 填入 代码, 价格, 数量之后 可以正常下单</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/1token-trade/vnpy/dev-1token/vnpy/gateway/onetoken/trade.png" alt="vnpy trade" /></p>
 <h1 id='ced107c323'>细节和底层</h1><h2 id='49469dfec8'>名词解释</h2>
 <p><b><a id='word-explanation'>名词解释</a></b></p>
 
