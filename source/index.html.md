@@ -55,6 +55,8 @@ Abo使用1Token之后，交易前的准备由对接huobi.pro和gate.io两个系�
 
 通过API，用户可以拿到基本的信息，比如交易所列表，交易所的合约的信息等。其中，通过Websocket API（[websocket API教程](#quote-websocket)）来订阅逐笔和tick；通过Rest API（[Rest API教程](#rest-api)）来进行下单等交易操作。
 
+<aside class="notice">每日限制下单次数至多86400次，即平均每秒一次。如果需要更多下单次数，请联系微信客服：onetoken001。</aside>
+
 如果用户想要通过API连接1Token并完成相关操作, 请参考[API用户入门指南](#api-user)。该小节讲述了以下内容：
 
 1. 如何在1Token生成用于api操作的`ot-key`和`ot-secret`
@@ -252,6 +254,8 @@ OKEX(合约) |	okef
 * [Swagger Basic API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
 * [Swagger Quote API](https://1token.trade/r/swagger?url=/r/swagger/quote.yml)
 * [Swagger Trade API](https://1token.trade/r/swagger?url=/r/swagger/trade.yml)
+
+<aside class="notice">每日限制下单次数至多86400次，即平均每秒一次。如果需要更多下单次数，请联系微信客服：onetoken001。</aside>
 
 ## 基本信息
 
