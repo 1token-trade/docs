@@ -1085,6 +1085,7 @@ bitmex/eth.btc.2018-06-29 |  表示bitmex交易所2018年6月29日到期的eth.b
 bitmex/btc.usd.td |          表示bitmex交易所btc.usd的掉期合约(永续合约)
 btimex/btc.usd |             表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask
 binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
+bitflyer/btc.jpy.td | 表示bitflyer交易所fx_btc_jpy的永续合约
 
 
 <aside class="notice"> 
@@ -1418,8 +1419,7 @@ exg-bad-gateway |	交易所 bad-gateway
 [Bibox](https://www.bibox.com/) |	币币交易 |	bibox |	中国
 [币安 Binance](https://www.binance.com/) |	币币交易 |	binance |	日本
  | 永续合约交易 | binancef | 日本
-[Bitflyer](https://bitflyer.jp/) |	现货交易 |	bitflyer |	日本
- | 合约交易 |	bitflyex |	日本
+[Bitflyer](https://bitflyer.jp/) |	现货、合约交易 |	bitflyer |	日本
 [Bithumb](https://www.bithumb.com/) |	现货交易 |	bithumb |	韩国
 [Bitmex](https://www.bitmex.com/) |	合约交易 |	bitmex |	塞舌尔
 [Bittrex](https://bittrex.com/) |	币币交易 |	bittrex |	美国
