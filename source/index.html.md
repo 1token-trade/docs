@@ -981,6 +981,10 @@ OKEX(合约) |	okef
 
 # VNPY 1Token文档
 
+对于想对接VNPY 1Token API进行实盘交易的用户，以下是详细文档：
+
+`https://github.com/1token-trade/vnpy/tree/dev-1token/vnpy/gateway/onetoken`
+
 ## 更新SDK
 
 把 `https://raw.githubusercontent.com/1token-trade/vnpy/dev-1token/vnpy/gateway/onetoken/onetoken_gateway.py` 复制到 `c:\vnstudio\lib\site-packages\vnpy\gateway\onetoken` 下面
