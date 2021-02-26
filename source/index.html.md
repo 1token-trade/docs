@@ -359,6 +359,7 @@ huobiswap/btc.usd.td | 表示huobi交易所BTC的永续合约
 bitmex/eth.btc.2018-06-29 |  表示bitmex交易所2018年6月29日到期的eth.btc合约
 bitmex/btc.usd.td |          表示bitmex交易所btc.usd的掉期合约(永续合约)
 btimex/btc.usd |             表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask
-binancef/btc.usdt.td | 表示币安交易所btc.usdt的永续合约
+binancef/btc.usdt.td | 表示币安U本位交易所btc.usdt的永续合约
+binanced/btc.usd.td | 表示币安币本位合约交易所btc.usd的永续合约
 bitflyer/btc.jpy.td | 表示bitflyer交易所fx_btc_jpy的永续合约
 
