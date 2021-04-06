@@ -3,7 +3,6 @@ title: 1Token使用指南
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - json
-  - python
 
 # toc_footers:
 #   - <a href='#'>Sign Up for a Developer Key</a>
