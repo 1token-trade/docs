@@ -732,7 +732,7 @@ key |	value
 
 > Python代码示例
 
-```python
+```json
 import time
 import json
 import urllib.parse
