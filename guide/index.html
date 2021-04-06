@@ -1143,88 +1143,88 @@
 <blockquote>
 <p>Python代码示例</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">urllib.parse</span>
-<span class="kn">import</span> <span class="nn">hmac</span>
-<span class="kn">import</span> <span class="nn">hashlib</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<pre class="highlight json tab-json"><code><span class="err">import</span><span class="w"> </span><span class="err">time</span><span class="w">
+</span><span class="err">import</span><span class="w"> </span><span class="err">json</span><span class="w">
+</span><span class="err">import</span><span class="w"> </span><span class="err">urllib.parse</span><span class="w">
+</span><span class="err">import</span><span class="w"> </span><span class="err">hmac</span><span class="w">
+</span><span class="err">import</span><span class="w"> </span><span class="err">hashlib</span><span class="w">
+</span><span class="err">import</span><span class="w"> </span><span class="err">requests</span><span class="w">
 
-<span class="c"># 填入你的ot_key</span>
-<span class="n">ot_key</span> <span class="o">=</span> <span class="s">''</span>
-<span class="c"># 填入你的ot_secret</span>
-<span class="n">ot_secret</span> <span class="o">=</span> <span class="s">''</span>
+</span><span class="err">#</span><span class="w"> </span><span class="err">填入你的ot_key</span><span class="w">
+</span><span class="err">ot_key</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">''</span><span class="w">
+</span><span class="err">#</span><span class="w"> </span><span class="err">填入你的ot_secret</span><span class="w">
+</span><span class="err">ot_secret</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">''</span><span class="w">
 
-<span class="k">def</span> <span class="nf">gen_nonce</span><span class="p">():</span>
-    <span class="k">return</span> <span class="nb">str</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">)))</span>
-
-
-<span class="k">def</span> <span class="nf">gen_headers</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">'Api-Nonce'</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
-        <span class="s">'Api-Key'</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
-        <span class="s">'Api-Signature'</span><span class="p">:</span> <span class="n">sig</span><span class="p">,</span>
-        <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">headers</span>
+</span><span class="err">def</span><span class="w"> </span><span class="err">gen_nonce()</span><span class="p">:</span><span class="w">
+    </span><span class="err">return</span><span class="w"> </span><span class="err">str((int(time.time()</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="mi">1000000</span><span class="err">)))</span><span class="w">
 
 
-<span class="k">def</span> <span class="nf">gen_sign</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">verb</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">data_str</span> <span class="o">=</span> <span class="s">''</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
-        <span class="c"># server并不要求data_str按key排序，只需此处用来签名的data_str和所发送请求中的data相同即可，是否排序请按实际情况选择</span>
-        <span class="n">data_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">parsed_url</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="n">parsed_path</span> <span class="o">=</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">path</span>
-
-    <span class="n">message</span> <span class="o">=</span> <span class="n">verb</span> <span class="o">+</span> <span class="n">parsed_path</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nonce</span><span class="p">)</span> <span class="o">+</span> <span class="n">data_str</span>
-    <span class="n">signature</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="s">'utf8'</span><span class="p">),</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="s">'utf8'</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'nonce:'</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'parsed_path:'</span><span class="p">,</span> <span class="n">parsed_path</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'data_str:'</span><span class="p">,</span> <span class="n">data_str</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'message:'</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">signature</span>
+</span><span class="err">def</span><span class="w"> </span><span class="err">gen_headers(nonce</span><span class="p">,</span><span class="w"> </span><span class="err">key</span><span class="p">,</span><span class="w"> </span><span class="err">sig)</span><span class="p">:</span><span class="w">
+    </span><span class="err">headers</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">'Api-Nonce'</span><span class="p">:</span><span class="w"> </span><span class="err">nonce</span><span class="p">,</span><span class="w">
+        </span><span class="err">'Api-Key'</span><span class="p">:</span><span class="w"> </span><span class="err">key</span><span class="p">,</span><span class="w">
+        </span><span class="err">'Api-Signature'</span><span class="p">:</span><span class="w"> </span><span class="err">sig</span><span class="p">,</span><span class="w">
+        </span><span class="err">'Content-Type'</span><span class="p">:</span><span class="w"> </span><span class="err">'application/json'</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">return</span><span class="w"> </span><span class="err">headers</span><span class="w">
 
 
-<span class="k">def</span> <span class="nf">place_order</span><span class="p">():</span>
-    <span class="n">verb</span> <span class="o">=</span> <span class="s">'POST'</span>
+</span><span class="err">def</span><span class="w"> </span><span class="err">gen_sign(secret</span><span class="p">,</span><span class="w"> </span><span class="err">verb</span><span class="p">,</span><span class="w"> </span><span class="err">path</span><span class="p">,</span><span class="w"> </span><span class="err">nonce</span><span class="p">,</span><span class="w"> </span><span class="err">data=None)</span><span class="p">:</span><span class="w">
+    </span><span class="err">if</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">None</span><span class="p">:</span><span class="w">
+        </span><span class="err">data_str</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">''</span><span class="w">
+    </span><span class="err">else</span><span class="p">:</span><span class="w">
+        </span><span class="err">assert</span><span class="w"> </span><span class="err">isinstance(data</span><span class="p">,</span><span class="w"> </span><span class="err">dict)</span><span class="w">
+        </span><span class="err">#</span><span class="w"> </span><span class="err">server并不要求data_str按key排序，只需此处用来签名的data_str和所发送请求中的data相同即可，是否排序请按实际情况选择</span><span class="w">
+        </span><span class="err">data_str</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">json.dumps(data</span><span class="p">,</span><span class="w"> </span><span class="err">sort_keys=True)</span><span class="w">
+    </span><span class="err">parsed_url</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">urllib.parse.urlparse(path)</span><span class="w">
+    </span><span class="err">parsed_path</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">parsed_url.path</span><span class="w">
 
-    <span class="c"># 下单的api前缀如下，具体请查看1token API文档</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://1token.trade/api/v1/trade'</span>
-
-    <span class="c"># path的具体构成方法请查看1token API文档</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="s">'/huobip/zannb/orders'</span>
-
-    <span class="n">nonce</span> <span class="o">=</span> <span class="n">gen_nonce</span><span class="p">()</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"contract"</span><span class="p">:</span> <span class="s">"huobip/btc.usdt"</span><span class="p">,</span> <span class="s">"price"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"bs"</span><span class="p">:</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"amount"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">}</span>
-    <span class="n">sig</span> <span class="o">=</span> <span class="n">gen_sign</span><span class="p">(</span><span class="n">ot_secret</span><span class="p">,</span> <span class="n">verb</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="n">gen_headers</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">ot_key</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
-    <span class="c"># server并不要求请求中的data按key排序，只需所发送请求中的data与用来签名的data_str和相同即可，是否排序请按实际情况选择</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">path</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-
-
-<span class="k">def</span> <span class="nf">get_info</span><span class="p">():</span>
-    <span class="n">verb</span> <span class="o">=</span> <span class="s">'GET'</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://1token.trade/api/v1/trade'</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="s">'/huobip/zannb/info'</span>
-    <span class="n">nonce</span> <span class="o">=</span> <span class="n">gen_nonce</span><span class="p">()</span>
-    <span class="n">sig</span> <span class="o">=</span> <span class="n">gen_sign</span><span class="p">(</span><span class="n">ot_secret</span><span class="p">,</span> <span class="n">verb</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="n">gen_headers</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">ot_key</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">path</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    </span><span class="err">message</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">verb</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">parsed_path</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">str(nonce)</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">data_str</span><span class="w">
+    </span><span class="err">signature</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">hmac.new(bytes(secret</span><span class="p">,</span><span class="w"> </span><span class="err">'utf</span><span class="mi">8</span><span class="err">')</span><span class="p">,</span><span class="w"> </span><span class="err">bytes(message</span><span class="p">,</span><span class="w"> </span><span class="err">'utf</span><span class="mi">8</span><span class="err">')</span><span class="p">,</span><span class="w"> </span><span class="err">digestmod=hashlib.sha</span><span class="mi">256</span><span class="err">).hexdigest()</span><span class="w">
+    </span><span class="err">print('nonce</span><span class="p">:</span><span class="err">'</span><span class="p">,</span><span class="w"> </span><span class="err">nonce)</span><span class="w">
+    </span><span class="err">print('parsed_path</span><span class="p">:</span><span class="err">'</span><span class="p">,</span><span class="w"> </span><span class="err">parsed_path)</span><span class="w">
+    </span><span class="err">print('data_str</span><span class="p">:</span><span class="err">'</span><span class="p">,</span><span class="w"> </span><span class="err">data_str)</span><span class="w">
+    </span><span class="err">print('message</span><span class="p">:</span><span class="err">'</span><span class="p">,</span><span class="w"> </span><span class="err">message)</span><span class="w">
+    </span><span class="err">return</span><span class="w"> </span><span class="err">signature</span><span class="w">
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">place_order</span><span class="p">()</span>
-    <span class="n">get_info</span><span class="p">()</span>
+</span><span class="err">def</span><span class="w"> </span><span class="err">place_order()</span><span class="p">:</span><span class="w">
+    </span><span class="err">verb</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">'POST'</span><span class="w">
+
+    </span><span class="err">#</span><span class="w"> </span><span class="err">下单的api前缀如下，具体请查看</span><span class="mi">1</span><span class="err">token</span><span class="w"> </span><span class="err">API文档</span><span class="w">
+    </span><span class="err">url</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">'https</span><span class="p">:</span><span class="err">//</span><span class="mi">1</span><span class="err">token.trade/api/v</span><span class="mi">1</span><span class="err">/trade'</span><span class="w">
+
+    </span><span class="err">#</span><span class="w"> </span><span class="err">path的具体构成方法请查看</span><span class="mi">1</span><span class="err">token</span><span class="w"> </span><span class="err">API文档</span><span class="w">
+    </span><span class="err">path</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">'/huobip/zannb/orders'</span><span class="w">
+
+    </span><span class="err">nonce</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">gen_nonce()</span><span class="w">
+    </span><span class="err">data</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"huobip/btc.usdt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"bs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b"</span><span class="p">,</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">}</span><span class="w">
+    </span><span class="err">sig</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">gen_sign(ot_secret</span><span class="p">,</span><span class="w"> </span><span class="err">verb</span><span class="p">,</span><span class="w"> </span><span class="err">path</span><span class="p">,</span><span class="w"> </span><span class="err">nonce</span><span class="p">,</span><span class="w"> </span><span class="err">data)</span><span class="w">
+    </span><span class="err">headers</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">gen_headers(nonce</span><span class="p">,</span><span class="w"> </span><span class="err">ot_key</span><span class="p">,</span><span class="w"> </span><span class="err">sig)</span><span class="w">
+    </span><span class="err">#</span><span class="w"> </span><span class="err">server并不要求请求中的data按key排序，只需所发送请求中的data与用来签名的data_str和相同即可，是否排序请按实际情况选择</span><span class="w">
+    </span><span class="err">resp</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">requests.post(url</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">path</span><span class="p">,</span><span class="w"> </span><span class="err">headers=headers</span><span class="p">,</span><span class="w"> </span><span class="err">data=json.dumps(data</span><span class="p">,</span><span class="w"> </span><span class="err">sort_keys=True))</span><span class="w">
+    </span><span class="err">print(resp.json())</span><span class="w">
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</code></pre>
+</span><span class="err">def</span><span class="w"> </span><span class="err">get_info()</span><span class="p">:</span><span class="w">
+    </span><span class="err">verb</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">'GET'</span><span class="w">
+    </span><span class="err">url</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">'https</span><span class="p">:</span><span class="err">//</span><span class="mi">1</span><span class="err">token.trade/api/v</span><span class="mi">1</span><span class="err">/trade'</span><span class="w">
+    </span><span class="err">path</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">'/huobip/zannb/info'</span><span class="w">
+    </span><span class="err">nonce</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">gen_nonce()</span><span class="w">
+    </span><span class="err">sig</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">gen_sign(ot_secret</span><span class="p">,</span><span class="w"> </span><span class="err">verb</span><span class="p">,</span><span class="w"> </span><span class="err">path</span><span class="p">,</span><span class="w"> </span><span class="err">nonce)</span><span class="w">
+    </span><span class="err">headers</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">gen_headers(nonce</span><span class="p">,</span><span class="w"> </span><span class="err">ot_key</span><span class="p">,</span><span class="w"> </span><span class="err">sig)</span><span class="w">
+    </span><span class="err">resp</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">requests.get(url</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">path</span><span class="p">,</span><span class="w"> </span><span class="err">headers=headers)</span><span class="w">
+    </span><span class="err">print(resp.json())</span><span class="w">
+
+
+</span><span class="err">def</span><span class="w"> </span><span class="err">main()</span><span class="p">:</span><span class="w">
+    </span><span class="err">place_order()</span><span class="w">
+    </span><span class="err">get_info()</span><span class="w">
+
+
+</span><span class="err">if</span><span class="w"> </span><span class="err">__name__</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">'__main__'</span><span class="p">:</span><span class="w">
+    </span><span class="err">main()</span><span class="w">
+</span></code></pre>
 <p><strong>常用私有接口</strong></p>
 
 <ul>
