@@ -361,5 +361,6 @@ bitmex/btc.usd.td |          表示bitmex交易所btc.usd的掉期合约(永续�
 btimex/btc.usd |             表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask
 binancef/btc.usdt.td | 表示币安U本位交易所btc.usdt的永续合约
 binanced/btc.usd.td |  表示币安币本位合约交易所btc.usd的永续合约
+binanced/btc.usd.2021-09-24 |  表示币安币本位合约交易所btc.usd的2021年9月24日交割合约
 bitflyer/btc.jpy.td | 表示bitflyer交易所fx_btc_jpy的永续合约
 
