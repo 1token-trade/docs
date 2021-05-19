@@ -356,6 +356,7 @@ huobif/btc.usd.t | 表示huobi交易所BTC当周合约 t是this week的缩写
 huobif/btc.usd.n | 表示huobi交易所BTC次周合约 n是next week的缩写
 huobif/btc.usd.q | 表示huobi交易所BTC当季合约 q是quarter的缩写
 huobiswap/btc.usd.td | 表示huobi交易所BTC的永续合约
+huobiuswap/btc.usdt.td | 表示huobi交易所以USDT为保证金的BTC的永续合约
 bitmex/eth.btc.2018-06-29 |  表示bitmex交易所2018年6月29日到期的eth.btc合约
 bitmex/btc.usd.td |          表示bitmex交易所btc.usd的掉期合约(永续合约)
 btimex/btc.usd |             表示bitmex交易所btc.usd的参考指数 指数不能交易 所以指数没有bid ask
