@@ -1031,7 +1031,7 @@ okex/eth.btc  表示okex交易所btc计价的eth交易
 
 <a id='期货交易代码'><b>期货交易代码</b></a>
 
-期货交易代码由4部分组成，`{exchange}/{underlying}.{quote_currency}.{delivery}`，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。
+期货交易代码由4部分组成，`{exchange}/{underlying}.{quote_currency}.{delivery}`，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。更多交易代码参见历史数据页。
 
 
 交易代码 | 描述
@@ -1394,6 +1394,7 @@ exg-bad-gateway |	交易所 bad-gateway
  | 杠杆交易 |	huobim |		新加坡
  | 交割合约交易 |	huobif |	新加坡
  | 永续合约交易 |	huobiswap | 新加坡
+ | USDT本位永续合约交易 | huobiuswap | 新加坡
 [OKEX](https://www.okex.com/) |	币币交易 |	okex |		中国, 美国
  | 交割合约交易 |	okef |	中国, 美国
  | 永续合约交易 |	okswap |	中国, 美国
@@ -1455,6 +1456,8 @@ exg-bad-gateway |	交易所 bad-gateway
 ### HBDM(火币交割合约)(代码: huobif)
 
 ### HBDM(火币永续合约)(代码: huobiswap)
+
+### HBDM(火币USDT本位永续合约)(代码: huobiuswap)
 
 ### OKEX(现货)(代码: okex)
 
