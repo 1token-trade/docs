@@ -1500,7 +1500,7 @@ okex/eth.btc  表示okex交易所btc计价的eth交易
 </code></pre>
 <p><a id='期货交易代码'><b>期货交易代码</b></a></p>
 
-<p>期货交易代码由4部分组成，<code>{exchange}/{underlying}.{quote_currency}.{delivery}</code>，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。</p>
+<p>期货交易代码由4部分组成，<code>{exchange}/{underlying}.{quote_currency}.{delivery}</code>，bitmex交易所没有delivery的合约是该交易所指定交易对的参考指数。更多交易代码参见历史数据页。</p>
 
 <table><thead>
 <tr>
@@ -2091,6 +2091,12 @@ okex/eth.btc  表示okex交易所btc计价的eth交易
 <td>新加坡</td>
 </tr>
 <tr>
+<td></td>
+<td>USDT本位永续合约交易</td>
+<td>huobiuswap</td>
+<td>新加坡</td>
+</tr>
+<tr>
 <td><a href="https://www.okex.com/">OKEX</a></td>
 <td>币币交易</td>
 <td>okex</td>
@@ -2181,7 +2187,7 @@ okex/eth.btc  表示okex交易所btc计价的eth交易
 <li>限制每个交易接口<em>10秒最多100次请求</em> 按用户限制</li>
 <li>火币现在没有提供websocket接口。所有查询都是通过rest的</li>
 </ul>
-<h3 id='hbdm-huobif'>HBDM(火币交割合约)(代码: huobif)</h3><h3 id='hbdm-huobiswap'>HBDM(火币永续合约)(代码: huobiswap)</h3><h3 id='okex-okex'>OKEX(现货)(代码: okex)</h3>
+<h3 id='hbdm-huobif'>HBDM(火币交割合约)(代码: huobif)</h3><h3 id='hbdm-huobiswap'>HBDM(火币永续合约)(代码: huobiswap)</h3><h3 id='hbdm-usdt-huobiuswap'>HBDM(火币USDT本位永续合约)(代码: huobiuswap)</h3><h3 id='okex-okex'>OKEX(现货)(代码: okex)</h3>
 <ul>
 <li>单个交易对支持最近<strong>2天</strong>的成交记录</li>
 <li>不支持查询成交记录 (dealt-trans接口)</li>
