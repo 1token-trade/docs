@@ -99,6 +99,7 @@ ot-quota-remaining | 剩余次数剩余次数
 
 * <a href='https://hist-quote.1tokentrade.cn/ticks/contracts?date=2018-02-02'>https://hist-quote.1tokentrade.cn/ticks/contracts?date=2018-02-02</a>
 * <a href='https://hist-quote.1tokentrade.cn/trades/contracts?date=2018-02-02'>https://hist-quote.1tokentrade.cn/trades/contracts?date=2018-02-02</a>
+* <a href='https://hist-quote.1tokentrade.cn/candles/contracts?date=2021-01-01'>https://hist-quote.1tokentrade.cn/candles/contracts?date=2021-01-01</a>
 
 
 ## 历史Tick数据
