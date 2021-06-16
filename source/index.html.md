@@ -875,7 +875,7 @@ key |	value
 
 * 每当交易所推动账户信息变动时，1token后台会同时向客户端推送一个账户信息的快照，其结构与account info接口数据一致。如果交易所ws推送不稳定客户端会受到status为failed的错误信息。 `{"status": "fail", "uri": "order"}`
 
-* 目前支持账户信息推送的交易所：binance、binancef、bitmex、okex、okef、okswap、huobip、huobif。
+* 目前支持账户信息推送的交易所：binance、binancef、binanced、okex、okef、okswap、huobip、huobif、bitmex。
 
 **订阅账户订单更新 sub-order**
 
@@ -922,7 +922,7 @@ key |	value
 ]
 ```
 
-* 目前支持订单信息推送的交易所：huobip、huobif、binance、bitmex、okex、okef、bitfinex、coinbase。
+* 目前支持订单信息推送的交易所：binance、binancef、binanced、okex、okef、okswap、huobip、huobif、bitmex。
 
 # SDK样例
 
